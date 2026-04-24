@@ -9,7 +9,13 @@ const variants = {
     "border border-slate-300/70 bg-white/80 text-slate-900 hover:-translate-y-0.5 hover:border-slate-400/80 hover:bg-white",
   ghost: "bg-transparent text-slate-900 hover:bg-slate-100/80",
   neon: "bg-lime-300 text-slate-950 hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(179,255,60,0.22)]",
-  dark: "bg-slate-900/90 text-white hover:-translate-y-0.5 hover:bg-slate-950"
+  dark: "bg-slate-900/90 text-white hover:-translate-y-0.5 hover:bg-slate-950",
+  studio:
+    "rounded-[1.2rem] border border-[#d28a5b]/45 bg-[linear-gradient(135deg,#d79261_0%,#b0623e_100%)] text-[#fff6ee] shadow-[0_20px_50px_rgba(176,98,62,0.3)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(176,98,62,0.36)]",
+  studioSecondary:
+    "rounded-[1.2rem] border border-white/12 bg-white/6 text-[#f5eadf] shadow-[0_14px_40px_rgba(8,7,6,0.1)] hover:-translate-y-1 hover:border-white/22 hover:bg-white/10",
+  studioLight:
+    "rounded-[1.2rem] border border-[#d8c1a6] bg-[#f7ede1] text-[#181411] shadow-[0_18px_40px_rgba(24,20,17,0.08)] hover:-translate-y-1 hover:bg-[#fbf3ea]"
 } as const;
 
 const baseClassName =
