@@ -72,6 +72,7 @@ export function LumaBistroPage() {
               <a href="#menu">תפריט</a>
               <a href="#about">הסיפור</a>
               <a href="#gallery">גלריה</a>
+              <a href="#experience">חוויית אירוח</a>
               <a href="#reservation">הזמנות</a>
               <a href="#contact">יצירת קשר</a>
             </nav>
@@ -283,6 +284,40 @@ export function LumaBistroPage() {
             </div>
           </section>
 
+          <section id="experience" className="section-space border-y border-white/10 bg-white/4">
+            <div className="container-shell grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/20 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
+                <img
+                  src="/images/luma/luma-chef-plating.webp"
+                  alt="השף של Luma Bistro מסיים מנה במטבח הפתוח תחת תאורה חמימה"
+                  className="h-full min-h-[480px] w-full object-cover"
+                />
+              </div>
+              <div className="rounded-[2rem] border border-white/10 bg-black/20 p-8 backdrop-blur">
+                <p className="text-xs font-bold tracking-[0.32em] text-amber-200/70">חוויית אירוח</p>
+                <h2 className="mt-4 text-balance font-display text-4xl md:text-5xl">
+                  המטבח הפתוח, הקצב של השירות והחלל המואר בעדינות עובדים יחד כמו ערב אחד שלם.
+                </h2>
+                <p className="mt-6 text-lg leading-9 text-stone-300">
+                  יש מסעדות שמתחילות ונגמרות בצלחת, ויש מקומות שבהם גם הדרך למנה מרגישה מדויקת. ב־Luma
+                  הטבח נראה לעין, השירות קשוב אבל לא לוחץ, והערב נבנה בקצב רגוע שמרגיש יוקרתי בלי מאמץ.
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    "בר יין אינטימי לפתיחה רגועה של הערב.",
+                    "מטבח פתוח שמדגיש חומרי גלם, דיוק ונוכחות שף.",
+                    "אירוח שמתאים גם לדייט וגם לארוחה עסקית מצומצמת.",
+                    "אפשרות לבניית ערב טעימות או חדר פרטי בהזמנה מראש."
+                  ].map((item) => (
+                    <div key={item} className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-stone-200">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section id="reservation" className="section-space border-y border-white/10 bg-white/4">
             <div className="container-shell grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
               <div className="rounded-[2rem] border border-white/10 bg-black/20 p-8 backdrop-blur">
@@ -352,6 +387,24 @@ export function LumaBistroPage() {
             </div>
           </section>
         </main>
+
+        <footer className="border-t border-white/10 bg-[#080709]/88 py-8 text-stone-300">
+          <div className="container-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="font-display text-3xl text-amber-100">Luma Bistro</p>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-stone-400">
+                מסעדת שף אורבנית בתל אביב עם תפריט עונתי, שירות מדויק והזמנת שולחן לערבים שרוצים להרגיש
+                מוקפדים מהכניסה ועד הקינוח.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
+              <a href="#menu">תפריט</a>
+              <a href="#experience">חוויית אירוח</a>
+              <a href="#reservation">הזמנות</a>
+              <a href="/">חזרה ל־Omer&apos;s</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

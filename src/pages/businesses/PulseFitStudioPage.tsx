@@ -70,6 +70,7 @@ export function PulseFitStudioPage() {
               <a href="#home">בית</a>
               <a href="#programs">מסלולים</a>
               <a href="#trainers">מאמנים</a>
+              <a href="#trial">שיעור ניסיון</a>
               <a href="#results">תוצאות</a>
               <a href="#pricing">מחירים</a>
               <a href="#join">הצטרפות</a>
@@ -234,7 +235,7 @@ export function PulseFitStudioPage() {
                 <div className="grid gap-5">
                   {[
                     ["/images/pulsefit/action-training.png", "אימון פונקציונלי אינטנסיבי ב־PulseFit Studio"],
-                    ["/images/pulsefit/equipment-zone.png", "אזור ציוד הכוח של PulseFit Studio עם תאורת ניאון חדה"]
+                    ["/images/pulsefit/pulsefit-coach-session.webp", "מאמן מוביל קבוצה קטנה באימון כוח ב־PulseFit Studio"]
                   ].map(([src, alt]) => (
                     <m.article
                       key={src}
@@ -248,6 +249,40 @@ export function PulseFitStudioPage() {
                     </m.article>
                   ))}
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="trial" className="section-space border-y border-white/10 bg-white/4">
+            <div className="container-shell grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
+              <div className="rounded-[2rem] border border-white/10 bg-black/25 p-8 backdrop-blur">
+                <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">שיעור ניסיון</p>
+                <h2 className="mt-4 text-balance font-tech text-4xl md:text-5xl">
+                  האימון הראשון לא אמור להרגיש מאיים. הוא אמור לתת לך מושג ברור אם זה המקום שאתה רוצה לחזור אליו.
+                </h2>
+                <p className="mt-6 text-lg leading-9 text-slate-300">
+                  שיעור הניסיון ב־PulseFit בנוי כמו היכרות אמיתית עם השיטה: בדיקה של רמה, קצב, תנועה והעדפות,
+                  ואז כניסה לאימון שמרגיש חד, מדויק ומלווה. בלי לחץ מיותר, ובלי להרגיש אבוד בתוך אולם.
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    "התאמת קבוצה לפי רמת כניסה ועומס רצוי.",
+                    "היכרות עם המאמן והמבנה השבועי של המסלול.",
+                    "הסבר ברור על המשך, מחירים ותדירות.",
+                    "תחושה של סטודיו שמחזיק סטנדרט מהשנייה הראשונה."
+                  ].map((item) => (
+                    <div key={item} className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-200">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/25 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
+                <img
+                  src="/images/pulsefit/equipment-zone.png"
+                  alt="אזור האימונים של PulseFit Studio עם משקולות, מסלול דשא ותאורת ניאון חדה"
+                  className="h-full min-h-[480px] w-full object-cover"
+                />
               </div>
             </div>
           </section>
@@ -343,6 +378,24 @@ export function PulseFitStudioPage() {
             </div>
           </section>
         </main>
+
+        <footer className="border-t border-white/10 bg-[#090d09]/88 py-8 text-slate-300">
+          <div className="container-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="font-tech text-3xl text-white">PulseFit Studio</p>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-400">
+                סטודיו כושר בתל אביב עם מסלולי אימון חדים, צוות מאמנים מוביל ושיעור ניסיון שמראה בדיוק
+                איך נראית שגרת עבודה רצינית מבפנים.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
+              <a href="#programs">מסלולים</a>
+              <a href="#trial">שיעור ניסיון</a>
+              <a href="#pricing">מחירים</a>
+              <a href="/">חזרה ל־Omer&apos;s</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

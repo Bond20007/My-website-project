@@ -61,8 +61,8 @@ export const projects: ProjectItem[] = [
     description:
       "אתר למסעדת ערב יוקרתית עם תפריט מדויק, אווירה חמה, הזמנות שולחן ותחושת מותג עשירה.",
     route: "/work/luma-bistro",
-    previewImage: "/images/luma-bistro-hero.png",
-    previewAlt: "חלל הערב של Luma Bistro עם תאורה חמימה, שולחן ערוך והגשה יוקרתית",
+    previewImage: "/images/luma/luma-chef-plating.webp",
+    previewAlt: "השף של Luma Bistro מסיים מנה במטבח פתוח בתאורה חמימה",
     cta: "צפה באתר",
     accent: "from-amber-200 via-amber-100 to-stone-100"
   },
@@ -73,8 +73,8 @@ export const projects: ProjectItem[] = [
     description:
       "אתר כושר אנרגטי עם מסלולי אימון, צוות מאמנים, תוצאות, מחירים והצטרפות ברורה ומהירה.",
     route: "/work/pulsefit-studio",
-    previewImage: "/images/pulsefit-hero.png",
-    previewAlt: "חלל האימונים של PulseFit Studio עם ציוד מקצועי ותאורת ניאון חדה",
+    previewImage: "/images/pulsefit/pulsefit-coach-session.webp",
+    previewAlt: "מאמן מוביל מתאמנים באימון כוח ב־PulseFit Studio",
     cta: "צפה באתר",
     accent: "from-lime-200 via-lime-100 to-stone-100"
   },
@@ -85,8 +85,8 @@ export const projects: ProjectItem[] = [
     description:
       "אתר לקליניקה אסתטית עם תחושת רוגע, טיפולים ברורים, המלצות, צוות והזמנת פגישת ייעוץ.",
     route: "/work/aura-clinic",
-    previewImage: "/images/aura-clinic-hero.png",
-    previewAlt: "חדר טיפולים מואר של Aura Clinic עם עיצוב רך, בהיר ויוקרתי",
+    previewImage: "/images/aura/aura-consultation-room.webp",
+    previewAlt: "פגישת ייעוץ ב־Aura Clinic בחלל אסתטי בהיר ונעים",
     cta: "צפה באתר",
     accent: "from-rose-100 via-stone-100 to-amber-50"
   },
@@ -97,8 +97,8 @@ export const projects: ProjectItem[] = [
     description:
       "אתר מוצר טכנולוגי עם שפה עתידנית, יכולות מוצר, מסלולים, המלצות והרשמה מהירה.",
     route: "/work/nexora",
-    previewImage: "/images/nexora-hero.png",
-    previewAlt: "ממשק עתידני של Nexora עם דאשבורד, אוטומציות ושכבות מידע",
+    previewImage: "/images/nexora/nexora-dashboard-analytics.webp",
+    previewAlt: "דשבורד אנליטיקה של Nexora עם גרפים, מדדים ואוטומציות",
     cta: "צפה באתר",
     accent: "from-cyan-200 via-indigo-100 to-violet-100"
   }

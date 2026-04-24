@@ -72,6 +72,7 @@ export function AuraClinicPage() {
               <a href="#results">לפני ואחרי</a>
               <a href="#reviews">המלצות</a>
               <a href="#team">צוות</a>
+              <a href="#consultation">הייעוץ</a>
               <a href="#booking">הזמנה</a>
             </nav>
             <LinkButton href="/" variant="secondary" className="hidden md:inline-flex">
@@ -241,8 +242,8 @@ export function AuraClinicPage() {
                     className="overflow-hidden rounded-[2rem] border border-rose-100 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.05)]"
                   >
                     <img
-                      src="/images/aura/treatment-detail.png"
-                      alt="פרטי טיפול וציוד אסתטי יוקרתי ב־Aura Clinic"
+                      src="/images/aura/aura-consultation-room.webp"
+                      alt="פגישת ייעוץ פרטית ב־Aura Clinic בחלל רך ובהיר"
                       className="h-[212px] w-full object-cover"
                     />
                   </m.article>
@@ -258,8 +259,8 @@ export function AuraClinicPage() {
                       יותר חומר ויזואלי, פחות תחושת תבנית, ועמוד שמרגיש כמו קליניקה אמיתית.
                     </h3>
                     <p className="mt-4 text-base leading-8 text-slate-600">
-                      הוספתי גם וידאו קצר וגם תמונות מקוריות של חלל ההמתנה והטיפול כדי שהאתר יעביר
-                      איכות, רוגע ואמון לפני שהגולשת מגיעה להזמנה.
+                      האתר מציג עכשיו גם את רגעי הייעוץ עצמם, לא רק את חלל הטיפול, כדי להעביר איכות,
+                      רוגע ואמון עוד לפני שמגיעים לשלב קביעת התור.
                     </p>
                   </m.article>
                 </div>
@@ -300,7 +301,7 @@ export function AuraClinicPage() {
             </div>
           </section>
 
-          <section className="section-space border-y border-rose-100 bg-white/60">
+          <section id="consultation" className="section-space border-y border-rose-100 bg-white/60">
             <div className="container-shell grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
               <div className="rounded-[2rem] border border-rose-100 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
                 <p className="text-xs font-extrabold tracking-[0.32em] text-rose-400">איך נראה הייעוץ</p>
@@ -314,6 +315,13 @@ export function AuraClinicPage() {
                     <p className="text-base leading-8 text-slate-700">{item}</p>
                   </div>
                 ))}
+                <div className="overflow-hidden rounded-[1.8rem] border border-rose-100 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
+                  <img
+                    src="/images/aura/aura-consultation-room.webp"
+                    alt="אשת צוות ב־Aura Clinic יושבת לשיחת ייעוץ עם מטופלת בחלל חמים ובהיר"
+                    className="h-[220px] w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -353,6 +361,24 @@ export function AuraClinicPage() {
             </div>
           </section>
         </main>
+
+        <footer className="border-t border-rose-100 bg-white/88 py-8 text-slate-600">
+          <div className="container-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="font-display text-3xl text-slate-950">Aura Clinic</p>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-500">
+                קליניקה אסתטית בתל אביב עם טיפולים מדויקים, שיחת ייעוץ רגועה וחוויה יוקרתית שמרגישה
+                אישית, נקייה ומסודרת כבר מהרגע הראשון.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
+              <a href="#treatments">טיפולים</a>
+              <a href="#consultation">הייעוץ</a>
+              <a href="#booking">קביעת תור</a>
+              <a href="/">חזרה ל־Omer&apos;s</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

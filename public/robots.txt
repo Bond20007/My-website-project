@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://omers.studio/sitemap.xml
+Host: https://omers.studio

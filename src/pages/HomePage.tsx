@@ -136,6 +136,54 @@ const finalCtaPoints = [
   "פשוט שולחים פרטים ומתחילים מכיוון ברור."
 ] as const;
 
+const audienceSegments = [
+  {
+    title: "לבעלי עסקים שהאתר שלהם לא משקף את הרמה שלהם",
+    description: "אם העסק עובד טוב במציאות אבל האתר נראה מיושן, גנרי או לא משכנע, זה בדיוק המקום שבו שדרוג נכון עושה הבדל."
+  },
+  {
+    title: "למי שצריך דף ברור שמוביל לפנייה",
+    description: "עסקים קטנים, קליניקות, מסעדות, סטודיואים ושירותים מקצועיים שצריכים אתר תדמית לעסק או דף נחיתה שמסביר מהר מי אתם ולמה לפנות."
+  },
+  {
+    title: "למותגים שרוצים להיראות מסודרים גם במובייל",
+    description: "לא רק מסך יפה לדסקטופ, אלא חוויה מדויקת בכל מכשיר, עם כפתורים נוחים, טקסטים קריאים וזרימה חלקה עד להשארת פרטים."
+  }
+] as const;
+
+const servicePackages = [
+  {
+    name: "אתר תדמית ממוקד",
+    fit: "לעסקים שצריכים נוכחות מקצועית ברורה",
+    details: ["עמוד בית חזק", "הצגת שירותים", "אזור אמון והנעה לפנייה"]
+  },
+  {
+    name: "דף נחיתה לקמפיין",
+    fit: "להצעה אחת שצריכה לעבוד מהר",
+    details: ["מבנה מכירתי", "טופס או וואטסאפ", "קצב קריאה חד ומדויק"]
+  },
+  {
+    name: "אתר מותג מלא",
+    fit: "לעסק שצריך עומק, עמודים ותוכן עשיר",
+    details: ["מספר עמודים", "שפה חזותית רחבה", "SEO בסיסי והיררכיה מסודרת"]
+  }
+] as const;
+
+const faqItems = [
+  [
+    "כמה זמן לוקח לבנות אתר?",
+    "זה תלוי בהיקף, אבל ברוב הפרויקטים עובדים בשלבים ברורים כך שכבר מההתחלה יש כיוון, מסגרת זמנים ותמונה מסודרת של מה מתקדם ומתי."
+  ],
+  [
+    "אתה עובד רק על העיצוב או גם על המסרים?",
+    "גם וגם. אתר טוב לא נשען רק על צבעים וטיפוגרפיה, אלא על כותרות, סדר תוכן, CTA ודרך ברורה שמובילה את הלקוח להבין למה לפנות."
+  ],
+  [
+    "האתר יתאים גם למובייל ולחיפוש בגוגל?",
+    "כן. אני בונה את העמודים כך שירגישו טוב במובייל, ייטענו נכון, וישמרו על מבנה SEO נקי עם כותרות, מטא־דאטה ועמודים מסודרים."
+  ]
+] as const;
+
 export function HomePage() {
   const [form, setForm] = useState<ContactForm>(initialForm);
 
@@ -199,7 +247,7 @@ export function HomePage() {
             <div className="flex items-center justify-between gap-4">
               <OmersLogo />
               <LinkButton href="#contact" className="md:hidden">
-                בוא נתחיל
+                בוא נבנה אתר
               </LinkButton>
             </div>
             <nav className="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-600 md:gap-6">
@@ -220,7 +268,7 @@ export function HomePage() {
               </a>
             </nav>
             <LinkButton href="#contact" className="hidden md:inline-flex">
-              בוא נתחיל
+              בוא נבנה אתר
             </LinkButton>
           </div>
         </header>
@@ -240,20 +288,24 @@ export function HomePage() {
                   variants={fadeUp}
                   className="text-balance font-display text-5xl leading-[0.84] text-slate-950 md:text-7xl"
                 >
-                  אתר טוב לא רק נראה יוקרתי. הוא גורם לעסק להרגיש אמין, ברור ושווה פנייה.
+                  אתרים לעסקים שרוצים להיראות ברמה גבוהה, להיטען מהר, ולגרום ללקוח להבין מיד למה לפנות.
                 </m.h1>
                 <m.p variants={fadeUp} className="mt-7 max-w-2xl text-lg leading-9 text-slate-600">
-                  אני בונה אתרי תדמית, דפי נחיתה ואתרי מכירה לעסקים שרוצים לצאת מהלוק התבניתי ולעבור
-                  לאתר שמרגיש כמו מותג אמיתי, עם היררכיה חדה, שפה נקייה וחוויית משתמש שבנויה לפעולה.
+                  אני בונה אתרי תדמית, דפי נחיתה ואתרי מכירה לעסקים קטנים ובינוניים שצריכים אתר שנראה טוב,
+                  נשמע נכון, עובד מעולה במובייל ומוביל אנשים להשאיר פרטים בלי להרגיש שהם נחתו על עוד תבנית.
                 </m.p>
                 <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
-                  <LinkButton href="#work" className="gap-2">
-                    צפה בעבודות
+                  <LinkButton href="#contact" className="gap-2">
+                    בוא נבנה אתר
                     <ChevronLeft className="h-4 w-4" />
                   </LinkButton>
-                  <LinkButton href="#contact" variant="secondary" className="gap-2">
-                    דבר איתי
+                  <LinkButton href="#work" variant="secondary" className="gap-2">
+                    צפה בעבודות
                     <ArrowLeft className="h-4 w-4" />
+                  </LinkButton>
+                  <LinkButton href={WHATSAPP_URL} external variant="secondary" className="gap-2">
+                    שלח הודעה בוואטסאפ
+                    <MessageCircle className="h-4 w-4" />
                   </LinkButton>
                 </m.div>
                 <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
@@ -288,8 +340,8 @@ export function HomePage() {
               <m.div initial="hidden" animate="show" variants={punchIn} className="relative">
                 <div className="premium-outline mesh-overlay hero-shadow relative overflow-hidden rounded-[2.2rem] border border-white/70 bg-slate-950">
                   <img
-                    src="/images/omers-hero.png"
-                    alt="סטודיו העבודה של Omer's עם מסך, סקיצות, מחברות וחומרי מיתוג"
+                    src="/images/omers/agency-mockup-wall.webp"
+                    alt="קיר מסכים בסטודיו של Omer's עם עבודות אתר, חומרי מיתוג ושולחן עבודה מסודר"
                     className="h-[640px] w-full object-cover object-center opacity-95"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/82 via-slate-950/18 to-amber-300/10" />
@@ -361,9 +413,9 @@ export function HomePage() {
                   </m.article>
                   <div className="grid gap-5">
                     {[
-                      [
-                        "/images/omers/studio-interior.png",
-                        "חלל העבודה של Omer's עם מסך גדול, מחברות וחומרי מיתוג"
+                        [
+                        "/images/omers/agency-mockup-wall.webp",
+                        "מסכי עבודה בסטודיו של Omer's עם תצוגות אתר וחומרי מיתוג"
                       ],
                       [
                         "/images/omers/design-review.png",
@@ -379,6 +431,30 @@ export function HomePage() {
                       </m.article>
                     ))}
                   </div>
+                </div>
+              </m.div>
+            </div>
+          </section>
+
+          <section className="section-space border-y border-slate-200/70 bg-white/70">
+            <div className="container-shell">
+              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
+                <SectionHeading
+                  eyebrow="למי זה מתאים"
+                  title="לא לכל עסק צריך אותו אתר. כן צריך אתר שמבין את הסיטואציה העסקית שלך."
+                  description="הדגש הוא לא רק לבנות עמוד יפה, אלא להבין מי קורא אותו, מה הוא צריך להבין בשניות הראשונות, ואיזה סוג פנייה אתה באמת רוצה לקבל ממנו."
+                />
+                <div className="mt-12 grid gap-5 lg:grid-cols-3">
+                  {audienceSegments.map((segment) => (
+                    <m.article
+                      key={segment.title}
+                      variants={fadeUp}
+                      className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_22px_65px_rgba(15,23,42,0.05)]"
+                    >
+                      <h3 className="text-balance font-display text-3xl leading-none text-slate-950">{segment.title}</h3>
+                      <p className="mt-5 text-base leading-8 text-slate-600">{segment.description}</p>
+                    </m.article>
+                  ))}
                 </div>
               </m.div>
             </div>
@@ -436,6 +512,37 @@ export function HomePage() {
                         {service.title}
                       </h3>
                       <p className="mt-4 text-base leading-8 text-slate-600">{service.description}</p>
+                    </m.article>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </section>
+
+          <section className="section-space border-y border-slate-200/70 bg-white/70">
+            <div className="container-shell">
+              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
+                <SectionHeading
+                  eyebrow="חבילות שירות"
+                  title="שלוש נקודות פתיחה שונות, עם אותה מטרה: אתר שמרגיש מקצועי ומוביל לפנייה."
+                  description="אני מתאים את המבנה והעומק לצורך העסקי. לפעמים צריך עמוד חד וממוקד, ולפעמים נוכחות מלאה שמספרת סיפור של מותג."
+                />
+                <div className="mt-12 grid gap-5 lg:grid-cols-3">
+                  {servicePackages.map((pkg) => (
+                    <m.article
+                      key={pkg.name}
+                      variants={fadeUp}
+                      className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_22px_65px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_80px_rgba(15,23,42,0.08)]"
+                    >
+                      <p className="text-xs font-extrabold tracking-[0.28em] text-amber-700">{pkg.fit}</p>
+                      <h3 className="mt-4 text-balance font-display text-3xl leading-none text-slate-950">{pkg.name}</h3>
+                      <div className="mt-6 space-y-3">
+                        {pkg.details.map((detail) => (
+                          <div key={detail} className="rounded-[1.3rem] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
+                            {detail}
+                          </div>
+                        ))}
+                      </div>
                     </m.article>
                   ))}
                 </div>
@@ -564,6 +671,30 @@ export function HomePage() {
                       </div>
                       <h3 className="mt-5 font-display text-3xl leading-none text-white">{step}</h3>
                       <p className="mt-4 text-sm leading-7 text-slate-300">{processDescriptions[index]}</p>
+                    </m.article>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </section>
+
+          <section className="section-space">
+            <div className="container-shell">
+              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
+                <SectionHeading
+                  eyebrow="שאלות נפוצות"
+                  title="לפני שמתחילים, אלה הדברים שבדרך כלל חשוב לדעת."
+                  description="אם אתה מתלבט אם זה הזמן לשדרג, כמה עומק צריך, או איך נראה התהליך בפועל, אלו בדרך כלל השאלות הראשונות שעליהן אנחנו מיישרים קו."
+                />
+                <div className="mt-12 grid gap-5 lg:grid-cols-3">
+                  {faqItems.map(([question, answer]) => (
+                    <m.article
+                      key={question}
+                      variants={fadeUp}
+                      className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_20px_60px_rgba(15,23,42,0.05)]"
+                    >
+                      <h3 className="text-balance font-display text-3xl leading-none text-slate-950">{question}</h3>
+                      <p className="mt-5 text-base leading-8 text-slate-600">{answer}</p>
                     </m.article>
                   ))}
                 </div>

@@ -69,6 +69,7 @@ export function NexoraPage() {
             <nav className="flex flex-wrap gap-5 text-sm font-semibold text-slate-300">
               <a href="#home">בית</a>
               <a href="#features">יכולות</a>
+              <a href="#product">המוצר</a>
               <a href="#how">איך זה עובד</a>
               <a href="#pricing">מסלולים</a>
               <a href="#testimonials">המלצות</a>
@@ -191,7 +192,7 @@ export function NexoraPage() {
                 <div className="grid gap-5">
                   {[
                     ["/images/nexora/operations-room.png", "חדר תפעול עתידני של Nexora עם מסכים ואור כחול־סגלגל"],
-                    ["/images/nexora/founder-workstation.png", "עמדת עבודה יוקרתית של Nexora עם לפטופ ודשבורד מואר"]
+                    ["/images/nexora/nexora-dashboard-analytics.webp", "מסך אנליטיקה של Nexora עם דשבורד כהה, גרפים ונראות מוצר חדה"]
                   ].map(([src, alt]) => (
                     <m.article
                       key={src}
@@ -229,6 +230,40 @@ export function NexoraPage() {
                   ))}
                 </div>
               </m.div>
+            </div>
+          </section>
+
+          <section id="product" className="section-space">
+            <div className="container-shell grid gap-6 lg:grid-cols-[0.98fr_1.02fr]">
+              <div className="overflow-hidden rounded-[2rem] border border-cyan-400/20 bg-slate-950/45 shadow-[0_24px_80px_rgba(3,7,18,0.3)]">
+                <img
+                  src="/images/nexora/founder-workstation.png"
+                  alt="עמדת עבודה של Nexora עם לפטופ פתוח על המוצר ומסכי בקרה ברקע"
+                  className="h-full min-h-[480px] w-full object-cover"
+                />
+              </div>
+              <div className="rounded-[2rem] border border-white/10 bg-slate-950/35 p-8 backdrop-blur">
+                <p className="text-xs font-extrabold tracking-[0.32em] text-cyan-300/80">מבט במוצר</p>
+                <h2 className="mt-4 text-balance font-tech text-4xl md:text-5xl">
+                  מעבר לשפה הטכנולוגית, האתר מראה איך Nexora מרגישה ביום־יום של צוות תפעול אמיתי.
+                </h2>
+                <p className="mt-6 text-lg leading-9 text-slate-300">
+                  זה לא רק עמוד יכולות. זה עמוד שמכניס את המשתמש לתוך המערכת, מראה בקרה, זרימות עבודה,
+                  דשבורדים ומסכים שמסבירים איך הכל מתחבר בלי לייצר עומס מיותר.
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    "דשבורדים ברורים לקריאה גם למנהלי תפעול וגם לצוותים מבצעים.",
+                    "זרימות עבודה ויזואליות שמסבירות תהליך בלי לדרוש הדגמה מלאה.",
+                    "הצגה ברורה של ניטור, הרשאות, אוטומציות ודיווח בזמן אמת.",
+                    "חוויית מוצר שנראית בשלה ומוכנה למכירה גם למקבלי החלטות."
+                  ].map((item) => (
+                    <div key={item} className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-200">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
@@ -343,6 +378,24 @@ export function NexoraPage() {
             </div>
           </section>
         </main>
+
+        <footer className="border-t border-white/10 bg-[#04070d]/90 py-8 text-slate-300">
+          <div className="container-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="font-tech text-3xl text-white">Nexora</p>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-400">
+                פלטפורמת אוטומציה בעברית לצוותי תפעול, תמיכה וצמיחה עם מסכי מוצר ברורים, הרשמה מהירה
+                ותהליך שמרגיש בשל כבר מהעמוד הראשון.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
+              <a href="#features">יכולות</a>
+              <a href="#product">המוצר</a>
+              <a href="#pricing">מסלולים</a>
+              <a href="/">חזרה ל־Omer&apos;s</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

@@ -46,12 +46,16 @@ export function Seo({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:secure_url" content={imageUrl} />
       {imageAlt ? <meta property="og:image:alt" content={imageAlt} /> : null}
+      <meta name="application-name" content={SITE_NAME} />
+      <meta name="theme-color" content="#111827" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+      {imageAlt ? <meta name="twitter:image:alt" content={imageAlt} /> : null}
       {schemaValue ? <script type="application/ld+json">{schemaValue}</script> : null}
     </Helmet>
   );
