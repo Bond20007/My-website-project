@@ -40,6 +40,10 @@ const features = [
   }
 ] as const;
 
+const featuredFeature = features[0];
+const secondaryFeatures = features.slice(1);
+const FeaturedFeatureIcon = featuredFeature.icon;
+
 const steps = [
   ["חיבור מערכות", "מחברים CRM, טפסים, מקורות מידע וכלי תמיכה בלי לאבד שליטה."],
   ["בניית לוגיקה", "מגדירים תנאים, הרשאות וזרימות עבודה בשפה תפעולית ברורה."],
@@ -211,19 +215,40 @@ export function NexoraPage() {
                 </h2>
               </div>
               <div className="grid gap-5">
-                {features.map(({ title, description, icon: Icon }) => (
-                  <div key={title} className="rounded-[2rem] border border-white/10 bg-[#09111e] p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="grid h-12 w-12 place-items-center rounded-[1.2rem] bg-white/5 text-cyan-300">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-tech text-3xl text-white">{title}</h3>
-                        <p className="mt-3 max-w-3xl text-base leading-8 text-slate-300">{description}</p>
-                      </div>
+                <div className="rounded-[2.2rem] border border-cyan-400/18 bg-[#09111e] p-6 md:p-7">
+                  <div className="flex items-start gap-4">
+                    <div className="grid h-12 w-12 place-items-center rounded-[1.2rem] bg-cyan-400/10 text-cyan-300">
+                      <FeaturedFeatureIcon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-tech text-3xl text-white">{featuredFeature.title}</h3>
+                      <p className="mt-3 max-w-3xl text-base leading-8 text-slate-300">{featuredFeature.description}</p>
                     </div>
                   </div>
-                ))}
+                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                    {["שלבים ברורים", "תנאים והרשאות", "אישורים בלי עומס"].map((item) => (
+                      <div key={item} className="rounded-[1rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid gap-5 md:grid-cols-2">
+                  {secondaryFeatures.map(({ title, description, icon: Icon }) => (
+                    <div key={title} className="rounded-[2rem] border border-white/10 bg-[#09111e] p-6">
+                      <div className="grid gap-4">
+                        <div className="grid h-12 w-12 place-items-center rounded-[1.2rem] bg-white/5 text-cyan-300">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <h3 className="font-tech text-3xl text-white">{title}</h3>
+                          <p className="mt-3 text-base leading-8 text-slate-300">{description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -292,15 +317,26 @@ export function NexoraPage() {
                   מבנה מחירים שנראה כמו מוצר אמיתי. לא קופסאות צבעוניות בלי הקשר.
                 </h2>
               </div>
-              <div className="mt-8 grid gap-5 lg:grid-cols-3">
+              <div className="mt-8 grid gap-5 lg:grid-cols-[0.92fr_1.16fr_0.92fr]">
                 {pricing.map(([name, price, fit, bullets], index) => (
                   <div
                     key={name}
-                    className={`${index === 1 ? "border-cyan-400/20 bg-[#0c1527]" : "border-white/10 bg-[#09111e]"} rounded-[2rem] border p-6 shadow-[0_20px_60px_rgba(0,0,0,0.18)]`}
+                    className={`${
+                      index === 1
+                        ? "border-cyan-400/24 bg-[linear-gradient(180deg,#0c1527_0%,#09111e_100%)]"
+                        : "border-white/10 bg-[#09111e]"
+                    } rounded-[2rem] border p-6 shadow-[0_20px_60px_rgba(0,0,0,0.18)]`}
                   >
-                    <p className="font-tech text-3xl font-bold text-white">{name}</p>
-                    <p className="mt-3 text-5xl font-bold text-cyan-300">{price}</p>
-                    <p className="mt-4 text-sm font-semibold tracking-[0.22em] text-slate-400">{fit}</p>
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-tech text-3xl font-bold text-white">{name}</p>
+                        <p className="mt-3 text-5xl font-bold text-cyan-300">{price}</p>
+                      </div>
+                      <span className="rounded-full border border-white/10 px-3 py-2 text-[11px] font-extrabold tracking-[0.22em] text-slate-300">
+                        {index === 1 ? "צוותים בצמיחה" : index === 0 ? "כניסה מהירה" : "פריסה רחבה"}
+                      </span>
+                    </div>
+                    <p className="mt-5 text-sm font-semibold tracking-[0.22em] text-slate-400">{fit}</p>
                     <div className="mt-6 grid gap-3">
                       {bullets.map((bullet) => (
                         <div key={bullet} className="rounded-[1rem] bg-white/5 px-4 py-3 text-sm leading-7 text-slate-200">
@@ -308,6 +344,13 @@ export function NexoraPage() {
                         </div>
                       ))}
                     </div>
+                    <p className="mt-6 text-sm leading-7 text-slate-400">
+                      {index === 0
+                        ? "מתאים לצוות קטן שרוצה להתחיל לעבוד מסודר בלי הטמעה כבדה."
+                        : index === 1
+                          ? "המסלול שבדרך כלל בוחרים כשהעבודה כבר עוברת בין כמה אנשי צוות."
+                          : "לארגונים שצריכים הרשאות, פריסה וליווי טכני עמוק יותר."}
+                    </p>
                   </div>
                 ))}
               </div>

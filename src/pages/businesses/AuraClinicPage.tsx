@@ -34,9 +34,18 @@ const processItems = [
 ] as const;
 
 const reviewQuotes = [
-  "הכול הרגיש נעים, מוסבר ולא מלחיץ. כבר בשיחה הראשונה היה ברור שמדברים איתי בגובה העיניים.",
-  "לא דחפו טיפול שלא צריך. הסבירו מה נכון, מה לא חובה, ואיך ייראה התהליך באמת.",
-  "התוצאה נשארה טבעית ונקייה. בדיוק מה שקיוויתי לקבל."
+  {
+    quote: "הכול הרגיש נעים, מוסבר ולא מלחיץ. כבר בשיחה הראשונה היה ברור שמדברים איתי בגובה העיניים.",
+    name: "שני, רמת גן"
+  },
+  {
+    quote: "לא דחפו טיפול שלא צריך. הסבירו מה נכון, מה לא חובה, ואיך ייראה התהליך באמת.",
+    name: "יעל, תל אביב"
+  },
+  {
+    quote: "התוצאה נשארה טבעית ונקייה. בדיוק מה שקיוויתי לקבל.",
+    name: "מור, גבעתיים"
+  }
 ] as const;
 
 export function AuraClinicPage() {
@@ -149,12 +158,21 @@ export function AuraClinicPage() {
 
           <section id="process" className="section-space">
             <div className="container-shell grid gap-6 lg:grid-cols-[0.96fr_1.04fr]">
-              <div className="overflow-hidden rounded-[2.4rem] border border-white bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,0.05)]">
-                <img
-                  src="/images/aura/reception-lounge.png"
-                  alt="אזור ההמתנה של Aura Clinic עם כורסאות בהירות ואווירה שקטה"
-                  className="h-full min-h-[520px] w-full rounded-[1.7rem] object-cover"
-                />
+              <div className="grid gap-5">
+                <div className="overflow-hidden rounded-[2.4rem] border border-white bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,0.05)]">
+                  <img
+                    src="/images/aura/reception-lounge.png"
+                    alt="אזור ההמתנה של Aura Clinic עם כורסאות בהירות ואווירה שקטה"
+                    className="h-full min-h-[360px] w-full rounded-[1.7rem] object-cover"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-[2.4rem] border border-rose-100 bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,0.05)]">
+                  <img
+                    src="/images/aura/treatment-detail.png"
+                    alt="טיפול מדויק ב-Aura Clinic בחדר מואר ונקי"
+                    className="h-full min-h-[220px] w-full rounded-[1.7rem] object-cover"
+                  />
+                </div>
               </div>
               <div className="grid gap-5">
                 <div className="soft-rule pb-5">
@@ -163,14 +181,16 @@ export function AuraClinicPage() {
                     מהפגישה הראשונה ועד הטיפול עצמו, הכול אמור להיות ברור ולא מאיים.
                   </h2>
                 </div>
-                {processItems.map((item, index) => (
-                  <div key={item} className="rounded-[1.9rem] border border-rose-100 bg-white p-6 shadow-[0_14px_35px_rgba(15,23,42,0.04)]">
-                    <div className="flex items-start gap-4">
-                      <div className="font-display text-4xl text-rose-200">{index + 1}</div>
+                <div className="relative grid gap-4 before:absolute before:bottom-4 before:right-[1.35rem] before:top-4 before:w-px before:bg-rose-100">
+                  {processItems.map((item, index) => (
+                    <div key={item} className="relative rounded-[1.9rem] border border-rose-100 bg-white p-6 pr-16 shadow-[0_14px_35px_rgba(15,23,42,0.04)]">
+                      <div className="absolute right-5 top-5 grid h-8 w-8 place-items-center rounded-full bg-rose-100 font-bold text-rose-500">
+                        {index + 1}
+                      </div>
                       <p className="text-base leading-8 text-slate-600">{item}</p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -183,13 +203,21 @@ export function AuraClinicPage() {
                   המלצות שנשמעות כמו מי שבאמת הייתה כאן. לא כמו ציטוטים שנכתבו בשביל למלא אתר.
                 </h2>
               </div>
-              <div className="mt-8 grid gap-5 lg:grid-cols-3">
-                {reviewQuotes.map((quote) => (
-                  <div key={quote} className="rounded-[2rem] border border-rose-100 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
-                    <Star className="h-5 w-5 fill-rose-300 text-rose-300" />
-                    <p className="mt-4 text-base leading-8 text-slate-700">{quote}</p>
-                  </div>
-                ))}
+              <div className="mt-8 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+                <div className="rounded-[2.2rem] border border-rose-100 bg-white p-7 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
+                  <Star className="h-5 w-5 fill-rose-300 text-rose-300" />
+                  <p className="mt-5 max-w-2xl font-display text-3xl leading-[1.3] text-slate-900">{reviewQuotes[0].quote}</p>
+                  <p className="mt-5 text-sm font-bold tracking-[0.18em] text-rose-400">{reviewQuotes[0].name}</p>
+                </div>
+                <div className="grid gap-5">
+                  {reviewQuotes.slice(1).map((review) => (
+                    <div key={review.name} className="rounded-[2rem] border border-rose-100 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
+                      <Star className="h-5 w-5 fill-rose-300 text-rose-300" />
+                      <p className="mt-4 text-base leading-8 text-slate-700">{review.quote}</p>
+                      <p className="mt-4 text-sm font-bold tracking-[0.18em] text-rose-400">{review.name}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>

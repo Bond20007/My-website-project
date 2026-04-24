@@ -42,6 +42,17 @@ const initialForm: ContactForm = {
 
 const studioBadges = ["אתרי תדמית", "דפי נחיתה", "SEO", "מובייל"] as const;
 
+const heroNotes = [
+  {
+    title: "נראה כמו עסק קיים",
+    description: "לא עמוד שמרגיש מוכן מראש, אלא אתר עם קצב, טון ופרטים קטנים שמייצרים אמינות מהרגע הראשון."
+  },
+  {
+    title: "מוביל לשיחה",
+    description: "הלקוח מבין מהר מה העסק עושה, למי זה מתאים, ואיפה משאירים פרטים בלי לחפש."
+  }
+] as const;
+
 const thinkingPoints = [
   "אתר טוב צריך להסביר מהר מה העסק עושה ולגרום ללקוח לרצות לדבר.",
   "בלי עומס, בלי טקסטים שמנסים להרשים, ובלי מסכים שמרגישים מוכנים מראש.",
@@ -60,6 +71,25 @@ const beautyVsBusiness = [
   {
     title: "אמון",
     description: "היררכיה נכונה, שפה ברורה, מובייל טוב ו־SEO מסודר יוצרים תחושה של עסק רציני. זה מה שדוחף פנייה."
+  }
+] as const;
+
+const beautyContrast = [
+  {
+    title: "כשאתר רק נראה יפה",
+    points: [
+      "יש אנימציה, צבעים ומסכים יפים, אבל לא באמת ברור מה העסק מציע.",
+      "הלקוח צריך לעבוד קשה כדי להבין אם זה רלוונטי אליו.",
+      "בסוף הוא מתרשם לשנייה וממשיך הלאה."
+    ]
+  },
+  {
+    title: "כשאתר גם בנוי נכון",
+    points: [
+      "הכותרת עושה סדר כבר במסך הראשון.",
+      "העמוד מוביל צעד אחר צעד בלי עומס מיותר.",
+      "נשארת תחושה של עסק שאפשר לסמוך עליו ולפנות אליו."
+    ]
   }
 ] as const;
 
@@ -100,16 +130,51 @@ const projectTags: Record<string, string[]> = {
   nexora: ["דשבורד", "יכולות", "מחירים"]
 };
 
+const projectSignals: Record<
+  string,
+  {
+    title: string;
+    items: string[];
+  }
+> = {
+  "luma-bistro": {
+    title: "מה מרגישים בכניסה",
+    items: ["תפריט ערב עונתי", "בר יין שקט", "הזמנת שולחן פשוטה"]
+  },
+  "pulsefit-studio": {
+    title: "מה ברור מיד",
+    items: ["תוכניות אימון מובנות", "מאמנים עם שפה אחידה", "CTA ברור לשיעור ניסיון"]
+  },
+  "aura-clinic": {
+    title: "מה בונה אמון",
+    items: ["שפה רגועה", "טיפולים מוסברים", "מעבר נעים לקביעת תור"]
+  },
+  nexora: {
+    title: "מה מוכיח שזה מוצר",
+    items: ["Dashboard עם עומק", "יכולות שמוסברות טוב", "תמחור שנראה אמיתי"]
+  }
+};
+
+const contactPromises = [
+  "שיחה קצרה כדי להבין מה העסק עושה באמת.",
+  "כיוון ברור למבנה, לתוכן ולמסך הראשון.",
+  "המלצה כנה גם אם צריך רק שדרוג נקודתי."
+] as const;
+
 function PreviewWindow({
   title,
   subtitle,
   image,
-  className
+  className,
+  metric,
+  accentClassName
 }: {
   title: string;
   subtitle: string;
   image: string;
   className?: string;
+  metric: string;
+  accentClassName: string;
 }) {
   return (
     <m.article
@@ -122,16 +187,81 @@ function PreviewWindow({
         <span className="window-dot bg-[#ff5f57]" />
         <span className="window-dot bg-[#ffbd2f]" />
         <span className="window-dot bg-[#28c840]" />
-        <div className="mr-3 rounded-full bg-slate-100 px-3 py-1 text-[11px] font-bold text-slate-500">{title}</div>
+        <div className={`mr-3 rounded-full px-3 py-1 text-[11px] font-bold ${accentClassName}`}>{title}</div>
       </div>
       <div className="grid gap-3 p-3">
         <img src={image} alt={subtitle} className="h-36 w-full rounded-[1.1rem] object-cover md:h-40" />
-        <div className="rounded-[1rem] bg-slate-50 p-3">
-          <p className="text-xs font-extrabold tracking-[0.22em] text-slate-400">{title}</p>
-          <p className="mt-2 text-sm leading-6 text-slate-600">{subtitle}</p>
+        <div className="grid gap-3 rounded-[1rem] bg-slate-50 p-3 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p className="text-xs font-extrabold tracking-[0.22em] text-slate-400">{title}</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">{subtitle}</p>
+          </div>
+          <div className="rounded-[0.9rem] bg-white px-3 py-2 text-xs font-extrabold tracking-[0.18em] text-slate-500">
+            {metric}
+          </div>
         </div>
       </div>
     </m.article>
+  );
+}
+
+function ProjectDetailPanel({ slug }: { slug: string }) {
+  const signal = projectSignals[slug];
+
+  if (!signal) {
+    return null;
+  }
+
+  if (slug === "luma-bistro") {
+    return (
+      <div className="mt-6 grid max-w-sm gap-3 sm:grid-cols-2">
+        {signal.items.map((item) => (
+          <div key={item} className="rounded-[1.1rem] border border-white/12 bg-black/22 px-4 py-3 text-sm text-white/82 backdrop-blur">
+            {item}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (slug === "pulsefit-studio") {
+    return (
+      <div className="mt-6 flex max-w-sm flex-wrap gap-3">
+        {signal.items.map((item, index) => (
+          <div
+            key={item}
+            className={`${index === 0 ? "bg-lime-300/18 text-white" : "bg-black/22 text-white/82"} rounded-[1rem] border border-white/12 px-4 py-3 text-sm backdrop-blur`}
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (slug === "aura-clinic") {
+    return (
+      <div className="mt-6 max-w-xs rounded-[1.5rem] border border-white/14 bg-white/12 p-4 backdrop-blur">
+        <p className="text-[11px] font-extrabold tracking-[0.24em] text-white/68">{signal.title}</p>
+        <div className="mt-3 grid gap-2">
+          {signal.items.map((item) => (
+            <div key={item} className="text-sm leading-6 text-white/82">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-6 grid max-w-sm gap-3 sm:grid-cols-2">
+      {signal.items.map((item) => (
+        <div key={item} className="rounded-[1rem] border border-cyan-300/22 bg-slate-950/36 px-4 py-3 text-sm text-white/84 backdrop-blur">
+          {item}
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -259,17 +389,32 @@ export function HomePage() {
                     <MessageCircle className="h-4 w-4" />
                   </LinkButton>
                 </m.div>
-                <m.div variants={fadeUp} className="mt-10 grid gap-4 sm:grid-cols-3">
-                  {[
-                    ["חד", "מסר ברור בלי עודף שכבות"],
-                    ["מהיר", "עובד נכון גם ברשת חלשה"],
-                    ["מדויק", "נראה טוב ומוביל לפנייה"]
-                  ].map(([value, label]) => (
-                    <div key={label} className="soft-rule pb-5">
-                      <div className="font-display text-3xl text-slate-950">{value}</div>
-                      <p className="mt-2 text-sm leading-7 text-slate-600">{label}</p>
+                <m.div variants={fadeUp} className="mt-10 grid gap-4 md:grid-cols-[1.08fr_0.92fr]">
+                  <div className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-[0_18px_46px_rgba(15,23,42,0.06)]">
+                    <p className="text-xs font-extrabold tracking-[0.24em] text-slate-400">מה לקוח אמור להרגיש בדקה הראשונה</p>
+                    <p className="mt-4 max-w-xl text-lg leading-8 text-slate-700">
+                      שהוא מבין מהר מול מי הוא עומד, למה זה רלוונטי אליו, ושיש כאן עסק שמסודר גם במסר וגם בביצוע.
+                    </p>
+                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                      <div className="rounded-[1.4rem] bg-[#f7f4ee] p-4">
+                        <p className="font-display text-3xl text-slate-950">חד</p>
+                        <p className="mt-2 text-sm leading-7 text-slate-600">כותרת ברורה, מסך ראשון לא עמוס ודרך קצרה ליצירת קשר.</p>
+                      </div>
+                      <div className="rounded-[1.4rem] bg-[#f7f4ee] p-4">
+                        <p className="font-display text-3xl text-slate-950">יציב</p>
+                        <p className="mt-2 text-sm leading-7 text-slate-600">מובייל טוב, טעינה נקייה ותחושה של אתר שנבנה כדי לעבוד לאורך זמן.</p>
+                      </div>
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="grid gap-4">
+                    {heroNotes.map((item) => (
+                      <div key={item.title} className="rounded-[1.8rem] border border-slate-200 bg-white/88 p-5 shadow-[0_16px_40px_rgba(15,23,42,0.05)]">
+                        <p className="text-sm font-extrabold tracking-[0.18em] text-slate-500">{item.title}</p>
+                        <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
                 </m.div>
               </m.div>
 
@@ -282,24 +427,32 @@ export function HomePage() {
                     title="Luma Bistro"
                     subtitle="שפה כהה, מינימליזם יוקרתי ואווירת ערב מדויקת."
                     image="/images/luma/luma-chef-plating.webp"
+                    metric="תפריט / הזמנות"
+                    accentClassName="bg-[#f8f2e8] text-amber-900"
                     className="floating-slow mr-auto mt-2 w-[82%] md:w-[58%]"
                   />
                   <PreviewWindow
                     title="PulseFit"
                     subtitle="סטודיו חד, צעיר ומהיר עם תנועה ואנרגיה."
                     image="/images/pulsefit/pulsefit-coach-session.webp"
+                    metric="ניסיון / מסלולים"
+                    accentClassName="bg-lime-100 text-lime-900"
                     className="floating-medium -mt-4 mr-[16%] w-[78%] md:-mt-6 md:mr-[8%] md:w-[46%]"
                   />
                   <PreviewWindow
                     title="Aura Clinic"
                     subtitle="שקט, ניקיון ואמון בלי עומס ויזואלי מיותר."
                     image="/images/aura/aura-consultation-room.webp"
+                    metric="טיפולים / ייעוץ"
+                    accentClassName="bg-rose-50 text-rose-700"
                     className="floating-slow -mt-2 mr-0 w-[76%] md:mr-auto md:w-[44%]"
                   />
                   <PreviewWindow
                     title="Nexora"
                     subtitle="מוצר טכנולוגי עם מסכים, גרפים ומבנה מוצר אמיתי."
                     image="/images/nexora/nexora-dashboard-analytics.webp"
+                    metric="Dashboard / Pricing"
+                    accentClassName="bg-cyan-50 text-cyan-800"
                     className="floating-medium -mt-5 mr-[18%] w-[80%] md:-mt-8 md:mr-[24%] md:w-[54%]"
                   />
                   <div className="absolute left-6 top-6 rounded-full border border-black/5 bg-white/80 px-4 py-2 text-xs font-bold tracking-[0.24em] text-slate-500 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
@@ -342,22 +495,41 @@ export function HomePage() {
                   אם הלקוח לא מבין, לא סומך, ולא יודע מה לעשות עכשיו, העיצוב לא באמת עשה את העבודה.
                 </h2>
               </div>
-              <div className="grid gap-7">
-                {beautyVsBusiness.map((item) => (
-                  <div key={item.title} className="soft-rule pb-7">
-                    <div className="flex items-start gap-4">
-                      <div className="pt-1 text-amber-200">
-                        {item.title === "נראות" ? <Star className="h-5 w-5" /> : null}
-                        {item.title === "הבנה" ? <Search className="h-5 w-5" /> : null}
-                        {item.title === "אמון" ? <ShieldCheck className="h-5 w-5" /> : null}
-                      </div>
-                      <div>
-                        <h3 className="font-display text-3xl text-white">{item.title}</h3>
-                        <p className="mt-3 max-w-2xl text-base leading-8 text-slate-300">{item.description}</p>
+              <div className="grid gap-5">
+                <div className="grid gap-5 md:grid-cols-2">
+                  {beautyContrast.map((column, index) => (
+                    <div
+                      key={column.title}
+                      className={`${index === 0 ? "bg-white/6" : "bg-amber-200/10"} rounded-[2rem] border border-white/10 p-6`}
+                    >
+                      <h3 className="font-display text-3xl text-white">{column.title}</h3>
+                      <div className="mt-5 grid gap-3">
+                        {column.points.map((point) => (
+                          <p key={point} className="text-sm leading-7 text-slate-300">
+                            {point}
+                          </p>
+                        ))}
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div className="grid gap-6">
+                  {beautyVsBusiness.map((item) => (
+                    <div key={item.title} className="soft-rule pb-6">
+                      <div className="flex items-start gap-4">
+                        <div className="pt-1 text-amber-200">
+                          {item.title === "נראות" ? <Star className="h-5 w-5" /> : null}
+                          {item.title === "הבנה" ? <Search className="h-5 w-5" /> : null}
+                          {item.title === "אמון" ? <ShieldCheck className="h-5 w-5" /> : null}
+                        </div>
+                        <div>
+                          <h3 className="font-display text-3xl text-white">{item.title}</h3>
+                          <p className="mt-3 max-w-2xl text-base leading-8 text-slate-300">{item.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -419,6 +591,7 @@ export function HomePage() {
                               </span>
                             ))}
                           </div>
+                          <ProjectDetailPanel slug={project.slug} />
                           <div className="mt-6">
                             <Link href={project.route} className="inline-flex items-center gap-2 text-sm font-bold text-white">
                               צפה באתר
@@ -480,19 +653,14 @@ export function HomePage() {
                       <p className="mt-2 text-sm text-slate-600">{SITE_EMAIL}</p>
                     </div>
                     <div className="rounded-[1.7rem] bg-slate-950 p-5 text-white">
-                      <p className="text-sm leading-7 text-slate-200">
-                        בלי עומס. בלי טקסטים מיותרים. אתר ברור שנראה טוב, עובד נכון במובייל ומוביל לפנייה.
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        <span className="rounded-full border border-white/10 px-3 py-2 text-xs font-bold text-white/80">
-                          אתר תדמית לעסק
-                        </span>
-                        <span className="rounded-full border border-white/10 px-3 py-2 text-xs font-bold text-white/80">
-                          דף נחיתה
-                        </span>
-                        <span className="rounded-full border border-white/10 px-3 py-2 text-xs font-bold text-white/80">
-                          בניית אתרים מקצועיים
-                        </span>
+                      <p className="text-xs font-extrabold tracking-[0.24em] text-white/50">איך נראה תהליך ראשון</p>
+                      <div className="mt-4 grid gap-3">
+                        {contactPromises.map((item, index) => (
+                          <div key={item} className="grid gap-2 rounded-[1.2rem] border border-white/10 bg-white/5 p-4">
+                            <div className="text-[11px] font-extrabold tracking-[0.24em] text-amber-200/80">0{index + 1}</div>
+                            <p className="text-sm leading-7 text-slate-200">{item}</p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>

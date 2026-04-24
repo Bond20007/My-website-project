@@ -185,21 +185,18 @@ export function LumaBistroPage() {
           <section id="gallery" className="section-space">
             <div className="container-shell">
               <div className="grid gap-5 lg:grid-cols-12">
-                <div className="lg:col-span-5">
+                <div className="grid gap-5 lg:col-span-4">
                   <div className="soft-rule pb-5">
                     <p className="text-xs font-bold tracking-[0.28em] text-amber-200/72">גלריה</p>
                     <h2 className="mt-3 max-w-md text-balance font-display text-4xl leading-[0.92] md:text-6xl">
-                      חלל, מטבח, צלחות, ואותו קצב שקט שמחזיק את כל הערב יחד.
+                      חלל, מטבח וצלחות שמרגישים כמו ערב אחד שלם. לא כמו אוסף תמונות.
                     </h2>
                   </div>
-                </div>
-                <div className="lg:col-span-7 grid gap-5 md:grid-cols-2">
-                  <div className="editorial-frame overflow-hidden rounded-[2rem] lg:md:col-span-2">
-                    <img
-                      src="/images/luma/bar-interior.png"
-                      alt="בר היין של Luma Bistro עם תאורה חמימה וכוסות ערב"
-                      className="h-[420px] w-full object-cover"
-                    />
+                  <div className="rounded-[2rem] border border-white/10 bg-[#0d0b0d] p-6">
+                    <p className="text-xs font-bold tracking-[0.28em] text-amber-200/72">הערת שף</p>
+                    <p className="mt-4 text-lg leading-9 text-stone-300">
+                      כל מנה צריכה להגיע לשולחן ברורה. טעם אחד מוביל, חומר גלם אחד שנשאר בזיכרון, והגשה שלא מנסה לצעוק.
+                    </p>
                   </div>
                   <div className="editorial-frame overflow-hidden rounded-[2rem]">
                     <img
@@ -208,12 +205,31 @@ export function LumaBistroPage() {
                       className="h-[320px] w-full object-cover"
                     />
                   </div>
+                </div>
+
+                <div className="lg:col-span-5">
+                  <div className="editorial-frame h-full overflow-hidden rounded-[2.2rem]">
+                    <img
+                      src="/images/luma/bar-interior.png"
+                      alt="בר היין של Luma Bistro עם תאורה חמימה וכוסות ערב"
+                      className="h-[640px] w-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid gap-5 lg:col-span-3">
                   <div className="editorial-frame overflow-hidden rounded-[2rem]">
                     <img
                       src="/images/luma/luma-chef-plating.webp"
                       alt="השף של Luma Bistro מסיים מנה במטבח הפתוח"
                       className="h-[320px] w-full object-cover"
                     />
+                  </div>
+                  <div className="rounded-[2rem] border border-amber-200/12 bg-amber-200/8 p-6">
+                    <p className="text-xs font-bold tracking-[0.28em] text-amber-200/72">ערב ב-Luma</p>
+                    <p className="mt-4 text-sm leading-7 text-stone-300">
+                      השולחנות נפתחים ב-18:30, המטבח עובד מול החלל, ובר היין נשאר פעיל עד השעה האחרונה של השירות.
+                    </p>
                   </div>
                 </div>
               </div>

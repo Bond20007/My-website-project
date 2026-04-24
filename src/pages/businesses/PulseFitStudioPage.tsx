@@ -187,15 +187,33 @@ export function PulseFitStudioPage() {
                     מאמנים שלא רק עומדים ליד. הם מחזיקים קצב, טכניקה וסטנדרט לכל קבוצה.
                   </h2>
                 </div>
-                {trainers.map(([name, role, description]) => (
-                  <div key={name} className="rounded-[1.9rem] border border-white/10 bg-white/5 p-6 backdrop-blur">
-                    <div className="flex items-center justify-between gap-4">
-                      <h3 className="font-tech text-3xl text-white">{name}</h3>
-                      <span className="text-xs font-extrabold tracking-[0.24em] text-lime-300/80">{role}</span>
+                <div className="pulse-cut rounded-[2rem] border border-lime-300/18 bg-[#111611] p-6 md:p-7">
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-extrabold tracking-[0.24em] text-lime-300/80">{trainers[0][1]}</p>
+                      <h3 className="mt-3 font-tech text-4xl text-white">{trainers[0][0]}</h3>
                     </div>
-                    <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
+                    <div className="rounded-[1rem] bg-lime-300/10 px-4 py-3 text-sm font-semibold text-lime-200">
+                      מובילה את קו הכוח והטכניקה
+                    </div>
                   </div>
-                ))}
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">{trainers[0][2]}</p>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  {trainers.slice(1).map(([name, role, description], index) => (
+                    <div
+                      key={name}
+                      className={`${index === 0 ? "pulse-cut-top" : "pulse-cut"} rounded-[1.9rem] border border-white/10 bg-white/5 p-6 backdrop-blur`}
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <h3 className="font-tech text-3xl text-white">{name}</h3>
+                        <span className="text-xs font-extrabold tracking-[0.24em] text-lime-300/80">{role}</span>
+                      </div>
+                      <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -238,16 +256,30 @@ export function PulseFitStudioPage() {
                   מסלולים ברורים, בלי טבלאות כבדות ובלי אותיות קטנות שמנסות להתחבא.
                 </h2>
               </div>
-              <div className="mt-8 grid gap-5 lg:grid-cols-3">
+              <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.2fr_0.9fr]">
                 {pricing.map(([title, price, label, description], index) => (
                   <div
                     key={title}
-                    className={`${index === 1 ? "border-lime-300/30 bg-lime-300/8" : "border-white/10 bg-white/5"} rounded-[2rem] border p-6 md:p-7`}
+                    className={`${
+                      index === 1
+                        ? "border-lime-300/30 bg-[linear-gradient(180deg,rgba(215,255,99,0.12),rgba(17,22,17,0.95))]"
+                        : "border-white/10 bg-white/5"
+                    } ${index === 0 ? "pulse-cut-top" : index === 2 ? "pulse-cut" : ""} rounded-[2rem] border p-6 md:p-7`}
                   >
-                    <p className="font-tech text-3xl font-bold text-white">{title}</p>
-                    <p className="mt-3 text-5xl font-bold text-lime-300">{price}</p>
-                    <p className="mt-4 text-sm font-semibold tracking-[0.22em] text-slate-400">{label}</p>
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-tech text-3xl font-bold text-white">{title}</p>
+                        <p className="mt-3 text-5xl font-bold text-lime-300">{price}</p>
+                      </div>
+                      <div className="text-right text-[11px] font-extrabold tracking-[0.24em] text-slate-400">
+                        {index === 1 ? "הכי נבחר" : "מסלול"}
+                      </div>
+                    </div>
+                    <p className="mt-5 text-sm font-semibold tracking-[0.22em] text-slate-400">{label}</p>
                     <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
+                    <div className="mt-6 text-sm font-bold text-white/78">
+                      {index === 0 ? "כניסה חזקה לשגרה" : index === 1 ? "למי שרוצה להתאמן קבוע" : "ליווי אישי מלא"}
+                    </div>
                   </div>
                 ))}
               </div>
