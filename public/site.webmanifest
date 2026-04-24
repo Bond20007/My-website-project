@@ -1,0 +1,15 @@
+{
+  "name": "Omer's",
+  "short_name": "Omer's",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1320",
+  "theme_color": "#0d1320",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0d1320;
+  --color-ink: #101826;
+  --color-sand: #f7f1e8;
+  --color-gold: #c59a65;
+  --color-lime: #d7ff63;
+  --color-blush: #f7e8e5;
+  --color-violet: #7d63ff;
+  --font-sans: "Assistant", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 bg-[#f5f4f0] text-slate-950 antialiased;
+    font-family: "Assistant", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  video {
+    @apply block max-w-full;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::selection {
+    @apply bg-amber-200/70 text-slate-950;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Fraunces", Georgia, serif;
+  }
+
+  .font-tech {
+    font-family: "Space Grotesk", "Manrope", ui-sans-serif, sans-serif;
+  }
+
+  .font-clean {
+    font-family: "Plus Jakarta Sans", "Manrope", ui-sans-serif, sans-serif;
+  }
+
+  .font-ui {
+    font-family: "Manrope", ui-sans-serif, sans-serif;
+  }
+
+  .container-shell {
+    width: min(1220px, calc(100% - 28px));
+    margin-inline: auto;
+  }
+
+  .glass-panel {
+    @apply border border-white/10 bg-white/70 backdrop-blur-xl;
+  }
+
+  .hero-shadow {
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  }
+
+  .section-space {
+    @apply py-24 md:py-32;
+  }
+
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 120px 120px;
+  }
+
+  .mesh-overlay {
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14), transparent 28%),
+      radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.08), transparent 26%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 42%);
+  }
+
+  .premium-outline {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+      0 25px 70px rgba(15, 23, 42, 0.14);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
