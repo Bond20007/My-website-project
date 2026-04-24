@@ -2,7 +2,9 @@ import { useMemo, useState } from "react";
 import { m } from "framer-motion";
 import {
   ArrowLeft,
+  BadgeCheck,
   ChevronLeft,
+  CircleDashed,
   MessageCircle,
   MonitorSmartphone,
   MoveUpRight,
@@ -42,14 +44,20 @@ const initialForm: ContactForm = {
 
 const studioBadges = ["אתרי תדמית", "דפי נחיתה", "SEO", "מובייל"] as const;
 
+const proofNotes = [
+  ["ברור תוך שניות", "הלקוח מבין מהר מי אתה, מה אתה עושה ולמה כדאי לפנות."],
+  ["נראה אמין", "לא עוד עמוד מרשים בלי כיוון, אלא אתר שמרגיש כמו עסק אמיתי."],
+  ["מייצר פנייה", "כפתורים, סדר ותוכן שעוזרים ללקוח להגיע להודעה ולא רק להסתכל."]
+] as const;
+
 const heroNotes = [
   {
-    title: "נראה כמו עסק קיים",
-    description: "לא עמוד שמרגיש מוכן מראש, אלא אתר עם קצב, טון ופרטים קטנים שמייצרים אמינות מהרגע הראשון."
+    title: "אני לא בונה עוד מסך יפה",
+    description: "אני בונה אתר שגורם ללקוח להבין מהר שהוא במקום הנכון, להרגיש ביטחון, ולדעת בדיוק איך פונים."
   },
   {
-    title: "מוביל לשיחה",
-    description: "הלקוח מבין מהר מה העסק עושה, למי זה מתאים, ואיפה משאירים פרטים בלי לחפש."
+    title: "המטרה היא פנייה",
+    description: "אם האתר רק מרשים אבל לא מוביל לשיחה, הוא נשאר תרגיל עיצוב. אני מחפש את הנקודה שבה המסר מתחיל לעבוד."
   }
 ] as const;
 
@@ -159,6 +167,17 @@ const contactPromises = [
   "שיחה קצרה כדי להבין מה העסק עושה באמת.",
   "כיוון ברור למבנה, לתוכן ולמסך הראשון.",
   "המלצה כנה גם אם צריך רק שדרוג נקודתי."
+] as const;
+
+const studioValues = [
+  {
+    title: "אתר טוב לא מנסה לדבר על הכול",
+    description: "הוא בוחר את מה שצריך להגיד, אומר את זה חד, ומשאיר את הלקוח עם תחושה ברורה במקום בלבול."
+  },
+  {
+    title: "אני מעדיף דיוק על פני רעש",
+    description: "פחות שכבות מיותרות, פחות מילים גדולות, יותר מבנה נכון, מובייל טוב ותוכן שנשמע כמו בן אדם."
+  }
 ] as const;
 
 function PreviewWindow({
@@ -348,183 +367,175 @@ export function HomePage() {
         </header>
 
         <main id="home">
-          <section className="section-space pb-16 md:pb-24">
-            <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-              <m.div initial="hidden" animate="show" variants={stagger} className="pt-3 lg:sticky lg:top-28">
-                <m.div
-                  variants={fadeUp}
-                  className="mb-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-extrabold tracking-[0.24em] text-slate-500 shadow-[0_14px_34px_rgba(15,23,42,0.05)]"
-                >
-                  <Sparkles className="h-4 w-4 text-amber-600" />
-                  סטודיו קטן. עבודה מדויקת. בלי לוק של תבנית.
-                </m.div>
-                <m.h1 variants={fadeUp} className="max-w-xl text-balance font-display text-5xl leading-[0.88] md:text-7xl">
-                  אני בונה אתרים שנראים טוב, נטענים מהר, ועוזרים לעסק להישמע ברור כבר מהמסך הראשון.
-                </m.h1>
-                <m.p variants={fadeUp} className="mt-6 max-w-xl text-lg leading-9 text-slate-600">
-                  אתר טוב לא צריך לעשות הצגה. הוא צריך להסביר מהר מה העסק עושה, לגרום ללקוח להבין למה
-                  כדאי לדבר איתך, ולהישאר חד גם במובייל. זה בדיוק סוג העבודה שאני אוהב לעשות.
-                </m.p>
-                <m.div variants={fadeUp} className="mt-7 flex flex-wrap gap-3">
-                  {studioBadges.map((badge) => (
-                    <span
-                      key={badge}
-                      className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-[0_10px_28px_rgba(15,23,42,0.04)]"
+          <section className="section-space pb-10 md:pb-16">
+            <div className="container-shell">
+              <div className="relative overflow-hidden rounded-[3rem] bg-[radial-gradient(circle_at_top_right,#ffffff_0%,#f5f1e9_38%,#ede6db_100%)] px-5 pb-8 pt-5 hero-slab md:px-8 md:pb-10 md:pt-7">
+                <div className="absolute inset-0 grain-panel opacity-60" />
+                <div className="absolute -left-16 top-28 h-56 w-56 rounded-full bg-white/45 blur-3xl" />
+                <div className="absolute -right-10 top-12 h-44 w-44 rounded-full bg-amber-200/35 blur-3xl" />
+
+                <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                  <m.div initial="hidden" animate="show" variants={stagger} className="pt-3">
+                    <m.div
+                      variants={fadeUp}
+                      className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-4 py-2 text-xs font-extrabold tracking-[0.24em] text-slate-500 shadow-[0_14px_34px_rgba(15,23,42,0.05)]"
                     >
-                      {badge}
-                    </span>
-                  ))}
-                </m.div>
-                <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
-                  <LinkButton href="#contact" className="gap-2">
-                    בוא נבנה אתר
-                    <ChevronLeft className="h-4 w-4" />
-                  </LinkButton>
-                  <LinkButton href="#work" variant="secondary" className="gap-2">
-                    צפה בעבודות
-                    <ArrowLeft className="h-4 w-4" />
-                  </LinkButton>
-                  <LinkButton href={WHATSAPP_URL} external variant="secondary" className="gap-2">
-                    שלח הודעה בוואטסאפ
-                    <MessageCircle className="h-4 w-4" />
-                  </LinkButton>
-                </m.div>
-                <m.div variants={fadeUp} className="mt-10 grid gap-4 md:grid-cols-[1.08fr_0.92fr]">
-                  <div className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-[0_18px_46px_rgba(15,23,42,0.06)]">
-                    <p className="text-xs font-extrabold tracking-[0.24em] text-slate-400">מה לקוח אמור להרגיש בדקה הראשונה</p>
-                    <p className="mt-4 max-w-xl text-lg leading-8 text-slate-700">
-                      שהוא מבין מהר מול מי הוא עומד, למה זה רלוונטי אליו, ושיש כאן עסק שמסודר גם במסר וגם בביצוע.
-                    </p>
-                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-[1.4rem] bg-[#f7f4ee] p-4">
-                        <p className="font-display text-3xl text-slate-950">חד</p>
-                        <p className="mt-2 text-sm leading-7 text-slate-600">כותרת ברורה, מסך ראשון לא עמוס ודרך קצרה ליצירת קשר.</p>
+                      <Sparkles className="h-4 w-4 text-amber-600" />
+                      סטודיו קטן. קו חד. אתרים שמביאים שיחה.
+                    </m.div>
+                    <m.h1 variants={fadeUp} className="max-w-[13ch] text-balance font-display text-6xl leading-[0.82] md:text-[6.2rem]">
+                      אני בונה אתרים שמביאים פניות. לא רק נראים טוב.
+                    </m.h1>
+                    <m.p variants={fadeUp} className="mt-6 max-w-2xl text-xl leading-9 text-slate-600 md:max-w-xl">
+                      לעסק טוב לא חסר עוד צבע. חסר לו אתר שמסביר מהר מה הוא עושה, נשמע אמין, עובד מצוין במובייל, וגורם
+                      ללקוח לרצות להשאיר הודעה בלי להתאמץ.
+                    </m.p>
+                    <m.div variants={fadeUp} className="mt-7 flex flex-wrap gap-3">
+                      {studioBadges.map((badge) => (
+                        <span key={badge} className="rounded-full border border-slate-200 bg-white/82 px-4 py-2 text-sm font-bold text-slate-700 shadow-[0_10px_28px_rgba(15,23,42,0.04)]">
+                          {badge}
+                        </span>
+                      ))}
+                    </m.div>
+                    <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
+                      <LinkButton href="#contact" className="gap-2">
+                        בוא נבנה אתר
+                        <ChevronLeft className="h-4 w-4" />
+                      </LinkButton>
+                      <LinkButton href="#work" variant="secondary" className="gap-2">
+                        צפה בעבודות
+                        <ArrowLeft className="h-4 w-4" />
+                      </LinkButton>
+                      <LinkButton href={WHATSAPP_URL} external variant="secondary" className="gap-2">
+                        שלח הודעה בוואטסאפ
+                        <MessageCircle className="h-4 w-4" />
+                      </LinkButton>
+                    </m.div>
+
+                    <m.div variants={fadeUp} className="mt-9 grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
+                      <div className="rounded-[2rem] bg-[#111318] px-5 py-5 text-white shadow-[0_26px_70px_rgba(15,23,42,0.16)]">
+                        <p className="text-xs font-extrabold tracking-[0.24em] text-white/45">הבטחה פשוטה</p>
+                        <p className="mt-4 max-w-lg font-display text-4xl leading-[1.02]">
+                          אתר שמסדר את המסר, בונה אמון מהר, ומייצר דרך קצרה לפנייה.
+                        </p>
+                        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                          {proofNotes.map(([title, description]) => (
+                            <div key={title} className="rounded-[1.2rem] border border-white/10 bg-white/6 p-4">
+                              <p className="text-sm font-extrabold tracking-[0.16em] text-amber-200">{title}</p>
+                              <p className="mt-2 text-sm leading-7 text-slate-200">{description}</p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <div className="rounded-[1.4rem] bg-[#f7f4ee] p-4">
-                        <p className="font-display text-3xl text-slate-950">יציב</p>
-                        <p className="mt-2 text-sm leading-7 text-slate-600">מובייל טוב, טעינה נקייה ותחושה של אתר שנבנה כדי לעבוד לאורך זמן.</p>
+
+                      <div className="grid gap-4">
+                        {heroNotes.map((item, index) => (
+                          <div
+                            key={item.title}
+                            className={`${index === 0 ? "soft-glass" : "bg-white/82"} rounded-[1.8rem] border border-slate-200 p-5 shadow-[0_16px_40px_rgba(15,23,42,0.05)]`}
+                          >
+                            <p className="text-sm font-extrabold tracking-[0.18em] text-slate-500">{item.title}</p>
+                            <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </m.div>
+                  </m.div>
+
+                  <m.div initial="hidden" animate="show" variants={punchIn} className="relative min-h-[640px] lg:min-h-[800px]">
+                    <div className="absolute inset-x-8 top-7 z-10 rounded-[1.6rem] soft-glass px-5 py-4">
+                      <div className="flex items-start justify-between gap-5">
+                        <div>
+                          <p className="text-xs font-extrabold tracking-[0.24em] text-slate-400">STUDIO WALL</p>
+                          <p className="mt-2 max-w-xs text-sm leading-7 text-slate-600">
+                            ארבע שפות עיצוב שונות. אותו עיקרון: לגרום לעסק להישמע ברור ולהרגיש אמין.
+                          </p>
+                        </div>
+                        <div className="rounded-full bg-slate-950 px-3 py-2 text-[11px] font-extrabold tracking-[0.22em] text-white">
+                          LIVE PREVIEWS
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="grid gap-4">
-                    {heroNotes.map((item) => (
-                      <div key={item.title} className="rounded-[1.8rem] border border-slate-200 bg-white/88 p-5 shadow-[0_16px_40px_rgba(15,23,42,0.05)]">
-                        <p className="text-sm font-extrabold tracking-[0.18em] text-slate-500">{item.title}</p>
-                        <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                    <div className="absolute right-0 top-24 z-0 h-[74%] w-[88%] rounded-[2.8rem] bg-[linear-gradient(155deg,#fbfaf6_0%,#eae3d8_56%,#f3eee6_100%)] thin-outline" />
+                    <div className="absolute left-2 top-40 h-[38%] w-[28%] rounded-[2rem] border border-white/60 bg-white/70 blur-sm" />
+
+                    <div className="relative h-full pt-28">
+                      <PreviewWindow
+                        title="Luma Bistro"
+                        subtitle="מסך פתיחה אלגנטי, תפריט ערב והזמנה פשוטה."
+                        image="/images/luma/luma-chef-plating.webp"
+                        metric="ערב / תפריט"
+                        accentClassName="bg-[#f8f2e8] text-amber-900"
+                        className="studio-orbit mr-auto w-[84%] md:w-[56%]"
+                      />
+                      <PreviewWindow
+                        title="PulseFit"
+                        subtitle="מערכת מסלולים חדה, תנועה חזקה ושיעור ניסיון ברור."
+                        image="/images/pulsefit/pulsefit-coach-session.webp"
+                        metric="ניסיון / CTA"
+                        accentClassName="bg-lime-100 text-lime-900"
+                        className="floating-medium -mt-5 mr-[18%] w-[80%] md:-mt-10 md:mr-[10%] md:w-[42%]"
+                      />
+                      <PreviewWindow
+                        title="Aura Clinic"
+                        subtitle="שקט, אוויר ומעבר עדין מפירוט הטיפול לקביעת תור."
+                        image="/images/aura/aura-consultation-room.webp"
+                        metric="אמון / ייעוץ"
+                        accentClassName="bg-rose-50 text-rose-700"
+                        className="floating-slow mt-2 mr-auto w-[74%] md:-mt-2 md:w-[42%]"
+                      />
+                      <PreviewWindow
+                        title="Nexora"
+                        subtitle="Dashboard, שכבות מידע ומסך מוצר שמרגיש אמיתי."
+                        image="/images/nexora/nexora-dashboard-analytics.webp"
+                        metric="Data / Product"
+                        accentClassName="bg-cyan-50 text-cyan-800"
+                        className="studio-orbit -mt-8 mr-[22%] w-[82%] md:-mt-12 md:mr-[28%] md:w-[55%]"
+                      />
+
+                      <div className="absolute bottom-10 left-6 rounded-[1.6rem] bg-[#111318] px-5 py-4 text-white shadow-[0_24px_60px_rgba(15,23,42,0.2)]">
+                        <div className="flex items-center gap-3">
+                          <CircleDashed className="h-4 w-4 text-amber-200" />
+                          <p className="text-xs font-extrabold tracking-[0.24em] text-white/48">לא אותו layout עם צבע אחר</p>
+                        </div>
+                        <p className="mt-3 max-w-[16rem] text-sm leading-6 text-slate-200">
+                          כל אתר מתחיל מהעסק עצמו. לא ממסגרת שכבר קיימת ומחכה לצבע חדש.
+                        </p>
+                      </div>
+                    </div>
+                  </m.div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="thinking" className="section-tight overlap-up relative z-10">
+            <div className="container-shell">
+              <div className="rounded-[2.8rem] bg-white px-6 py-8 shadow-[0_26px_80px_rgba(15,23,42,0.08)] md:px-8 md:py-10">
+                <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
+                  <div>
+                    <p className="text-xs font-extrabold tracking-[0.28em] text-slate-400">איך אני חושב על אתר טוב</p>
+                    <h2 className="mt-4 max-w-lg text-balance font-display text-5xl leading-[0.88] md:text-[4.6rem]">
+                      אתר לא צריך להיות מלא. הוא צריך להיות חד, רגוע, ומשכנע.
+                    </h2>
+                  </div>
+                  <div className="grid gap-6">
+                    {thinkingPoints.map((point, index) => (
+                      <div key={point} className={`${index < thinkingPoints.length - 1 ? "soft-rule" : ""} pb-6`}>
+                        <p className="max-w-3xl text-xl leading-9 text-slate-700">{point}</p>
                       </div>
                     ))}
                   </div>
-                </m.div>
-              </m.div>
-
-              <m.div initial="hidden" animate="show" variants={punchIn} className="relative min-h-[620px] lg:min-h-[760px]">
-                <div className="absolute inset-0 rounded-[2.6rem] bg-[linear-gradient(140deg,#fbfaf6_0%,#ece7de_45%,#f4efe8_100%)] thin-outline" />
-                <div className="absolute inset-0 rounded-[2.6rem] grain-panel opacity-80" />
-
-                <div className="relative h-full p-5 md:p-7">
-                  <PreviewWindow
-                    title="Luma Bistro"
-                    subtitle="שפה כהה, מינימליזם יוקרתי ואווירת ערב מדויקת."
-                    image="/images/luma/luma-chef-plating.webp"
-                    metric="תפריט / הזמנות"
-                    accentClassName="bg-[#f8f2e8] text-amber-900"
-                    className="floating-slow mr-auto mt-2 w-[82%] md:w-[58%]"
-                  />
-                  <PreviewWindow
-                    title="PulseFit"
-                    subtitle="סטודיו חד, צעיר ומהיר עם תנועה ואנרגיה."
-                    image="/images/pulsefit/pulsefit-coach-session.webp"
-                    metric="ניסיון / מסלולים"
-                    accentClassName="bg-lime-100 text-lime-900"
-                    className="floating-medium -mt-4 mr-[16%] w-[78%] md:-mt-6 md:mr-[8%] md:w-[46%]"
-                  />
-                  <PreviewWindow
-                    title="Aura Clinic"
-                    subtitle="שקט, ניקיון ואמון בלי עומס ויזואלי מיותר."
-                    image="/images/aura/aura-consultation-room.webp"
-                    metric="טיפולים / ייעוץ"
-                    accentClassName="bg-rose-50 text-rose-700"
-                    className="floating-slow -mt-2 mr-0 w-[76%] md:mr-auto md:w-[44%]"
-                  />
-                  <PreviewWindow
-                    title="Nexora"
-                    subtitle="מוצר טכנולוגי עם מסכים, גרפים ומבנה מוצר אמיתי."
-                    image="/images/nexora/nexora-dashboard-analytics.webp"
-                    metric="Dashboard / Pricing"
-                    accentClassName="bg-cyan-50 text-cyan-800"
-                    className="floating-medium -mt-5 mr-[18%] w-[80%] md:-mt-8 md:mr-[24%] md:w-[54%]"
-                  />
-                  <div className="absolute left-6 top-6 rounded-full border border-black/5 bg-white/80 px-4 py-2 text-xs font-bold tracking-[0.24em] text-slate-500 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
-                    PREVIEW WALL
-                  </div>
-                  <div className="absolute bottom-7 left-7 rounded-[1.6rem] border border-white/90 bg-white/80 px-5 py-4 shadow-[0_18px_44px_rgba(15,23,42,0.08)] backdrop-blur">
-                    <p className="text-xs font-extrabold tracking-[0.24em] text-slate-400">STUDIO NOTE</p>
-                    <p className="mt-2 max-w-[14rem] text-sm leading-6 text-slate-600">
-                      כל אתר בנוי אחרת. לא אותה מסגרת עם צבעים אחרים.
-                    </p>
-                  </div>
                 </div>
-              </m.div>
-            </div>
-          </section>
-
-          <section id="thinking" className="section-tight border-y border-black/5 bg-white/70">
-            <div className="container-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-              <div>
-                <p className="text-xs font-extrabold tracking-[0.28em] text-slate-400">איך אני חושב על אתר טוב</p>
-                <h2 className="mt-4 max-w-lg text-balance font-display text-4xl leading-[0.92] md:text-6xl">
-                  אתר לא צריך להיות מלא. הוא צריך להיות חד.
-                </h2>
-              </div>
-              <div className="grid gap-6">
-                {thinkingPoints.map((point) => (
-                  <div key={point} className="soft-rule pb-6">
-                    <p className="max-w-3xl text-lg leading-9 text-slate-700">{point}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="section-tight bg-[#17181b] text-white">
-            <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-              <div>
-                <p className="text-xs font-extrabold tracking-[0.28em] text-amber-200/75">אתר יפה זה לא מספיק</p>
-                <h2 className="mt-4 max-w-md text-balance font-display text-4xl leading-[0.92] md:text-6xl">
-                  אם הלקוח לא מבין, לא סומך, ולא יודע מה לעשות עכשיו, העיצוב לא באמת עשה את העבודה.
-                </h2>
-              </div>
-              <div className="grid gap-5">
-                <div className="grid gap-5 md:grid-cols-2">
-                  {beautyContrast.map((column, index) => (
-                    <div
-                      key={column.title}
-                      className={`${index === 0 ? "bg-white/6" : "bg-amber-200/10"} rounded-[2rem] border border-white/10 p-6`}
-                    >
-                      <h3 className="font-display text-3xl text-white">{column.title}</h3>
-                      <div className="mt-5 grid gap-3">
-                        {column.points.map((point) => (
-                          <p key={point} className="text-sm leading-7 text-slate-300">
-                            {point}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="grid gap-6">
-                  {beautyVsBusiness.map((item) => (
-                    <div key={item.title} className="soft-rule pb-6">
-                      <div className="flex items-start gap-4">
-                        <div className="pt-1 text-amber-200">
-                          {item.title === "נראות" ? <Star className="h-5 w-5" /> : null}
-                          {item.title === "הבנה" ? <Search className="h-5 w-5" /> : null}
-                          {item.title === "אמון" ? <ShieldCheck className="h-5 w-5" /> : null}
-                        </div>
+                <div className="mt-8 grid gap-5 lg:grid-cols-2">
+                  {studioValues.map((item) => (
+                    <div key={item.title} className="rounded-[2rem] bg-[#f6f2eb] p-6">
+                      <div className="flex items-start gap-3">
+                        <BadgeCheck className="mt-1 h-5 w-5 text-amber-700" />
                         <div>
-                          <h3 className="font-display text-3xl text-white">{item.title}</h3>
-                          <p className="mt-3 max-w-2xl text-base leading-8 text-slate-300">{item.description}</p>
+                          <h3 className="font-display text-3xl text-slate-950">{item.title}</h3>
+                          <p className="mt-3 text-base leading-8 text-slate-600">{item.description}</p>
                         </div>
                       </div>
                     </div>
@@ -534,13 +545,62 @@ export function HomePage() {
             </div>
           </section>
 
-          <section id="work" className="section-space">
+          <section className="section-tight overlap-up bg-transparent text-white">
+            <div className="container-shell rounded-[2.9rem] bg-[#17181b] px-6 py-10 shadow-[0_30px_90px_rgba(15,23,42,0.16)] md:px-8 md:py-12">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+                <div>
+                  <p className="text-xs font-extrabold tracking-[0.28em] text-amber-200/75">אתר יפה זה לא מספיק</p>
+                  <h2 className="mt-4 max-w-md text-balance font-display text-5xl leading-[0.88] md:text-[4.5rem]">
+                    אם הלקוח לא מבין, לא סומך, ולא יודע מה לעשות עכשיו, העיצוב לא באמת עשה את העבודה.
+                  </h2>
+                </div>
+                <div className="grid gap-5">
+                  <div className="grid gap-5 md:grid-cols-2">
+                    {beautyContrast.map((column, index) => (
+                      <div
+                        key={column.title}
+                        className={`${index === 0 ? "bg-white/6" : "bg-amber-200/10"} rounded-[2rem] border border-white/10 p-6`}
+                      >
+                        <h3 className="font-display text-3xl text-white">{column.title}</h3>
+                        <div className="mt-5 grid gap-3">
+                          {column.points.map((point) => (
+                            <p key={point} className="text-sm leading-7 text-slate-300">
+                              {point}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="grid gap-6">
+                    {beautyVsBusiness.map((item) => (
+                      <div key={item.title} className="soft-rule pb-6">
+                        <div className="flex items-start gap-4">
+                          <div className="pt-1 text-amber-200">
+                            {item.title === "נראות" ? <Star className="h-5 w-5" /> : null}
+                            {item.title === "הבנה" ? <Search className="h-5 w-5" /> : null}
+                            {item.title === "אמון" ? <ShieldCheck className="h-5 w-5" /> : null}
+                          </div>
+                          <div>
+                            <h3 className="font-display text-3xl text-white">{item.title}</h3>
+                            <p className="mt-3 max-w-2xl text-base leading-8 text-slate-300">{item.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="work" className="section-space overlap-deep relative z-10">
             <div className="container-shell">
               <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="text-xs font-extrabold tracking-[0.28em] text-slate-400">עבודות</p>
-                  <h2 className="mt-3 max-w-2xl text-balance font-display text-4xl leading-[0.92] md:text-6xl">
-                    בלי גריד אחיד. בלי ארבעה כרטיסים זהים. כל אתר מקבל פרופורציה משלו.
+                  <h2 className="mt-3 max-w-2xl text-balance font-display text-5xl leading-[0.88] md:text-[4.7rem]">
+                    כל עבודה כאן בנויה כמו עסק אחר. לא כמו אותה תבנית עם טון אחר.
                   </h2>
                 </div>
                 <p className="max-w-md text-base leading-8 text-slate-600">
@@ -607,24 +667,26 @@ export function HomePage() {
             </div>
           </section>
 
-          <section id="process" className="section-tight border-y border-black/5 bg-white/70">
-            <div className="container-shell grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
-              <div>
-                <p className="text-xs font-extrabold tracking-[0.28em] text-slate-400">תהליך עבודה</p>
-                <h2 className="mt-4 max-w-md text-balance font-display text-4xl leading-[0.92] md:text-6xl">
-                  תהליך קצר, ישיר, ובלי שלבים שמרגישים בירוקרטיים.
-                </h2>
-              </div>
-              <div className="grid gap-8">
-                {processFlow.map(([title, description], index) => (
-                  <div key={title} className="grid gap-4 border-b border-slate-200 pb-8 md:grid-cols-[86px_1fr]">
-                    <div className="sidebar-number font-display text-slate-200">{String(index + 1).padStart(2, "0")}</div>
-                    <div>
-                      <h3 className="font-display text-3xl text-slate-950">{title}</h3>
-                      <p className="mt-3 max-w-2xl text-base leading-8 text-slate-600">{description}</p>
+          <section id="process" className="section-tight">
+            <div className="container-shell rounded-[2.8rem] border border-black/5 bg-white/72 px-6 py-8 shadow-[0_24px_70px_rgba(15,23,42,0.07)] md:px-8 md:py-10">
+              <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+                <div>
+                  <p className="text-xs font-extrabold tracking-[0.28em] text-slate-400">תהליך עבודה</p>
+                  <h2 className="mt-4 max-w-md text-balance font-display text-5xl leading-[0.88] md:text-[4.2rem]">
+                    תהליך קצר, ישיר, ובלי שלבים שמרגישים בירוקרטיים.
+                  </h2>
+                </div>
+                <div className="grid gap-8">
+                  {processFlow.map(([title, description], index) => (
+                    <div key={title} className="grid gap-4 border-b border-slate-200 pb-8 md:grid-cols-[86px_1fr]">
+                      <div className="sidebar-number font-display text-slate-200">{String(index + 1).padStart(2, "0")}</div>
+                      <div>
+                        <h3 className="font-display text-3xl text-slate-950">{title}</h3>
+                        <p className="mt-3 max-w-2xl text-base leading-8 text-slate-600">{description}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </section>

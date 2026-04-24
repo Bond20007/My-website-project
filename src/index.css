@@ -186,6 +186,59 @@
     box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08) inset;
   }
 
+  .soft-glass {
+    background: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(22px);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.56) inset,
+      0 24px 60px rgba(15, 23, 42, 0.08);
+  }
+
+  .hero-slab {
+    box-shadow:
+      0 0 0 1px rgba(15, 23, 42, 0.06) inset,
+      0 45px 90px rgba(15, 23, 42, 0.12);
+  }
+
+  .overlap-up {
+    margin-top: -3.5rem;
+  }
+
+  .overlap-deep {
+    margin-top: -6rem;
+  }
+
+  .quiet-line {
+    position: relative;
+  }
+
+  .quiet-line::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.85rem;
+    width: 3rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), transparent);
+  }
+
+  .angled-panel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .angled-panel::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: -18%;
+    top: -20%;
+    width: 65%;
+    height: 145%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+    transform: rotate(13deg);
+    pointer-events: none;
+  }
+
   .mobile-nav {
     @apply flex gap-2 overflow-x-auto pb-1;
     scrollbar-width: none;
@@ -211,6 +264,22 @@
     box-shadow:
       0 0 0 1px rgba(103, 232, 249, 0.15) inset,
       0 22px 60px rgba(37, 99, 235, 0.22);
+  }
+
+  .studio-orbit {
+    animation: studioOrbit 11s ease-in-out infinite;
+  }
+
+  .luma-rise {
+    animation: lumaRise 8.5s ease-in-out infinite;
+  }
+
+  .aura-float {
+    animation: auraFloat 9s ease-in-out infinite;
+  }
+
+  .data-drift {
+    animation: dataDrift 7.2s ease-in-out infinite;
   }
 
   .grain-panel {
@@ -244,5 +313,52 @@
   }
   50% {
     transform: translate3d(0px, -8px, 0px);
+  }
+}
+
+@keyframes studioOrbit {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(-1deg);
+  }
+}
+
+@keyframes lumaRise {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.01);
+  }
+}
+
+@keyframes auraFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0);
+  }
+}
+
+@keyframes dataDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+@media (max-width: 767px) {
+  .overlap-up,
+  .overlap-deep {
+    margin-top: 0;
   }
 }

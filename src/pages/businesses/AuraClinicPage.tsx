@@ -86,12 +86,12 @@ export function AuraClinicPage() {
         </header>
 
         <main id="home">
-          <section className="section-space pb-14 md:pb-20">
+          <section className="section-space pb-12 md:pb-16">
             <div className="container-shell grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
               <div className="grid gap-6">
                 <p className="text-xs font-extrabold tracking-[0.3em] text-rose-400">אסתטיקה מדויקת / שקט / אמון</p>
-                <h1 className="max-w-lg text-balance font-display text-5xl leading-[0.9] md:text-7xl">
-                  טיפול טוב מתחיל בהסבר נכון, ממשיך בקו עדין, ונגמר בתוצאה שלא צועקת את עצמה.
+                <h1 className="max-w-[12ch] text-balance font-display text-6xl leading-[0.84] md:text-[6rem]">
+                  טיפול טוב מתחיל ברוגע. לא בלחץ, ולא בהבטחות גדולות.
                 </h1>
                 <p className="max-w-xl text-lg leading-9 text-slate-600">
                   Aura Clinic בנויה לנשים שמחפשות קליניקה אסתטית רגועה, נקייה ולא מתאמצת. שיחת ייעוץ
@@ -108,7 +108,7 @@ export function AuraClinicPage() {
               </div>
 
               <div className="grid gap-5 md:grid-cols-[0.95fr_1.05fr]">
-                <div className="rounded-[2.2rem] border border-white bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
+                <div className="aura-float rounded-[2.2rem] border border-white bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
                   <img
                     src="/images/aura-clinic-hero.png"
                     alt="חדר טיפולים של Aura Clinic עם תאורה רכה ועיצוב נקי"
@@ -116,7 +116,7 @@ export function AuraClinicPage() {
                   />
                 </div>
                 <div className="grid gap-5">
-                  <div className="rounded-[2.2rem] border border-white bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
+                  <div className="aura-float rounded-[2.2rem] border border-white bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
                     <img
                       src="/images/aura/aura-consultation-room.webp"
                       alt="פגישת ייעוץ פרטית ב־Aura Clinic עם אשת צוות ומטופלת"
@@ -135,12 +135,13 @@ export function AuraClinicPage() {
             </div>
           </section>
 
-          <section id="treatments" className="section-tight border-y border-rose-100 bg-white/70">
-            <div className="container-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <section id="treatments" className="section-tight overlap-up relative z-10 bg-transparent">
+            <div className="container-shell rounded-[2.8rem] border border-rose-100/80 bg-white/84 px-6 py-10 shadow-[0_24px_70px_rgba(15,23,42,0.05)] md:px-8 md:py-12">
+              <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
               <div>
                 <p className="text-xs font-extrabold tracking-[0.28em] text-rose-400">טיפולים</p>
-                <h2 className="mt-4 max-w-md text-balance font-display text-4xl leading-[0.92] md:text-6xl">
-                  כל טיפול מוצג בפשטות, בלי הבטחות מוגזמות ובלי שפה שמסתירה מידע.
+                <h2 className="mt-4 max-w-md text-balance font-display text-5xl leading-[0.86] md:text-[4.7rem]">
+                  כל טיפול מוסבר בפשטות. בלי לנסות להפעיל לחץ.
                 </h2>
               </div>
               <div className="grid gap-0">
@@ -153,6 +154,7 @@ export function AuraClinicPage() {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           </section>
 

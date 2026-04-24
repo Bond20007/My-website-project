@@ -78,12 +78,12 @@ export function PulseFitStudioPage() {
         </header>
 
         <main id="home">
-          <section className="section-space pb-14 md:pb-20">
+          <section className="section-space pb-10 md:pb-14">
             <div className="container-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div className="grid gap-6">
                 <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">כוח / קצב / מסגרת</p>
-                <h1 className="max-w-lg text-balance font-tech text-5xl leading-[0.88] md:text-7xl">
-                  סטודיו למי שלא מחפש להעביר שעה. הוא מחפש להתאמן חזק, קבוע, ובצורה שעושה סדר.
+                <h1 className="max-w-[11ch] text-balance font-tech text-6xl leading-[0.8] md:text-[6.3rem]">
+                  כאן לא באים להעביר שעה. באים לעבוד חזק, ברור, וקבוע.
                 </h1>
                 <p className="max-w-xl text-lg leading-9 text-slate-300">
                   PulseFit Studio בנוי לאנשים שרוצים מערכת. אימונים חדים, מאמנים שמחזיקים סטנדרט,
@@ -106,7 +106,7 @@ export function PulseFitStudioPage() {
                     ["92%", "התמדה לאורך זמן"]
                   ].map(([value, label]) => (
                     <div key={label} className="soft-rule border-b border-white/10 pb-5">
-                      <div className="font-tech text-5xl font-bold text-lime-300">{value}</div>
+                      <div className="font-tech text-6xl font-bold leading-none text-lime-300 md:text-7xl">{value}</div>
                       <p className="mt-2 text-sm leading-7 text-slate-300">{label}</p>
                     </div>
                   ))}
@@ -114,7 +114,7 @@ export function PulseFitStudioPage() {
               </div>
 
               <div className="relative">
-                <div className="pulse-cut overflow-hidden rounded-[2.6rem] border border-lime-300/20 bg-[#0c100c] shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
+                <div className="angled-panel pulse-cut overflow-hidden rounded-[2.6rem] border border-lime-300/20 bg-[#0c100c] shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
                   <img
                     src="/images/pulsefit-hero.png"
                     alt="חלל האימונים של PulseFit Studio עם דשא, ציוד כוח ותאורה חדה"
@@ -142,13 +142,14 @@ export function PulseFitStudioPage() {
             </div>
           </section>
 
-          <section id="programs" className="section-space bg-[#0b0f0b]">
+          <section id="programs" className="section-space overlap-up relative z-10 bg-transparent">
             <div className="container-shell">
+              <div className="rounded-[2.8rem] bg-[#0b0f0b] px-6 py-8 shadow-[0_30px_90px_rgba(0,0,0,0.2)] md:px-8 md:py-10">
               <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
                 <div>
                   <p className="text-xs font-extrabold tracking-[0.28em] text-lime-300/80">תוכניות אימון</p>
-                  <h2 className="mt-4 max-w-md text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
-                    שלוש תוכניות. לא עוד עמוד מחירים שמנסה להגיד הכול בבת אחת.
+                  <h2 className="mt-4 max-w-md text-balance font-tech text-5xl leading-[0.84] md:text-[4.9rem]">
+                    שלוש תוכניות. שלושה קצבים. בלי קשקוש סביב זה.
                   </h2>
                 </div>
                 <div className="grid gap-5">
@@ -167,6 +168,7 @@ export function PulseFitStudioPage() {
                     </div>
                   ))}
                 </div>
+              </div>
               </div>
             </div>
           </section>

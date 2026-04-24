@@ -94,12 +94,12 @@ export function NexoraPage() {
         </header>
 
         <main id="home">
-          <section className="section-space pb-14 md:pb-20">
+          <section className="section-space pb-10 md:pb-14">
             <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div className="grid gap-6">
                 <p className="text-xs font-extrabold tracking-[0.3em] text-cyan-300/80">אוטומציה / תפעול / בקרה</p>
-                <h1 className="max-w-xl text-balance font-tech text-5xl leading-[0.88] md:text-7xl">
-                  מערכת אחת שמרכזת תהליכים, מעקב, התראות והחלטות יומיומיות בלי לפזר את העבודה בין חמישה כלים.
+                <h1 className="max-w-[11ch] text-balance font-tech text-6xl leading-[0.8] md:text-[6.1rem]">
+                  מערכת אחת שמסדרת תפעול, מעקב והחלטות בלי לפזר עבודה בין חמישה כלים.
                 </h1>
                 <p className="max-w-xl text-lg leading-9 text-slate-300">
                   Nexora מיועדת לצוותי תפעול, תמיכה וצמיחה שצריכים פלטפורמת אוטומציה בעברית עם דשבורד ברור,
@@ -120,7 +120,7 @@ export function NexoraPage() {
                     ["120+", "פעולות מחוברות"]
                   ].map(([value, label]) => (
                     <div key={label} className="soft-rule border-b border-white/10 pb-5">
-                      <div className="font-tech text-4xl font-bold text-cyan-300">{value}</div>
+                      <div className="font-tech text-5xl font-bold leading-none text-cyan-300 md:text-6xl">{value}</div>
                       <p className="mt-2 text-sm leading-7 text-slate-300">{label}</p>
                     </div>
                   ))}
@@ -145,7 +145,7 @@ export function NexoraPage() {
                       <m.div
                         animate={{ y: [0, -6, 0] }}
                         transition={{ duration: 4.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                        className="rounded-[1.6rem] border border-white/8 bg-white/5 p-4"
+                        className="data-drift rounded-[1.6rem] border border-white/8 bg-white/5 p-4"
                       >
                         <div className="flex items-center justify-between">
                           <p className="text-sm font-semibold text-slate-200">Operational throughput</p>
@@ -162,7 +162,7 @@ export function NexoraPage() {
                         <m.div
                           animate={{ y: [0, 8, 0] }}
                           transition={{ duration: 5.4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                          className="rounded-[1.6rem] border border-white/8 bg-white/5 p-4"
+                          className="data-drift rounded-[1.6rem] border border-white/8 bg-white/5 p-4"
                         >
                           <p className="text-sm font-semibold text-slate-200">Queue health</p>
                           <div className="mt-4 grid gap-3">
@@ -184,7 +184,7 @@ export function NexoraPage() {
                         <m.div
                           animate={{ y: [0, -7, 0] }}
                           transition={{ duration: 4.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                          className="rounded-[1.6rem] border border-white/8 bg-[#0c1323] p-4"
+                          className="data-drift rounded-[1.6rem] border border-white/8 bg-[#0c1323] p-4"
                         >
                           <p className="text-sm font-semibold text-slate-200">Workflow map</p>
                           <div className="mt-4 flex items-center justify-between gap-3">
@@ -206,12 +206,13 @@ export function NexoraPage() {
             </div>
           </section>
 
-          <section id="features" className="section-tight border-y border-white/10 bg-white/4">
-            <div className="container-shell grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+          <section id="features" className="section-tight overlap-up relative z-10 bg-transparent">
+            <div className="container-shell rounded-[2.8rem] border border-cyan-400/12 bg-[linear-gradient(180deg,rgba(9,17,30,0.98),rgba(8,14,25,0.95))] px-6 py-10 shadow-[0_30px_90px_rgba(0,0,0,0.24)] md:px-8 md:py-12">
+              <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
               <div>
                 <p className="text-xs font-extrabold tracking-[0.28em] text-cyan-300/80">יכולות</p>
-                <h2 className="mt-4 max-w-md text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
-                  לא עוד רשימת features. שלוש יכולות שבאמת מספרות מה המוצר עושה.
+                <h2 className="mt-4 max-w-md text-balance font-tech text-5xl leading-[0.84] md:text-[4.6rem]">
+                  לא עוד רשימת features. יכולות שמרגישות כמו מערכת חיה.
                 </h2>
               </div>
               <div className="grid gap-5">
@@ -250,6 +251,7 @@ export function NexoraPage() {
                   ))}
                 </div>
               </div>
+            </div>
             </div>
           </section>
 

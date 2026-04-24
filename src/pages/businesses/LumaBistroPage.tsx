@@ -94,26 +94,26 @@ export function LumaBistroPage() {
         </header>
 
         <main id="home">
-          <section className="pb-10 pt-6 md:pb-14 md:pt-8">
+          <section className="pb-8 pt-6 md:pb-10 md:pt-8">
             <div className="container-shell">
               <div className="editorial-frame overflow-hidden rounded-[2.8rem] border border-white/10">
                 <img
                   src="/images/luma-bistro-hero.png"
                   alt="חלל הערב של Luma Bistro עם שולחן ערוך, אור חם ואווירת מסעדת שף"
-                  className="h-[72vh] min-h-[520px] w-full object-cover"
+                  className="luma-rise h-[78vh] min-h-[560px] w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-                <div className="absolute inset-x-7 bottom-7 grid gap-6 md:inset-x-10 md:bottom-10 md:grid-cols-[0.9fr_1.1fr] md:items-end">
-                  <div className="max-w-md">
+                <div className="absolute inset-x-7 bottom-7 grid gap-6 md:inset-x-10 md:bottom-10 md:grid-cols-[1fr_0.8fr] md:items-end">
+                  <div className="max-w-xl">
                     <p className="text-xs font-bold tracking-[0.3em] text-amber-200/80">מסעדת שף / תל אביב</p>
-                    <h1 className="mt-4 text-balance font-display text-5xl leading-[0.88] md:text-7xl">
-                      ערב מדויק, צלחות שקטות, ואירוח שלא צריך להרים את הקול כדי להרשים.
+                    <h1 className="mt-4 text-balance font-display text-6xl leading-[0.8] md:text-[6.5rem]">
+                      ערב מדויק. שולחנות שקטים. מטבח שלא צריך להסביר את עצמו.
                     </h1>
                   </div>
-                  <div className="mr-auto max-w-xl rounded-[1.8rem] border border-white/10 bg-black/35 p-6 backdrop-blur md:p-7">
+                  <div className="mr-auto max-w-lg rounded-[1.8rem] border border-white/10 bg-black/28 p-6 backdrop-blur md:p-7">
                     <p className="text-lg leading-9 text-stone-100">
                       Luma Bistro היא מסעדת שף אורבנית בתל אביב. המקום בנוי לערבים ארוכים, תפריט עונתי,
-                      שירות רגוע ואנשים שמחפשים מסעדה יקרה בלי תחושת הצגה.
+                      שירות רגוע ואנשים שמעדיפים דיוק על פני רעש.
                     </p>
                     <div className="mt-6 flex flex-wrap gap-3">
                       <LinkButton href="#reservation" className="bg-amber-200 text-slate-950">
@@ -129,12 +129,13 @@ export function LumaBistroPage() {
             </div>
           </section>
 
-          <section id="story" className="section-tight">
-            <div className="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          <section id="story" className="section-tight overlap-up relative z-10">
+            <div className="container-shell rounded-[2.7rem] bg-[#070607] px-6 py-10 shadow-[0_28px_90px_rgba(0,0,0,0.24)] md:px-8 md:py-12">
+              <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
               <div className="border-b border-white/10 pb-8 lg:border-b-0 lg:border-l lg:border-white/10 lg:pb-0 lg:pl-10">
                 <p className="text-xs font-bold tracking-[0.28em] text-amber-200/72">על המסעדה</p>
-                <h2 className="mt-4 max-w-md text-balance font-display text-4xl leading-[0.92] md:text-6xl">
-                  מקום שנועד לדייטים, שולחנות קבועים וערבים עסקיים שלא מרגישים רשמיים.
+                <h2 className="mt-4 max-w-md text-balance font-display text-5xl leading-[0.86] md:text-[4.7rem]">
+                  מקום שנועד לערב אחד טוב. לא לעוד רעש.
                 </h2>
               </div>
               <div className="grid gap-8">
@@ -144,6 +145,7 @@ export function LumaBistroPage() {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           </section>
 
@@ -263,17 +265,13 @@ export function LumaBistroPage() {
                   יש מקומות שנשענים על רעש. כאן הכול בנוי על דיוק. המטבח פתוח, השירות רך, והחלל מרגיש כמו
                   מקום שאפשר להישאר בו עד סוף הערב בלי להרגיש שממהרים להזיז אותך.
                 </p>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {[
-                    "אירוח זוגי, שולחנות קבועים וערבים פרטיים קטנים.",
-                    "תפריט טעימות שמוגש בקצב איטי ומתאים ליין.",
-                    "חדר פרטי עד 14 אורחים בהזמנה מראש.",
-                    "מענה אנושי להזמנות, אירוח עסקי ובקשות מיוחדות."
-                  ].map((item) => (
-                    <div key={item} className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 text-sm leading-7 text-stone-200">
-                      {item}
-                    </div>
-                  ))}
+                <div className="grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
+                  <div className="rounded-[1.8rem] border border-white/10 bg-white/5 p-6 text-sm leading-8 text-stone-200">
+                    אירוח זוגי, שולחנות קבועים, ערבי טעימות ואירוח עסקי קטן. הכול מתואם מראש, בלי עומס ובלי מסלול מסורבל.
+                  </div>
+                  <div className="rounded-[1.8rem] border border-amber-200/14 bg-amber-200/8 p-6 text-sm leading-8 text-stone-200">
+                    אם יש בקשה מיוחדת, יין מועדף או צורך באירוח פרטי, מדברים איתנו ישירות ומסדרים את זה אנושית.
+                  </div>
                 </div>
               </div>
             </div>
