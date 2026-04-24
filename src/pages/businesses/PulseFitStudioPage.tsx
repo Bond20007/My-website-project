@@ -1,20 +1,18 @@
 import { m } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
-import { Dumbbell, TrendingUp, Zap } from "lucide-react";
+import { ArrowLeft, ChevronLeft } from "lucide-react";
 import { LinkButton } from "../../components/common/Button";
 import { PulseFitLogo } from "../../components/common/BrandLogos";
 import { Seo } from "../../components/seo/Seo";
 import { SITE_URL } from "../../data/site";
-import { fadeUp, stagger } from "../../lib/motion";
 
 const pulseSchema = {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
   name: "PulseFit Studio",
   url: `${SITE_URL}/work/pulsefit-studio`,
-  image: `${SITE_URL}/images/pulsefit-hero.png`,
+  image: `${SITE_URL}/images/pulsefit/pulsefit-coach-session.webp`,
   description:
-    "PulseFit Studio הוא סטודיו לאימונים בתל אביב עם תוכניות כוח, מאמנים מובילים וחוויית הצטרפות חדה וברורה.",
+    "PulseFit Studio הוא סטודיו כושר בתל אביב עם מסלולי אימון, צוות מאמנים, שיעור ניסיון ומבנה הצטרפות חד וברור.",
   telephone: "+972-3-555-9088",
   address: {
     "@type": "PostalAddress",
@@ -24,41 +22,41 @@ const pulseSchema = {
   }
 };
 
-const heroHighlights: Array<{ icon: LucideIcon; label: string }> = [
-  { icon: Dumbbell, label: "תוכניות כוח ממוקדות" },
-  { icon: Zap, label: "בלוקים של קצב והתניה" },
-  { icon: TrendingUp, label: "מעקב תוצאות אמיתי" }
-];
-
-const memberReasons = [
-  ["לא למי שמחפש להעביר שעה", "הסטודיו נבנה למי שרוצה שיטה, מסגרת ותחושה שהאימון באמת דוחף אותו קדימה."],
-  ["אימון עם סטנדרט ברור", "המאמנים שומרים על קצב, דיוק ועומס נכון, בלי לזרוק מתאמנים לתוך רעש מיותר."],
-  ["ממשק הצטרפות חד", "גם האתר וגם חוויית ההצטרפות נבנו כך שהשלב הבא יהיה ברור, מהיר ומשכנע."]
+const programs = [
+  ["01", "STRONG", "כוח, יסודות ותנועה למי שרוצה להיכנס לשגרה רצינית בלי לבזבז חודשים על חיפוש כיוון."],
+  ["02", "HYBRID", "שילוב של כוח, קצב ועבודה מטבולית למי שרוצה גם ביצועים וגם תחושה של מערכת אמיתית."],
+  ["03", "PERSONAL", "ליווי אישי עם מאמן, בניית עומסים, מעקב ותכנון מסודר לאורך שבועות ולא רק לפי מצב רוח."]
 ] as const;
 
-const memberQuotes = [
-  "זה מקום שמרגיש מקצועי מהרגע הראשון, לא עוד חדר כושר עם תאורה טובה.",
-  "האימונים ברורים, עצימים, ויש תחושה שמישהו באמת עוקב אחרי ההתקדמות שלך.",
-  "העמוד מסביר בדיוק מה מקבלים, למי זה מתאים ואיך מצטרפים בלי בלבול."
+const trainers = [
+  ["מאיה לוין", "כוח ותנועה", "שומרת על טכניקה, עומס נכון וקצב שמוציא עבודה אמיתית מכל אימון."],
+  ["נועם בר", "ביצועים", "מוביל מסלולי קצב, התנעה ובלוקים חזקים בלי לאבד שליטה על הפרטים."],
+  ["דין אסולין", "קבוצות", "יודע להחזיק אנרגיה גבוהה בקבוצה ועדיין לתת יחס חד לכל מתאמן."]
+] as const;
+
+const pricing = [
+  ["CORE", "149$", "שני אימונים מודרכים בשבוע", "למי שרוצה להיכנס נכון ולהתחיל מסגרת קבועה."],
+  ["FULL", "239$", "גישה מלאה לכל המערכת", "כולל עדיפות בהרשמה, מעקב וקבוצות ברמות שונות."],
+  ["PRO", "420$", "מאמן אישי ותוכנית מלאה", "מסלול אישי עם בניית עומסים, מעקב ותכנון שבועי."]
 ] as const;
 
 export function PulseFitStudioPage() {
   return (
     <>
       <Seo
-        title="PulseFit Studio | סטודיו כושר בתל אביב עם מסלולי אימון ברמה גבוהה"
-        description="PulseFit Studio הוא סטודיו כושר בתל אביב עם מסלולי אימון, מאמנים מובילים, תוצאות, מחירים והצטרפות מהירה."
+        title="PulseFit Studio | סטודיו כושר בתל אביב עם שיעור ניסיון ותוכניות אימון"
+        description="PulseFit Studio הוא סטודיו כושר בתל אביב עם תוכניות כוח, מאמנים מובילים, שיעור ניסיון והצטרפות מהירה."
         path="/work/pulsefit-studio"
-        image="/images/pulsefit-hero.png"
-        imageAlt="חלל האימונים של PulseFit Studio עם דשא, משקולות ותאורת ניאון חדה"
-        keywords={["PulseFit Studio", "סטודיו כושר בתל אביב", "מסלולי אימון", "אימוני כוח"]}
+        image="/images/pulsefit/pulsefit-coach-session.webp"
+        imageAlt="מאמן מוביל אימון כוח בקבוצה קטנה ב־PulseFit Studio"
+        keywords={["סטודיו כושר בתל אביב", "שיעור ניסיון", "אימוני כוח", "PulseFit Studio"]}
         schema={pulseSchema}
         lang="he"
         dir="rtl"
       />
 
-      <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_right,_rgba(215,255,99,0.22),transparent_26%),linear-gradient(180deg,#101410_0%,#060806_100%)] text-right text-white">
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0a0d0a]/75 backdrop-blur-xl">
+      <div className="min-h-screen bg-[#060806] text-right text-white">
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#060806]/82 backdrop-blur-xl">
           <div className="container-shell flex flex-col gap-4 py-5 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center justify-between gap-4">
               <PulseFitLogo />
@@ -66,14 +64,12 @@ export function PulseFitStudioPage() {
                 חזרה ל־Omer&apos;s
               </LinkButton>
             </div>
-            <nav className="flex flex-wrap gap-5 text-sm font-semibold text-slate-300">
+            <nav className="mobile-nav text-sm font-bold text-slate-300 md:flex md:flex-wrap md:items-center md:gap-6 md:overflow-visible">
               <a href="#home">בית</a>
-              <a href="#programs">מסלולים</a>
+              <a href="#programs">תוכניות</a>
               <a href="#trainers">מאמנים</a>
               <a href="#trial">שיעור ניסיון</a>
-              <a href="#results">תוצאות</a>
               <a href="#pricing">מחירים</a>
-              <a href="#join">הצטרפות</a>
             </nav>
             <LinkButton href="/" variant="neon" className="hidden md:inline-flex">
               חזרה ל־Omer&apos;s
@@ -82,316 +78,195 @@ export function PulseFitStudioPage() {
         </header>
 
         <main id="home">
-          <section className="section-space">
-            <div className="container-shell grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-              <m.div initial="hidden" animate="show" variants={stagger}>
-                <m.p variants={fadeUp} className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">
-                  כוח / קצב / משמעת
-                </m.p>
-                <m.h1 variants={fadeUp} className="mt-4 text-balance font-tech text-5xl leading-[0.88] md:text-7xl">
-                  סטודיו שנבנה לאנשים שרוצים יותר מבאזז. הם רוצים שיטה, אנרגיה ותוצאה.
-                </m.h1>
-                <m.p variants={fadeUp} className="mt-6 max-w-xl text-lg leading-9 text-slate-300">
-                  PulseFit Studio מחבר בין כוח, התניה וקצב עבודה גבוה בתוך סביבת אימון חדה, מעוצבת
-                  ומדויקת, עם מאמנים שמחזיקים סטנדרט ברור לכל מתאמן.
-                </m.p>
-                <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
-                  <LinkButton href="#join" variant="neon">
-                    הצטרף ל־PulseFit
+          <section className="section-space pb-14 md:pb-20">
+            <div className="container-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div className="grid gap-6">
+                <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">כוח / קצב / מסגרת</p>
+                <h1 className="max-w-lg text-balance font-tech text-5xl leading-[0.88] md:text-7xl">
+                  סטודיו למי שלא מחפש להעביר שעה. הוא מחפש להתאמן חזק, קבוע, ובצורה שעושה סדר.
+                </h1>
+                <p className="max-w-xl text-lg leading-9 text-slate-300">
+                  PulseFit Studio בנוי לאנשים שרוצים מערכת. אימונים חדים, מאמנים שמחזיקים סטנדרט,
+                  ותהליך הצטרפות ברור שמתחיל משיעור ניסיון ונכנס ישר לשגרה.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <LinkButton href="#trial" variant="neon" className="gap-2">
+                    קבע שיעור ניסיון
+                    <ChevronLeft className="h-4 w-4" />
                   </LinkButton>
-                  <LinkButton href="#programs" variant="secondary" className="border-white/10 bg-white/5 text-white">
-                    צפה במסלולים
+                  <LinkButton href="#programs" variant="secondary" className="gap-2 border-white/10 bg-white/5 text-white">
+                    צפה בתוכניות
+                    <ArrowLeft className="h-4 w-4" />
                   </LinkButton>
-                </m.div>
-                <m.div variants={fadeUp} className="mt-10 grid gap-4 sm:grid-cols-3">
+                </div>
+                <div className="grid gap-4 sm:grid-cols-3">
                   {[
                     ["18", "אימונים שבועיים"],
-                    ["6", "מאמנים מובילים"],
+                    ["06", "מאמנים מובילים"],
                     ["92%", "התמדה לאורך זמן"]
                   ].map(([value, label]) => (
-                    <div key={label} className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
-                      <div className="font-tech text-3xl font-bold text-lime-300">{value}</div>
-                      <p className="mt-2 text-sm text-slate-300">{label}</p>
+                    <div key={label} className="soft-rule border-b border-white/10 pb-5">
+                      <div className="font-tech text-5xl font-bold text-lime-300">{value}</div>
+                      <p className="mt-2 text-sm leading-7 text-slate-300">{label}</p>
                     </div>
                   ))}
-                </m.div>
-              </m.div>
+                </div>
+              </div>
 
-              <m.div initial="hidden" animate="show" variants={fadeUp} className="relative">
-                <div className="premium-outline overflow-hidden rounded-[2.1rem] border border-lime-300/15 bg-black hero-shadow">
+              <div className="relative">
+                <div className="pulse-cut overflow-hidden rounded-[2.6rem] border border-lime-300/20 bg-[#0c100c] shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
                   <img
                     src="/images/pulsefit-hero.png"
-                    alt="חלל האימונים של PulseFit Studio עם דשא, ציוד כוח ותאורת ניאון"
-                    className="h-[640px] w-full object-cover"
+                    alt="חלל האימונים של PulseFit Studio עם דשא, ציוד כוח ותאורה חדה"
+                    className="h-[620px] w-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-transparent to-lime-300/10" />
-                  <div className="absolute left-6 top-6 rounded-full bg-lime-300 px-4 py-2 text-xs font-extrabold tracking-[0.28em] text-slate-950">
-                    מצב דופק
-                  </div>
-                  <div className="absolute bottom-6 left-6 right-6 grid gap-4 lg:grid-cols-3">
-                    {heroHighlights.map(({ icon: Icon, label }) => (
-                      <div key={label} className="rounded-[1.6rem] border border-white/10 bg-black/50 p-5 backdrop-blur-xl">
-                        <Icon className="h-5 w-5 text-lime-300" />
-                        <p className="mt-4 text-sm font-semibold text-slate-100">{label}</p>
-                      </div>
-                    ))}
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/12 to-lime-300/10" />
                 </div>
-              </m.div>
+                <m.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4.4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  className="absolute -left-3 top-8 rounded-[1.6rem] border border-lime-300/25 bg-black/75 px-5 py-4 backdrop-blur"
+                >
+                  <p className="text-xs font-extrabold tracking-[0.26em] text-lime-300/80">TRIAL</p>
+                  <p className="mt-2 text-sm leading-6 text-white/82">אימון ראשון שמראה בדיוק איך הסטודיו עובד.</p>
+                </m.div>
+                <m.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  className="absolute bottom-5 right-5 max-w-[16rem] rounded-[1.7rem] border border-white/10 bg-white/8 p-5 backdrop-blur"
+                >
+                  <p className="font-tech text-4xl font-bold text-white">FULL BODY</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-200">אימון חד, עם קצב נכון ובלי יותר מדי דיבורים בין סט לסט.</p>
+                </m.div>
+              </div>
             </div>
           </section>
 
-          <section id="programs" className="section-space border-y border-white/10 bg-white/4">
+          <section id="programs" className="section-space bg-[#0b0f0b]">
             <div className="container-shell">
-              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
-                <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">מסלולים</p>
-                <h2 className="mt-4 text-balance font-tech text-4xl md:text-6xl">
-                  שלושה מסלולים. סטנדרט אחד: לעבוד נכון ולהתקדם עקבי.
-                </h2>
-                <div className="mt-10 grid gap-5 lg:grid-cols-3">
-                  {[
-                    ["בסיס", "כוח, תנועה וכניסה מסודרת למתאמנים חדשים."],
-                    ["הייבריד", "שילוב של כוח, קצב, סבולת ועבודה בעצימות גבוהה."],
-                    ["פרטי", "ליווי אישי עם תוכנית מדויקת ומעקב שבועי על תוצאות."]
-                  ].map(([title, description]) => (
-                    <m.article
+              <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+                <div>
+                  <p className="text-xs font-extrabold tracking-[0.28em] text-lime-300/80">תוכניות אימון</p>
+                  <h2 className="mt-4 max-w-md text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                    שלוש תוכניות. לא עוד עמוד מחירים שמנסה להגיד הכול בבת אחת.
+                  </h2>
+                </div>
+                <div className="grid gap-5">
+                  {programs.map(([number, title, description], index) => (
+                    <div
                       key={title}
-                      variants={fadeUp}
-                      className="rounded-[1.8rem] border border-white/10 bg-black/25 p-6 backdrop-blur"
+                      className={`${index % 2 === 0 ? "pulse-cut" : "pulse-cut-top"} rounded-[2rem] border border-white/10 bg-[#111611] p-6 md:p-8`}
                     >
-                      <h3 className="font-tech text-3xl text-white">{title}</h3>
-                      <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
-                    </m.article>
+                      <div className="grid gap-5 md:grid-cols-[110px_1fr] md:items-start">
+                        <div className="font-tech text-6xl font-bold leading-none text-lime-300/28">{number}</div>
+                        <div>
+                          <h3 className="font-tech text-4xl font-bold text-white">{title}</h3>
+                          <p className="mt-3 max-w-3xl text-base leading-8 text-slate-300">{description}</p>
+                        </div>
+                      </div>
+                    </div>
                   ))}
                 </div>
-              </m.div>
+              </div>
             </div>
           </section>
 
           <section id="trainers" className="section-space">
-            <div className="container-shell grid gap-5 md:grid-cols-3">
-              {[
-                ["מאיה לוין", "מובילה מערכות כוח, מוביליות ושיפור תנועה."],
-                ["נועם בר", "אחראי על כוח, עומסים ותפוקת אימון לאורך זמן."],
-                ["דין אסולין", "מחזיק קצב, עצימות והתמדה של מתאמנים בקבוצות."]
-              ].map(([name, specialty], index) => (
-                <div key={name} className="rounded-[2rem] border border-white/10 bg-white/5 p-7 backdrop-blur">
-                  <div className="grid h-16 w-16 place-items-center rounded-2xl bg-lime-300 text-lg font-bold text-slate-950">
-                    {index + 1}
-                  </div>
-                  <h3 className="mt-6 font-tech text-3xl text-white">{name}</h3>
-                  <p className="mt-3 text-slate-300">{specialty}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="section-space border-y border-white/10 bg-white/4">
-            <div className="container-shell">
-              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
-                <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">למה מצטרפים</p>
-                <h2 className="mt-4 text-balance font-tech text-4xl md:text-6xl">
-                  PulseFit בנוי למי שמחפש סטודיו עם רמה, לא מקום שמרגיש כמו עוד מנוי מדף.
-                </h2>
-                <div className="mt-10 grid gap-5 lg:grid-cols-3">
-                  {memberReasons.map(([title, description]) => (
-                    <m.article
-                      key={title}
-                      variants={fadeUp}
-                      className="rounded-[1.8rem] border border-white/10 bg-black/25 p-6 backdrop-blur"
-                    >
-                      <h3 className="font-tech text-3xl text-white">{title}</h3>
-                      <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
-                    </m.article>
-                  ))}
-                </div>
-              </m.div>
-            </div>
-          </section>
-
-          <section className="section-space">
-            <div className="container-shell">
-              <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-                <m.article
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.18 }}
-                  variants={fadeUp}
-                  className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/25 shadow-[0_24px_80px_rgba(0,0,0,0.2)]"
-                >
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster="/images/pulsefit/action-training.png"
-                    aria-label="וידאו אווירה של PulseFit Studio עם תנועת מצלמה בין אזור האימונים, המתאמנים וציוד הכוח"
-                    className="h-full min-h-[430px] w-full object-cover"
-                  >
-                    <source src="/videos/pulsefit/training-loop.mp4" type="video/mp4" />
-                  </video>
-                </m.article>
-                <div className="grid gap-5">
-                  {[
-                    ["/images/pulsefit/action-training.png", "אימון פונקציונלי אינטנסיבי ב־PulseFit Studio"],
-                    ["/images/pulsefit/pulsefit-coach-session.webp", "מאמן מוביל קבוצה קטנה באימון כוח ב־PulseFit Studio"]
-                  ].map(([src, alt]) => (
-                    <m.article
-                      key={src}
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.18 }}
-                      variants={fadeUp}
-                      className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5"
-                    >
-                      <img src={src} alt={alt} className="h-[212px] w-full object-cover" />
-                    </m.article>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="trial" className="section-space border-y border-white/10 bg-white/4">
-            <div className="container-shell grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
-              <div className="rounded-[2rem] border border-white/10 bg-black/25 p-8 backdrop-blur">
-                <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">שיעור ניסיון</p>
-                <h2 className="mt-4 text-balance font-tech text-4xl md:text-5xl">
-                  האימון הראשון לא אמור להרגיש מאיים. הוא אמור לתת לך מושג ברור אם זה המקום שאתה רוצה לחזור אליו.
-                </h2>
-                <p className="mt-6 text-lg leading-9 text-slate-300">
-                  שיעור הניסיון ב־PulseFit בנוי כמו היכרות אמיתית עם השיטה: בדיקה של רמה, קצב, תנועה והעדפות,
-                  ואז כניסה לאימון שמרגיש חד, מדויק ומלווה. בלי לחץ מיותר, ובלי להרגיש אבוד בתוך אולם.
-                </p>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {[
-                    "התאמת קבוצה לפי רמת כניסה ועומס רצוי.",
-                    "היכרות עם המאמן והמבנה השבועי של המסלול.",
-                    "הסבר ברור על המשך, מחירים ותדירות.",
-                    "תחושה של סטודיו שמחזיק סטנדרט מהשנייה הראשונה."
-                  ].map((item) => (
-                    <div key={item} className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-200">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/25 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
+            <div className="container-shell grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="overflow-hidden rounded-[2.4rem] border border-white/10 bg-[#0d120d] shadow-[0_28px_80px_rgba(0,0,0,0.22)]">
                 <img
-                  src="/images/pulsefit/equipment-zone.png"
-                  alt="אזור האימונים של PulseFit Studio עם משקולות, מסלול דשא ותאורת ניאון חדה"
-                  className="h-full min-h-[480px] w-full object-cover"
+                  src="/images/pulsefit/pulsefit-coach-session.webp"
+                  alt="מאמן מוביל תרגילי כוח בקבוצה קטנה ב־PulseFit Studio"
+                  className="h-full min-h-[560px] w-full object-cover"
                 />
               </div>
-            </div>
-          </section>
-
-          <section className="section-space">
-            <div className="container-shell grid gap-5 md:grid-cols-3">
-              {memberQuotes.map((quote) => (
-                <m.article
-                  key={quote}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.18 }}
-                  variants={fadeUp}
-                  className="rounded-[1.8rem] border border-white/10 bg-white/5 p-6 backdrop-blur"
-                >
-                  <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">קולות מהסטודיו</p>
-                  <p className="mt-4 text-base leading-8 text-slate-200">{quote}</p>
-                </m.article>
-              ))}
-            </div>
-          </section>
-
-          <section id="results" className="section-space border-y border-white/10 bg-white/4">
-            <div className="container-shell grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-              <div className="rounded-[2rem] border border-white/10 bg-black/25 p-8 backdrop-blur">
-                <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">תוצאות</p>
-                <h2 className="mt-4 text-balance font-tech text-4xl md:text-5xl">
-                  כשהשיטה ברורה, גם התוצאה נראית לעין ומרגישה יציבה.
-                </h2>
-              </div>
-              <div className="grid gap-5 md:grid-cols-2">
-                {[
-                  "מתאמנים נשארים כי האימון ישיר, ברור ולא מתנצל.",
-                  "כל בלוק אימון מחובר למטרה של כוח, סבולת או התמדה בפועל.",
-                  "יש אנרגיה קבוצתית, אבל לא מאבדים יחס אישי בדרך.",
-                  "עמוד ההצטרפות מרגיש חד, פרימיום ופשוט להבנה."
-                ].map((item) => (
-                  <div key={item} className="rounded-[1.8rem] border border-white/10 bg-black/25 p-6 backdrop-blur">
-                    <p className="text-base leading-8 text-slate-200">{item}</p>
+              <div className="grid gap-4">
+                <div className="soft-rule pb-5">
+                  <p className="text-xs font-extrabold tracking-[0.28em] text-lime-300/80">מאמנים</p>
+                  <h2 className="mt-3 max-w-lg text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                    מאמנים שלא רק עומדים ליד. הם מחזיקים קצב, טכניקה וסטנדרט לכל קבוצה.
+                  </h2>
+                </div>
+                {trainers.map(([name, role, description]) => (
+                  <div key={name} className="rounded-[1.9rem] border border-white/10 bg-white/5 p-6 backdrop-blur">
+                    <div className="flex items-center justify-between gap-4">
+                      <h3 className="font-tech text-3xl text-white">{name}</h3>
+                      <span className="text-xs font-extrabold tracking-[0.24em] text-lime-300/80">{role}</span>
+                    </div>
+                    <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          <section id="pricing" className="section-space">
-            <div className="container-shell grid gap-5 lg:grid-cols-3">
-              {[
-                ["בסיס", "149$", "שני אימונים מודרכים בשבוע וקליטה אישית מסודרת."],
-                ["ללא הגבלה", "239$", "גישה מלאה לסטודיו, עדיפות בהרשמה ומעקב חודשי."],
-                ["פרטי", "420$", "מאמן אישי, תוכנית מותאמת ובקרה שבועית מלאה."]
-              ].map(([name, price, description]) => (
-                <div key={name} className="rounded-[2rem] border border-white/10 bg-white/5 p-7 backdrop-blur">
-                  <h3 className="font-tech text-3xl text-white">{name}</h3>
-                  <p className="mt-3 text-4xl font-bold text-lime-300">{price}</p>
-                  <p className="mt-4 text-slate-300">{description}</p>
+          <section id="trial" className="section-space bg-[#0b0f0b]">
+            <div className="container-shell grid gap-6 lg:grid-cols-[1.04fr_0.96fr]">
+              <div className="rounded-[2.4rem] border border-white/10 bg-[#111611] p-6 md:p-8">
+                <p className="text-xs font-extrabold tracking-[0.28em] text-lime-300/80">שיעור ניסיון</p>
+                <h2 className="mt-4 max-w-2xl text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                  אם רצית לראות איך זה מרגיש מבפנים, מתחילים כאן. בלי נאומים ובלי מסלול מכירה ארוך.
+                </h2>
+                <p className="mt-5 max-w-2xl text-lg leading-9 text-slate-300">
+                  שיעור הניסיון בודק רמה, התאמה וקצב. אתה פוגש מאמן, מבין איך נראית המערכת השבועית,
+                  ומתנסה באימון שמראה אם PulseFit מתאים לך באמת ולא רק על הנייר.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <LinkButton href="#pricing" variant="neon">
+                    בחר מסלול
+                  </LinkButton>
+                  <LinkButton href="mailto:hello@pulsefitstudio.com" variant="secondary" className="border-white/10 bg-white/5 text-white">
+                    hello@pulsefitstudio.com
+                  </LinkButton>
                 </div>
-              ))}
+              </div>
+              <div className="pulse-cut-top overflow-hidden rounded-[2.4rem] border border-white/10 bg-black shadow-[0_26px_80px_rgba(0,0,0,0.24)]">
+                <img
+                  src="/images/pulsefit/equipment-zone.png"
+                  alt="אזור ציוד הכוח של PulseFit Studio עם תאורת ניאון, דשא ומתקני עבודה"
+                  className="h-full min-h-[460px] w-full object-cover"
+                />
+              </div>
             </div>
           </section>
 
-          <section id="join" className="section-space">
-            <div className="container-shell rounded-[2rem] border border-white/10 bg-gradient-to-br from-lime-300/22 via-white/6 to-transparent p-8 backdrop-blur">
-              <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
-                <div>
-                  <p className="text-xs font-extrabold tracking-[0.32em] text-lime-300/80">הצטרפות</p>
-                  <h2 className="mt-4 text-balance font-tech text-4xl md:text-5xl">
-                    קבע אימון ניסיון והרגש איך PulseFit עובד מבפנים.
-                  </h2>
-                  <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                    המפגש הראשון כולל הערכת תנועה, הבנת מטרה והתאמה למסלול הכניסה הכי נכון עבורך.
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    {["אימון ניסיון", "התאמת מסלול", "כניסה מהירה לשגרה"].map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm text-slate-200"
-                      >
-                        {item}
-                      </span>
-                    ))}
+          <section id="pricing" className="section-space">
+            <div className="container-shell">
+              <div className="soft-rule pb-5">
+                <p className="text-xs font-extrabold tracking-[0.28em] text-lime-300/80">מחירים</p>
+                <h2 className="mt-3 max-w-xl text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                  מסלולים ברורים, בלי טבלאות כבדות ובלי אותיות קטנות שמנסות להתחבא.
+                </h2>
+              </div>
+              <div className="mt-8 grid gap-5 lg:grid-cols-3">
+                {pricing.map(([title, price, label, description], index) => (
+                  <div
+                    key={title}
+                    className={`${index === 1 ? "border-lime-300/30 bg-lime-300/8" : "border-white/10 bg-white/5"} rounded-[2rem] border p-6 md:p-7`}
+                  >
+                    <p className="font-tech text-3xl font-bold text-white">{title}</p>
+                    <p className="mt-3 text-5xl font-bold text-lime-300">{price}</p>
+                    <p className="mt-4 text-sm font-semibold tracking-[0.22em] text-slate-400">{label}</p>
+                    <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
                   </div>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  <LinkButton href="mailto:hello@pulsefitstudio.com" variant="neon">
-                    hello@pulsefitstudio.com
-                  </LinkButton>
-                  <LinkButton href="tel:+97235559088" variant="secondary" className="border-white/10 bg-white/5 text-white">
-                    03-555-9088
-                  </LinkButton>
-                </div>
+                ))}
               </div>
             </div>
           </section>
         </main>
 
-        <footer className="border-t border-white/10 bg-[#090d09]/88 py-8 text-slate-300">
+        <footer className="border-t border-white/10 bg-[#060806] py-8 text-slate-300">
           <div className="container-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="font-tech text-3xl text-white">PulseFit Studio</p>
               <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-400">
-                סטודיו כושר בתל אביב עם מסלולי אימון חדים, צוות מאמנים מוביל ושיעור ניסיון שמראה בדיוק
-                איך נראית שגרת עבודה רצינית מבפנים.
+                סטודיו כושר בתל אביב עם תוכניות כוח, מאמנים חזקים, שיעור ניסיון ברור ושגרת אימון שלא מרגישה גנרית.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
-              <a href="#programs">מסלולים</a>
+              <a href="#programs">תוכניות</a>
+              <a href="#trainers">מאמנים</a>
               <a href="#trial">שיעור ניסיון</a>
-              <a href="#pricing">מחירים</a>
               <a href="/">חזרה ל־Omer&apos;s</a>
             </div>
           </div>

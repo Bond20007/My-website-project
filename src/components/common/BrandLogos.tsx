@@ -7,12 +7,12 @@ type LogoProps = {
 export function OmersLogo({ className }: LogoProps) {
   return (
     <div className={cn("inline-flex items-center gap-3", className)}>
-      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-amber-200 via-orange-200 to-stone-200 shadow-lg shadow-amber-200/30">
-        <span className="font-display text-lg font-semibold text-slate-900">O</span>
+      <div className="grid h-11 w-11 place-items-center rounded-[1.35rem] border border-slate-200 bg-white shadow-[0_14px_35px_rgba(15,23,42,0.08)]">
+        <span className="font-display text-lg font-semibold text-slate-950">O</span>
       </div>
       <div className="leading-none">
         <div className="font-display text-xl font-semibold text-slate-950">Omer&apos;s</div>
-        <div className="mt-1 text-[10px] font-bold tracking-[0.28em] text-slate-500">סטודיו דיגיטלי</div>
+        <div className="mt-1 text-[10px] font-bold tracking-[0.28em] text-slate-500">סטודיו לבניית אתרים</div>
       </div>
     </div>
   );
@@ -21,15 +21,14 @@ export function OmersLogo({ className }: LogoProps) {
 export function LumaLogo({ className }: LogoProps) {
   return (
     <div className={cn("inline-flex items-center gap-3", className)}>
-      <div className="relative h-11 w-11 rounded-full bg-amber-300">
-        <div className="absolute inset-[8px] rounded-full bg-[#100d10]" />
-        <div className="absolute right-[9px] top-[7px] h-3 w-3 rounded-full bg-amber-50" />
+      <div className="relative h-11 w-11 rounded-full border border-amber-200/40 bg-[#100d10]">
+        <div className="absolute inset-[7px] rounded-full border border-amber-200/35" />
+        <div className="absolute inset-x-[15px] top-[11px] h-[2px] rounded-full bg-amber-200/70" />
+        <div className="absolute inset-x-[11px] bottom-[13px] h-[2px] rounded-full bg-amber-200/35" />
       </div>
       <div className="leading-none text-white">
         <div className="font-display text-xl">Luma Bistro</div>
-        <div className="mt-1 text-[10px] font-semibold tracking-[0.28em] text-amber-100/80">
-          מסעדת שף עירונית
-        </div>
+        <div className="mt-1 text-[10px] font-semibold tracking-[0.28em] text-amber-100/80">מסעדת שף אורבנית</div>
       </div>
     </div>
   );
@@ -38,8 +37,8 @@ export function LumaLogo({ className }: LogoProps) {
 export function PulseFitLogo({ className }: LogoProps) {
   return (
     <div className={cn("inline-flex items-center gap-3", className)}>
-      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-lime-300 text-slate-950 shadow-lg shadow-lime-300/30">
-        <span className="font-tech text-lg font-bold">P</span>
+      <div className="grid h-11 w-11 place-items-center rounded-[1.1rem] border border-lime-300/40 bg-[#0b130b] text-lime-300 shadow-[0_16px_35px_rgba(163,230,53,0.16)]">
+        <span className="font-tech text-lg font-bold">PF</span>
       </div>
       <div className="leading-none">
         <div className="font-tech text-xl font-bold text-white">PulseFit</div>
@@ -52,8 +51,8 @@ export function PulseFitLogo({ className }: LogoProps) {
 export function AuraLogo({ className }: LogoProps) {
   return (
     <div className={cn("inline-flex items-center gap-3", className)}>
-      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-rose-100 via-white to-amber-100 shadow-lg shadow-rose-100/50">
-        <span className="font-display text-lg font-semibold text-rose-700">A</span>
+      <div className="grid h-11 w-11 place-items-center rounded-[1.45rem] border border-rose-100 bg-white shadow-[0_16px_35px_rgba(244,114,182,0.08)]">
+        <span className="font-display text-lg font-semibold text-rose-500">A</span>
       </div>
       <div className="leading-none">
         <div className="font-display text-xl text-slate-900">Aura Clinic</div>
@@ -66,14 +65,12 @@ export function AuraLogo({ className }: LogoProps) {
 export function NexoraLogo({ className }: LogoProps) {
   return (
     <div className={cn("inline-flex items-center gap-3", className)}>
-      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-500 text-white shadow-lg shadow-blue-500/30">
-        <span className="font-tech text-lg font-bold">N</span>
+      <div className="grid h-11 w-11 place-items-center rounded-[1.1rem] border border-cyan-400/30 bg-slate-950 text-white shadow-[0_18px_40px_rgba(34,211,238,0.16)]">
+        <span className="font-tech text-lg font-bold text-cyan-300">NX</span>
       </div>
       <div className="leading-none text-white">
         <div className="font-tech text-xl font-bold">Nexora</div>
-        <div className="mt-1 text-[10px] font-semibold tracking-[0.28em] text-cyan-100/80">
-          שכבת אוטומציה חכמה
-        </div>
+        <div className="mt-1 text-[10px] font-semibold tracking-[0.28em] text-cyan-100/80">שכבת אוטומציה חכמה</div>
       </div>
     </div>
   );

@@ -1,20 +1,17 @@
-import { m } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
-import { HeartPulse, ShieldCheck, Sparkles, Star } from "lucide-react";
+import { ChevronLeft, Star } from "lucide-react";
 import { LinkButton } from "../../components/common/Button";
 import { AuraLogo } from "../../components/common/BrandLogos";
 import { Seo } from "../../components/seo/Seo";
 import { SITE_URL } from "../../data/site";
-import { fadeUp, stagger } from "../../lib/motion";
 
 const auraSchema = {
   "@context": "https://schema.org",
   "@type": "HealthAndBeautyBusiness",
   name: "Aura Clinic",
   url: `${SITE_URL}/work/aura-clinic`,
-  image: `${SITE_URL}/images/aura-clinic-hero.png`,
+  image: `${SITE_URL}/images/aura/aura-consultation-room.webp`,
   description:
-    "Aura Clinic היא קליניקה אסתטית עם טיפולים מתקדמים, חוויית ייעוץ רגועה והזמנת פגישה ברורה ונעימה.",
+    "Aura Clinic היא קליניקה אסתטית בתל אביב עם טיפולים עדינים, שיחת ייעוץ ברורה וחוויית טיפול רגועה ונקייה.",
   telephone: "+972-3-555-7722",
   address: {
     "@type": "PostalAddress",
@@ -24,41 +21,41 @@ const auraSchema = {
   }
 };
 
-const assurancePoints: Array<{ icon: LucideIcon; label: string }> = [
-  { icon: ShieldCheck, label: "פרוטוקולים מבוקרים" },
-  { icon: HeartPulse, label: "חוויה עדינה ומרגיעה" },
-  { icon: Sparkles, label: "תוצאה נקייה וטבעית" }
-];
-
-const clinicReasons = [
-  ["שיחה שמורידה לחץ", "הייעוץ הראשוני בנוי כדי להסביר אפשרויות, ציפיות ולוחות זמנים בלי לייצר עומס או בלבול."],
-  ["טיפול שמכבד את המראה הטבעי", "המיקוד הוא באיזון, רכות ותוצאה שנראית שייכת לפנים שלך ולא לטיפול עצמו."],
-  ["חוויה מלאה ולא רק פרוצדורה", "מהכניסה לקליניקה ועד המעקב אחר כך, הכול בנוי כדי לייצר תחושת סדר וביטחון."]
+const treatments = [
+  ["חידוש עור", "טיפול עדין לשיפור מרקם, גוון ואחידות בלי תחושה אגרסיבית מדי."],
+  ["הזרקות מדויקות", "גישה שמכוונת לאיזון ולמראה טבעי, לא לשינוי שנראה מייד מלאכותי."],
+  ["שיקום וזוהר", "שילוב של לחות, תחזוקה וטיפול תקופתי לעור שצריך חזרה לרעננות."]
 ] as const;
 
-const consultationFlow = [
-  "שיחת היכרות קצרה להבנת צורך, אזורי טיפול והעדפות אישיות.",
-  "בדיקה והתאמת מסלול טיפול לפי מצב העור, שגרה ותוצאה רצויה.",
-  "הסבר ברור על זמן החלמה, תדירות, תחזוקה ועלויות."
+const processItems = [
+  "מתחילים בשיחה רגועה כדי להבין מה מפריע, מה חשוב לך, ומה בכלל לא.",
+  "בודקים מצב עור, מסבירים אפשרויות, ומחליטים יחד אם צריך טיפול נקודתי או תהליך.",
+  "מקבלים הסבר ברור על זמן החלמה, תוצאה צפויה, ועל מה נכון לעשות בהמשך."
+] as const;
+
+const reviewQuotes = [
+  "הכול הרגיש נעים, מוסבר ולא מלחיץ. כבר בשיחה הראשונה היה ברור שמדברים איתי בגובה העיניים.",
+  "לא דחפו טיפול שלא צריך. הסבירו מה נכון, מה לא חובה, ואיך ייראה התהליך באמת.",
+  "התוצאה נשארה טבעית ונקייה. בדיוק מה שקיוויתי לקבל."
 ] as const;
 
 export function AuraClinicPage() {
   return (
     <>
       <Seo
-        title="Aura Clinic | קליניקה אסתטית בתל אביב עם פגישת ייעוץ יוקרתית"
-        description="Aura Clinic היא קליניקה אסתטית בתל אביב עם טיפולים מתקדמים, תוצאות טבעיות, המלצות והזמנת ייעוץ ברורה."
+        title="Aura Clinic | קליניקה אסתטית בתל אביב עם ייעוץ וטיפולים טבעיים"
+        description="Aura Clinic היא קליניקה אסתטית בתל אביב עם טיפולים מדויקים, שיחת ייעוץ ברורה, תהליך רגוע וקביעת תור נוחה."
         path="/work/aura-clinic"
-        image="/images/aura-clinic-hero.png"
-        imageAlt="חדר טיפולים יוקרתי של Aura Clinic עם תאורה רכה, מיטת טיפול ואווירה רגועה"
-        keywords={["Aura Clinic", "קליניקה אסתטית בתל אביב", "טיפולי עור", "פגישת ייעוץ"]}
+        image="/images/aura/aura-consultation-room.webp"
+        imageAlt="פגישת ייעוץ ב־Aura Clinic בחלל בהיר, שקט ואלגנטי"
+        keywords={["קליניקה אסתטית בתל אביב", "טיפולי עור", "פגישת ייעוץ", "Aura Clinic"]}
         schema={auraSchema}
         lang="he"
         dir="rtl"
       />
 
-      <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(249,212,208,0.34),transparent_30%),linear-gradient(180deg,#fffdfb_0%,#f5ece5_100%)] text-right text-slate-950">
-        <header className="sticky top-0 z-40 border-b border-rose-100/80 bg-white/80 backdrop-blur-xl">
+      <div className="min-h-screen bg-[#f7f1eb] text-right text-slate-950">
+        <header className="sticky top-0 z-40 border-b border-rose-100/80 bg-[#f7f1eb]/88 backdrop-blur-xl">
           <div className="container-shell flex flex-col gap-4 py-5 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center justify-between gap-4">
               <AuraLogo />
@@ -66,14 +63,12 @@ export function AuraClinicPage() {
                 חזרה ל־Omer&apos;s
               </LinkButton>
             </div>
-            <nav className="flex flex-wrap gap-5 text-sm font-semibold text-slate-600">
+            <nav className="mobile-nav text-sm font-semibold text-slate-600 md:flex md:flex-wrap md:items-center md:gap-6 md:overflow-visible">
               <a href="#home">בית</a>
               <a href="#treatments">טיפולים</a>
-              <a href="#results">לפני ואחרי</a>
+              <a href="#process">תהליך טיפול</a>
               <a href="#reviews">המלצות</a>
-              <a href="#team">צוות</a>
-              <a href="#consultation">הייעוץ</a>
-              <a href="#booking">הזמנה</a>
+              <a href="#booking">קביעת תור</a>
             </nav>
             <LinkButton href="/" variant="secondary" className="hidden md:inline-flex">
               חזרה ל־Omer&apos;s
@@ -82,279 +77,143 @@ export function AuraClinicPage() {
         </header>
 
         <main id="home">
-          <section className="section-space">
-            <div className="container-shell grid items-center gap-8 lg:grid-cols-[1.04fr_0.96fr]">
-              <m.div initial="hidden" animate="show" variants={stagger}>
-                <m.p variants={fadeUp} className="text-xs font-extrabold tracking-[0.32em] text-rose-400">
-                  אסתטיקה מתקדמת / רכות מדויקת
-                </m.p>
-                <m.h1 variants={fadeUp} className="mt-4 text-balance font-display text-5xl leading-[0.9] md:text-7xl">
-                  חוויית אסתטיקה רגועה, ברורה ויוקרתית שבנויה על אמון, דיוק וטיפול אישי.
-                </m.h1>
-                <m.p variants={fadeUp} className="mt-6 max-w-xl text-lg leading-9 text-slate-600">
-                  Aura Clinic מחברת בין טיפולים מתקדמים, שיחת ייעוץ מדויקת ותקשורת מרגיעה כדי ליצור
-                  מסלול הזמנה שנראה פרימיום כבר מהרגע הראשון.
-                </m.p>
-                <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
-                  <LinkButton href="#booking" className="bg-rose-400 text-white shadow-[0_18px_40px_rgba(244,114,182,0.22)]">
-                    קבעי פגישת ייעוץ
+          <section className="section-space pb-14 md:pb-20">
+            <div className="container-shell grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+              <div className="grid gap-6">
+                <p className="text-xs font-extrabold tracking-[0.3em] text-rose-400">אסתטיקה מדויקת / שקט / אמון</p>
+                <h1 className="max-w-lg text-balance font-display text-5xl leading-[0.9] md:text-7xl">
+                  טיפול טוב מתחיל בהסבר נכון, ממשיך בקו עדין, ונגמר בתוצאה שלא צועקת את עצמה.
+                </h1>
+                <p className="max-w-xl text-lg leading-9 text-slate-600">
+                  Aura Clinic בנויה לנשים שמחפשות קליניקה אסתטית רגועה, נקייה ולא מתאמצת. שיחת ייעוץ
+                  ברורה, טיפולים עדינים, והרגשה שיש על מי לסמוך עוד לפני שנקבע תור.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <LinkButton href="#booking" className="bg-rose-400 text-white shadow-[0_18px_40px_rgba(244,114,182,0.18)]">
+                    קביעת תור
                   </LinkButton>
                   <LinkButton href="#treatments" variant="secondary">
-                    צפי בטיפולים
+                    צפייה בטיפולים
                   </LinkButton>
-                </m.div>
-                <m.div variants={fadeUp} className="mt-10 grid gap-4 md:grid-cols-3">
-                  {[
-                    ["בליווי רופאה", "תוכנית טיפול מסודרת"],
-                    ["4.9 / 5", "שביעות רצון גבוהה"],
-                    ["אישי", "חדרי טיפול פרטיים"]
-                  ].map(([value, label]) => (
-                    <div key={label} className="rounded-[1.6rem] border border-rose-100 bg-white/80 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
-                      <div className="font-display text-3xl text-slate-950">{value}</div>
-                      <p className="mt-2 text-sm text-slate-600">{label}</p>
-                    </div>
-                  ))}
-                </m.div>
-              </m.div>
+                </div>
+              </div>
 
-              <m.div initial="hidden" animate="show" variants={fadeUp} className="relative">
-                <div className="premium-outline overflow-hidden rounded-[2.2rem] border border-white bg-white hero-shadow">
+              <div className="grid gap-5 md:grid-cols-[0.95fr_1.05fr]">
+                <div className="rounded-[2.2rem] border border-white bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
                   <img
                     src="/images/aura-clinic-hero.png"
-                    alt="חדר טיפול מואר של Aura Clinic עם חומרים אסתטיים, תאורה רכה וקווים נקיים"
-                    className="h-[640px] w-full object-cover"
+                    alt="חדר טיפולים של Aura Clinic עם תאורה רכה ועיצוב נקי"
+                    className="h-[520px] w-full rounded-[1.7rem] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/45 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 grid gap-4 md:grid-cols-3">
-                    {assurancePoints.map(({ icon: Icon, label }) => (
-                      <div key={label} className="rounded-[1.6rem] border border-white/90 bg-white/78 p-5 backdrop-blur-xl">
-                        <Icon className="h-5 w-5 text-rose-400" />
-                        <p className="mt-4 text-sm font-semibold text-slate-700">{label}</p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
-              </m.div>
-            </div>
-          </section>
-
-          <section id="treatments" className="section-space border-y border-rose-100 bg-white/60">
-            <div className="container-shell">
-              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
-                <p className="text-xs font-extrabold tracking-[0.32em] text-rose-400">טיפולים</p>
-                <h2 className="mt-4 text-balance font-display text-4xl md:text-6xl">
-                  עמודי טיפול שמדברים בשפה רגועה, מסבירים נכון ומורידים חוסר ודאות.
-                </h2>
-                <div className="mt-10 grid gap-5 lg:grid-cols-3">
-                  {[
-                    ["חידוש עור", "טיפולים לשיפור מרקם, גוון ומראה אחיד ורענן."],
-                    ["הזרקות", "עבודה עדינה לשמירה על תוצאה טבעית ואיזון נכון בפנים."],
-                    ["טיפולי זוהר", "שיקום לחות, מראה רך ותחזוקה שוטפת לעור חיוני."]
-                  ].map(([title, description]) => (
-                    <m.article
-                      key={title}
-                      variants={fadeUp}
-                      className="rounded-[1.8rem] border border-rose-100 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.05)]"
-                    >
-                      <h3 className="font-display text-3xl text-slate-950">{title}</h3>
-                      <p className="mt-4 text-base leading-8 text-slate-600">{description}</p>
-                    </m.article>
-                  ))}
-                </div>
-              </m.div>
-            </div>
-          </section>
-
-          <section className="section-space">
-            <div className="container-shell">
-              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
-                <p className="text-xs font-extrabold tracking-[0.32em] text-rose-400">למה בוחרות בנו</p>
-                <h2 className="mt-4 text-balance font-display text-4xl md:text-6xl">
-                  Aura Clinic בנויה כמו קליניקה שמבינה שגם שפה, רוגע ואמון הם חלק מהטיפול.
-                </h2>
-                <div className="mt-10 grid gap-5 lg:grid-cols-3">
-                  {clinicReasons.map(([title, description]) => (
-                    <m.article
-                      key={title}
-                      variants={fadeUp}
-                      className="rounded-[1.8rem] border border-rose-100 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.05)]"
-                    >
-                      <h3 className="font-display text-3xl text-slate-950">{title}</h3>
-                      <p className="mt-4 text-base leading-8 text-slate-600">{description}</p>
-                    </m.article>
-                  ))}
-                </div>
-              </m.div>
-            </div>
-          </section>
-
-          <section id="results" className="section-space">
-            <div className="container-shell grid gap-5 lg:grid-cols-[1fr_1fr]">
-              <div className="overflow-hidden rounded-[2rem] border border-rose-100 bg-white">
-                <img
-                  src="/images/aura/reception-lounge.png"
-                  alt="אזור ההמתנה של Aura Clinic עם קווים רכים, כורסאות בהירות ותחושת רוגע"
-                  className="h-[420px] w-full object-cover"
-                />
-              </div>
-              <div className="rounded-[2rem] border border-rose-100 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
-                <p className="text-xs font-extrabold tracking-[0.32em] text-rose-400">לפני ואחרי</p>
-                <h2 className="mt-4 text-balance font-display text-4xl md:text-5xl">
-                  הצגת תוצאות שמרגישה אלגנטית, אמינה ומדויקת ולא רפואית מדי.
-                </h2>
-                <p className="mt-5 text-lg leading-9 text-slate-600">
-                  אזור התוצאות בנוי כדי להוריד היסוס: הוא מבהיר ציפיות, מסביר טווחי זמן, מוסיף הקשר
-                  מקצועי ושומר על שפה שמדגישה מראה טבעי ולא תחושה מלאכותית.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="section-space">
-            <div className="container-shell">
-              <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-                <m.article
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.18 }}
-                  variants={fadeUp}
-                  className="overflow-hidden rounded-[2rem] border border-rose-100 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.08)]"
-                >
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster="/images/aura/treatment-detail.png"
-                    aria-label="וידאו אווירה של Aura Clinic עם מעבר עדין בין חלל הקליניקה, אזור ההמתנה והטיפול"
-                    className="h-full min-h-[430px] w-full object-cover"
-                  >
-                    <source src="/videos/aura/clinic-loop.mp4" type="video/mp4" />
-                  </video>
-                </m.article>
                 <div className="grid gap-5">
-                  <m.article
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.18 }}
-                    variants={fadeUp}
-                    className="overflow-hidden rounded-[2rem] border border-rose-100 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.05)]"
-                  >
+                  <div className="rounded-[2.2rem] border border-white bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
                     <img
                       src="/images/aura/aura-consultation-room.webp"
-                      alt="פגישת ייעוץ פרטית ב־Aura Clinic בחלל רך ובהיר"
-                      className="h-[212px] w-full object-cover"
+                      alt="פגישת ייעוץ פרטית ב־Aura Clinic עם אשת צוות ומטופלת"
+                      className="h-[250px] w-full rounded-[1.7rem] object-cover"
                     />
-                  </m.article>
-                  <m.article
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.18 }}
-                    variants={fadeUp}
-                    className="rounded-[2rem] border border-rose-100 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.05)]"
-                  >
-                    <p className="text-xs font-extrabold tracking-[0.32em] text-rose-400">הקליניקה מבפנים</p>
-                    <h3 className="mt-4 font-display text-3xl text-slate-950">
-                      יותר חומר ויזואלי, פחות תחושת תבנית, ועמוד שמרגיש כמו קליניקה אמיתית.
-                    </h3>
+                  </div>
+                  <div className="rounded-[2.2rem] border border-rose-100 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
+                    <p className="text-xs font-extrabold tracking-[0.26em] text-rose-400">למה זה מרגיש רגוע</p>
                     <p className="mt-4 text-base leading-8 text-slate-600">
-                      האתר מציג עכשיו גם את רגעי הייעוץ עצמם, לא רק את חלל הטיפול, כדי להעביר איכות,
-                      רוגע ואמון עוד לפני שמגיעים לשלב קביעת התור.
+                      כי אין כאן עומס. לא בעיצוב, לא בשיחה, ולא באופן שבו מציגים טיפול. הכול בנוי כדי לתת
+                      תחושת סדר ולא להפעיל לחץ.
                     </p>
-                  </m.article>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
-          <section id="reviews" className="section-space border-y border-rose-100 bg-white/60">
-            <div className="container-shell grid gap-5 md:grid-cols-3">
-              {[
-                "הקליניקה מרגישה רגועה, ברורה ומדויקת כבר מהפנייה הראשונה.",
-                "כל תהליך הייעוץ היה נעים, מסודר וממש נתן תחושת ביטחון.",
-                "התוצאה הייתה נקייה, עדינה ומדויקת בדיוק כמו שהבטיחו לי."
-              ].map((quote) => (
-                <div key={quote} className="rounded-[1.8rem] border border-rose-100 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
-                  <Star className="h-5 w-5 fill-rose-300 text-rose-300" />
-                  <p className="mt-4 text-base leading-8 text-slate-700">{quote}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section id="team" className="section-space">
-            <div className="container-shell grid gap-5 md:grid-cols-3">
-              {[
-                ["ד״ר יעל מור", "רפואה אסתטית, אבחון ותכנון מסלול טיפול."],
-                ["נועה הראל", "פרוטוקולים מתקדמים לעור וליווי לפני ואחרי טיפול."],
-                ["ליאן דביר", "שירות לקוחות, ייעוץ ראשוני ומעקב המשך."]
-              ].map(([name, role]) => (
-                <div key={name} className="rounded-[2rem] border border-rose-100 bg-white p-7 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
-                  <div className="grid h-16 w-16 place-items-center rounded-2xl bg-rose-100 font-display text-lg text-rose-500">
-                    {name[0]}
-                  </div>
-                  <h3 className="mt-6 font-display text-3xl text-slate-950">{name}</h3>
-                  <p className="mt-3 text-slate-600">{role}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section id="consultation" className="section-space border-y border-rose-100 bg-white/60">
-            <div className="container-shell grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-              <div className="rounded-[2rem] border border-rose-100 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
-                <p className="text-xs font-extrabold tracking-[0.32em] text-rose-400">איך נראה הייעוץ</p>
-                <h2 className="mt-4 text-balance font-display text-4xl md:text-5xl">
-                  עוד לפני טיפול, הלקוחה צריכה להרגיש שמסבירים לה נכון ושיש לה על מי לסמוך.
+          <section id="treatments" className="section-tight border-y border-rose-100 bg-white/70">
+            <div className="container-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <p className="text-xs font-extrabold tracking-[0.28em] text-rose-400">טיפולים</p>
+                <h2 className="mt-4 max-w-md text-balance font-display text-4xl leading-[0.92] md:text-6xl">
+                  כל טיפול מוצג בפשטות, בלי הבטחות מוגזמות ובלי שפה שמסתירה מידע.
                 </h2>
               </div>
-              <div className="grid gap-4">
-                {consultationFlow.map((item) => (
-                  <div key={item} className="rounded-[1.6rem] border border-rose-100 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
-                    <p className="text-base leading-8 text-slate-700">{item}</p>
+              <div className="grid gap-0">
+                {treatments.map(([title, description]) => (
+                  <div key={title} className="soft-rule py-6">
+                    <div className="grid gap-4 md:grid-cols-[0.75fr_1.25fr] md:items-start">
+                      <h3 className="font-display text-3xl text-slate-950">{title}</h3>
+                      <p className="max-w-2xl text-base leading-8 text-slate-600">{description}</p>
+                    </div>
                   </div>
                 ))}
-                <div className="overflow-hidden rounded-[1.8rem] border border-rose-100 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
-                  <img
-                    src="/images/aura/aura-consultation-room.webp"
-                    alt="אשת צוות ב־Aura Clinic יושבת לשיחת ייעוץ עם מטופלת בחלל חמים ובהיר"
-                    className="h-[220px] w-full object-cover"
-                  />
+              </div>
+            </div>
+          </section>
+
+          <section id="process" className="section-space">
+            <div className="container-shell grid gap-6 lg:grid-cols-[0.96fr_1.04fr]">
+              <div className="overflow-hidden rounded-[2.4rem] border border-white bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,0.05)]">
+                <img
+                  src="/images/aura/reception-lounge.png"
+                  alt="אזור ההמתנה של Aura Clinic עם כורסאות בהירות ואווירה שקטה"
+                  className="h-full min-h-[520px] w-full rounded-[1.7rem] object-cover"
+                />
+              </div>
+              <div className="grid gap-5">
+                <div className="soft-rule pb-5">
+                  <p className="text-xs font-extrabold tracking-[0.28em] text-rose-400">תהליך טיפול</p>
+                  <h2 className="mt-3 max-w-lg text-balance font-display text-4xl leading-[0.92] md:text-6xl">
+                    מהפגישה הראשונה ועד הטיפול עצמו, הכול אמור להיות ברור ולא מאיים.
+                  </h2>
                 </div>
+                {processItems.map((item, index) => (
+                  <div key={item} className="rounded-[1.9rem] border border-rose-100 bg-white p-6 shadow-[0_14px_35px_rgba(15,23,42,0.04)]">
+                    <div className="flex items-start gap-4">
+                      <div className="font-display text-4xl text-rose-200">{index + 1}</div>
+                      <p className="text-base leading-8 text-slate-600">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="reviews" className="section-space border-y border-rose-100 bg-white/70">
+            <div className="container-shell">
+              <div className="soft-rule pb-5">
+                <p className="text-xs font-extrabold tracking-[0.28em] text-rose-400">המלצות</p>
+                <h2 className="mt-3 max-w-xl text-balance font-display text-4xl leading-[0.92] md:text-6xl">
+                  המלצות שנשמעות כמו מי שבאמת הייתה כאן. לא כמו ציטוטים שנכתבו בשביל למלא אתר.
+                </h2>
+              </div>
+              <div className="mt-8 grid gap-5 lg:grid-cols-3">
+                {reviewQuotes.map((quote) => (
+                  <div key={quote} className="rounded-[2rem] border border-rose-100 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.05)]">
+                    <Star className="h-5 w-5 fill-rose-300 text-rose-300" />
+                    <p className="mt-4 text-base leading-8 text-slate-700">{quote}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
 
           <section id="booking" className="section-space">
-            <div className="container-shell rounded-[2rem] border border-rose-100 bg-white p-8 shadow-[0_20px_50px_rgba(15,23,42,0.06)]">
+            <div className="container-shell rounded-[2.5rem] border border-white bg-white p-6 shadow-[0_24px_70px_rgba(15,23,42,0.05)] md:p-8">
               <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
                 <div>
-                  <p className="text-xs font-extrabold tracking-[0.32em] text-rose-400">הזמנה</p>
-                  <h2 className="mt-4 text-balance font-display text-4xl md:text-5xl">
-                    קבעי פגישת ייעוץ פרטית ב־Aura Clinic.
+                  <p className="text-xs font-extrabold tracking-[0.28em] text-rose-400">קביעת תור</p>
+                  <h2 className="mt-4 max-w-2xl text-balance font-display text-4xl leading-[0.92] md:text-6xl">
+                    אם רצית לדבר קודם, לשאול שאלה או לקבוע פגישת ייעוץ, מכאן מתחילים.
                   </h2>
-                  <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                    מתחילים בשיחת ייעוץ רגועה, מגדירים מטרה, בונים כיוון טיפולי ומקבלים מסלול שמתאים לעור,
-                    לשגרה ולתוצאה שאת באמת רוצה לראות.
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+                    אפשר לשלוח מייל, לבקש שיחה, או לקבוע פגישה בקליניקה. בלי לחץ ובלי התחייבות מראש,
+                    רק שיחה מסודרת שמבהירה מה נכון עבורך.
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    {["ייעוץ פרטי", "הסבר ברור", "תוצאה טבעית"].map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-rose-100 bg-rose-50 px-4 py-2 text-sm text-slate-700"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
                 </div>
                 <div className="flex flex-wrap gap-4">
-                  <LinkButton href="mailto:booking@auraclinic.com" className="bg-rose-400 text-white shadow-[0_18px_40px_rgba(244,114,182,0.22)]">
+                  <LinkButton href="mailto:booking@auraclinic.com" className="bg-rose-400 text-white">
                     booking@auraclinic.com
                   </LinkButton>
-                  <LinkButton href="tel:+97235557722" variant="secondary">
-                    03-555-7722
+                  <LinkButton href="#home" variant="secondary" className="gap-2">
+                    חזרה לראש העמוד
+                    <ChevronLeft className="h-4 w-4" />
                   </LinkButton>
                 </div>
               </div>
@@ -362,18 +221,17 @@ export function AuraClinicPage() {
           </section>
         </main>
 
-        <footer className="border-t border-rose-100 bg-white/88 py-8 text-slate-600">
+        <footer className="border-t border-rose-100 bg-[#f7f1eb] py-8 text-slate-600">
           <div className="container-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="font-display text-3xl text-slate-950">Aura Clinic</p>
               <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-500">
-                קליניקה אסתטית בתל אביב עם טיפולים מדויקים, שיחת ייעוץ רגועה וחוויה יוקרתית שמרגישה
-                אישית, נקייה ומסודרת כבר מהרגע הראשון.
+                קליניקה אסתטית בתל אביב עם טיפולים עדינים, ייעוץ ברור, חלל שקט ותהליך שנשאר נעים גם לפני ההזמנה.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
               <a href="#treatments">טיפולים</a>
-              <a href="#consultation">הייעוץ</a>
+              <a href="#process">תהליך טיפול</a>
               <a href="#booking">קביעת תור</a>
               <a href="/">חזרה ל־Omer&apos;s</a>
             </div>

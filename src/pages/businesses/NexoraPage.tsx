@@ -1,11 +1,9 @@
 import { m } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
-import { Bot, CheckCircle2, Layers3, Lock, Workflow } from "lucide-react";
+import { Bot, Layers3, Workflow } from "lucide-react";
 import { LinkButton } from "../../components/common/Button";
 import { NexoraLogo } from "../../components/common/BrandLogos";
 import { Seo } from "../../components/seo/Seo";
 import { SITE_URL } from "../../data/site";
-import { fadeUp, stagger } from "../../lib/motion";
 
 const nexoraSchema = {
   "@context": "https://schema.org",
@@ -14,9 +12,9 @@ const nexoraSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: `${SITE_URL}/work/nexora`,
-  image: `${SITE_URL}/images/nexora-hero.png`,
+  image: `${SITE_URL}/images/nexora/nexora-dashboard-analytics.webp`,
   description:
-    "Nexora היא פלטפורמת תוכנה לניהול אוטומציות, תהליכים ודיווח בזמן אמת עם חוויית מוצר עתידנית וברורה.",
+    "Nexora היא פלטפורמת אוטומציה לצוותי תפעול, תמיכה וצמיחה עם דשבורדים, workflows ומסלולים ברורים.",
   offers: {
     "@type": "Offer",
     priceCurrency: "USD",
@@ -24,22 +22,34 @@ const nexoraSchema = {
   }
 };
 
-const productPillars: Array<{ icon: LucideIcon; label: string }> = [
-  { icon: Workflow, label: "מנוע תהליכים" },
-  { icon: Layers3, label: "שכבת תפעול אחודה" },
-  { icon: Bot, label: "עוזרים חכמים" }
-];
-
-const useCases = [
-  ["לצוותי תפעול", "איחוד תהליכים, אישורים, תורים והרצות קבועות בלי לנהל הכול ידנית."],
-  ["לצוותי צמיחה", "חיבור בין לידים, CRM, דיווחים וטריגרים כדי שהעבודה תישאר מהירה ומדויקת."],
-  ["לצוותי תמיכה", "אוטומציה של מענה, הקצאות, תעדוף ומעקב אחר פעולות שחוזרות על עצמן."]
+const features = [
+  {
+    title: "מנוע תהליכים",
+    description: "בניית workflows, תנאים, אישורים והעברות בלי לכתוב לוגיקה מחדש בכל פעם.",
+    icon: Workflow
+  },
+  {
+    title: "שכבת תפעול אחת",
+    description: "דשבורד אחד שמרכז תורים, התראות, משימות, SLA ותמונת מצב חיה לצוות.",
+    icon: Layers3
+  },
+  {
+    title: "עוזרים חכמים",
+    description: "אוטומציות, ניסוחים, תעדוף ופעולות חוזרות עם עזרה חכמה ולא עם עומס מוצר מיותר.",
+    icon: Bot
+  }
 ] as const;
 
-const productImpact = [
-  "העמוד מסביר מוצר מורכב בשפה קצרה, בטוחה ולא טכנית מדי.",
-  "המחיר, היכולות והשלב הבא ברורים כבר מהגלילה הראשונה.",
-  "העיצוב נראה כמו מוצר בשל ולא כמו דף תוכנה גנרי."
+const steps = [
+  ["חיבור מערכות", "מחברים CRM, טפסים, מקורות מידע וכלי תמיכה בלי לאבד שליטה."],
+  ["בניית לוגיקה", "מגדירים תנאים, הרשאות וזרימות עבודה בשפה תפעולית ברורה."],
+  ["מעקב ושיפור", "רואים מה רץ, מה נתקע, ואיפה נכון לשפר את התהליך הבא."]
+] as const;
+
+const pricing = [
+  ["START", "$29", "לצוותים קטנים", ["עד 5 משתמשים", "Workflow builder", "Dashboard בסיסי"]],
+  ["GROWTH", "$99", "לצוותי תפעול וצמיחה", ["אוטומציות מתקדמות", "התראות והרשאות", "חיבורים מרובים"]],
+  ["ENTERPRISE", "מותאם", "לארגונים עם בקרה עמוקה", ["SSO והרשאות מורכבות", "סביבות נפרדות", "ליווי הטמעה"]]
 ] as const;
 
 export function NexoraPage() {
@@ -47,18 +57,18 @@ export function NexoraPage() {
     <>
       <Seo
         title="Nexora | פלטפורמת אוטומציה לצוותי תפעול, תמיכה וצמיחה"
-        description="Nexora היא פלטפורמת אוטומציה לצוותי תפעול, תמיכה וצמיחה עם עמוד מוצר טכנולוגי, מסלולים והרשמה מהירה."
+        description="Nexora היא פלטפורמת אוטומציה בעברית לצוותי תפעול, תמיכה וצמיחה עם דשבורד, workflows, מחירים והרשמה."
         path="/work/nexora"
-        image="/images/nexora-hero.png"
-        imageAlt="הדמיית המוצר של Nexora עם דאשבורד עתידני, גרדיאנטים וכרטיסי מערכת"
-        keywords={["Nexora", "פלטפורמת אוטומציה", "מוצר תוכנה", "אוטומציות לעסקים"]}
+        image="/images/nexora/nexora-dashboard-analytics.webp"
+        imageAlt="מסך אנליטיקה של Nexora עם גרפים, התראות וזרימת אוטומציה"
+        keywords={["פלטפורמת אוטומציה", "אוטומציות לעסקים", "מוצר SaaS", "Nexora"]}
         schema={nexoraSchema}
         lang="he"
         dir="rtl"
       />
 
-      <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.22),transparent_26%),linear-gradient(180deg,#07101d_0%,#04070d_100%)] text-right text-white">
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#050914]/72 backdrop-blur-xl">
+      <div className="min-h-screen bg-[#04070d] text-right text-white">
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#04070d]/82 backdrop-blur-xl">
           <div className="container-shell flex flex-col gap-4 py-5 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center justify-between gap-4">
               <NexoraLogo />
@@ -66,13 +76,11 @@ export function NexoraPage() {
                 חזרה ל־Omer&apos;s
               </LinkButton>
             </div>
-            <nav className="flex flex-wrap gap-5 text-sm font-semibold text-slate-300">
+            <nav className="mobile-nav text-sm font-semibold text-slate-300 md:flex md:flex-wrap md:items-center md:gap-6 md:overflow-visible">
               <a href="#home">בית</a>
               <a href="#features">יכולות</a>
-              <a href="#product">המוצר</a>
-              <a href="#how">איך זה עובד</a>
-              <a href="#pricing">מסלולים</a>
-              <a href="#testimonials">המלצות</a>
+              <a href="#screens">מסכים</a>
+              <a href="#pricing">מחירים</a>
               <a href="#signup">הרשמה</a>
             </nav>
             <LinkButton href="/" variant="secondary" className="hidden border-white/10 bg-white/5 text-white md:inline-flex">
@@ -82,316 +90,279 @@ export function NexoraPage() {
         </header>
 
         <main id="home">
-          <section className="section-space">
-            <div className="container-shell grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-              <m.div initial="hidden" animate="show" variants={stagger}>
-                <m.p variants={fadeUp} className="text-xs font-extrabold tracking-[0.32em] text-cyan-300/80">
-                  אוטומציה / תפעול / מוצר
-                </m.p>
-                <m.h1 variants={fadeUp} className="mt-4 text-balance font-tech text-5xl leading-[0.88] md:text-7xl">
-                  סביבת עבודה אחת שמחברת אוטומציה, תפעול, בקרה ודיווח בקצב של צוות מודרני.
-                </m.h1>
-                <m.p variants={fadeUp} className="mt-6 max-w-xl text-lg leading-9 text-slate-300">
-                  Nexora נותנת לצוותי צמיחה, תמיכה ותפעול שכבה אחת לבניית תהליכים, ניטור הרצות, הרשאות
-                  ואופטימיזציה, בלי שהמוצר ירגיש מסובך או עמוס מדי.
-                </m.p>
-                <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
+          <section className="section-space pb-14 md:pb-20">
+            <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div className="grid gap-6">
+                <p className="text-xs font-extrabold tracking-[0.3em] text-cyan-300/80">אוטומציה / תפעול / בקרה</p>
+                <h1 className="max-w-xl text-balance font-tech text-5xl leading-[0.88] md:text-7xl">
+                  מערכת אחת שמרכזת תהליכים, מעקב, התראות והחלטות יומיומיות בלי לפזר את העבודה בין חמישה כלים.
+                </h1>
+                <p className="max-w-xl text-lg leading-9 text-slate-300">
+                  Nexora מיועדת לצוותי תפעול, תמיכה וצמיחה שצריכים פלטפורמת אוטומציה בעברית עם דשבורד ברור,
+                  workflows, הרשאות ומסלול הצטרפות שלא מרגיש מסובך כבר מהעמוד הראשון.
+                </p>
+                <div className="flex flex-wrap gap-4">
                   <LinkButton href="#signup" className="bg-gradient-to-r from-cyan-400 to-violet-500 text-white shadow-[0_20px_50px_rgba(99,102,241,0.28)]">
                     התחל ללא עלות
                   </LinkButton>
-                  <LinkButton href="#features" variant="secondary" className="border-white/10 bg-white/5 text-white">
-                    צפה ביכולות
+                  <LinkButton href="#pricing" variant="secondary" className="border-white/10 bg-white/5 text-white">
+                    צפה במחירים
                   </LinkButton>
-                </m.div>
-                <m.div variants={fadeUp} className="mt-10 grid gap-4 md:grid-cols-3">
+                </div>
+                <div className="grid gap-4 sm:grid-cols-3">
                   {[
                     ["99.9%", "יעד זמינות"],
-                    ["4 דק׳", "זמן הקמה ממוצע"],
+                    ["4 דק'", "זמן הקמה ממוצע"],
                     ["120+", "פעולות מחוברות"]
                   ].map(([value, label]) => (
-                    <div key={label} className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
-                      <div className="font-tech text-3xl font-bold text-cyan-300">{value}</div>
-                      <p className="mt-2 text-sm text-slate-300">{label}</p>
+                    <div key={label} className="soft-rule border-b border-white/10 pb-5">
+                      <div className="font-tech text-4xl font-bold text-cyan-300">{value}</div>
+                      <p className="mt-2 text-sm leading-7 text-slate-300">{label}</p>
                     </div>
                   ))}
-                </m.div>
-              </m.div>
+                </div>
+              </div>
 
-              <m.div initial="hidden" animate="show" variants={fadeUp} className="relative">
-                <div className="premium-outline overflow-hidden rounded-[2.2rem] border border-cyan-400/20 bg-slate-950 hero-shadow">
-                  <img
-                    src="/images/nexora-hero.png"
-                    alt="המחשה עתידנית של Nexora עם דאשבורד, אוטומציות ושכבות מידע"
-                    className="h-[640px] w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/78 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 grid gap-4 lg:grid-cols-3">
-                    {productPillars.map(({ icon: Icon, label }) => (
-                      <div key={label} className="rounded-[1.5rem] border border-white/10 bg-slate-950/55 p-5 backdrop-blur-xl">
-                        <Icon className="h-5 w-5 text-cyan-300" />
-                        <p className="mt-4 text-sm font-semibold text-slate-100">{label}</p>
+              <div className="relative">
+                <div className="dash-glow grain-panel rounded-[2.8rem] border border-cyan-400/20 bg-[linear-gradient(180deg,#0c1323_0%,#070b14_100%)] p-4 md:p-6">
+                  <div className="rounded-[2.2rem] border border-white/10 bg-[#0b1220] p-4">
+                    <div className="flex items-center justify-between border-b border-white/8 pb-4">
+                      <div className="flex items-center gap-2">
+                        <span className="window-dot bg-cyan-300" />
+                        <span className="window-dot bg-violet-400" />
+                        <span className="window-dot bg-blue-500" />
                       </div>
-                    ))}
+                      <div className="rounded-full bg-white/6 px-3 py-1 text-[11px] font-bold tracking-[0.22em] text-slate-300">
+                        NEXORA DASHBOARD
+                      </div>
+                    </div>
+
+                    <div className="mt-4 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+                      <m.div
+                        animate={{ y: [0, -6, 0] }}
+                        transition={{ duration: 4.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                        className="rounded-[1.6rem] border border-white/8 bg-white/5 p-4"
+                      >
+                        <div className="flex items-center justify-between">
+                          <p className="text-sm font-semibold text-slate-200">Operational throughput</p>
+                          <span className="text-xs font-bold text-cyan-300">+18%</span>
+                        </div>
+                        <img
+                          src="/images/nexora/nexora-dashboard-analytics.webp"
+                          alt="מסך אנליטיקה של Nexora עם גרפים עגולים ועמודות"
+                          className="mt-4 h-[210px] w-full rounded-[1.2rem] object-cover"
+                        />
+                      </m.div>
+
+                      <div className="grid gap-4">
+                        <m.div
+                          animate={{ y: [0, 8, 0] }}
+                          transition={{ duration: 5.4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                          className="rounded-[1.6rem] border border-white/8 bg-white/5 p-4"
+                        >
+                          <p className="text-sm font-semibold text-slate-200">Queue health</p>
+                          <div className="mt-4 grid gap-3">
+                            {[
+                              ["Inbound", "74%"],
+                              ["Escalations", "12%"],
+                              ["Resolved", "91%"]
+                            ].map(([name, value]) => (
+                              <div key={name} className="rounded-[1rem] bg-[#0e182b] px-4 py-3">
+                                <div className="flex items-center justify-between text-sm">
+                                  <span className="text-slate-300">{name}</span>
+                                  <span className="font-bold text-cyan-300">{value}</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </m.div>
+
+                        <m.div
+                          animate={{ y: [0, -7, 0] }}
+                          transition={{ duration: 4.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                          className="rounded-[1.6rem] border border-white/8 bg-[#0c1323] p-4"
+                        >
+                          <p className="text-sm font-semibold text-slate-200">Workflow map</p>
+                          <div className="mt-4 flex items-center justify-between gap-3">
+                            {["Lead", "Check", "Assign", "Done"].map((step, index) => (
+                              <div key={step} className="flex items-center gap-3">
+                                <div className="grid h-11 w-11 place-items-center rounded-[1rem] border border-cyan-400/20 bg-white/5 text-xs font-bold text-cyan-300">
+                                  {step}
+                                </div>
+                                {index < 3 ? <div className="h-[2px] w-6 bg-gradient-to-l from-cyan-400 to-violet-500" /> : null}
+                              </div>
+                            ))}
+                          </div>
+                        </m.div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </m.div>
-            </div>
-          </section>
-
-          <section id="features" className="section-space border-y border-white/10 bg-white/4">
-            <div className="container-shell">
-              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
-                <p className="text-xs font-extrabold tracking-[0.32em] text-cyan-300/80">יכולות</p>
-                <h2 className="mt-4 text-balance font-tech text-4xl md:text-6xl">
-                  ארכיטקטורת תוכן שמצליחה להסביר מוצר מורכב בלי להפוך אותו למאיים.
-                </h2>
-                <div className="mt-10 grid gap-5 lg:grid-cols-3">
-                  {[
-                    ["בונה תהליכים", "יצירת אוטומציות בצורה חזותית וחיבור פעולות בין צוותים."],
-                    ["ניטור חי", "מעקב אחרי הרצות, כשלים, אישורים ותורים במסך אחד."],
-                    ["סביבות מאובטחות", "הרשאות, יומן פעילות והפרדה ברורה בין סביבת עבודה לצוות."]
-                  ].map(([title, description], index) => (
-                    <m.article
-                      key={title}
-                      variants={fadeUp}
-                      className="rounded-[1.8rem] border border-white/10 bg-slate-950/30 p-6 backdrop-blur"
-                    >
-                      {index === 2 ? <Lock className="h-5 w-5 text-cyan-300" /> : null}
-                      <h3 className="mt-4 font-tech text-3xl text-white">{title}</h3>
-                      <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
-                    </m.article>
-                  ))}
-                </div>
-              </m.div>
-            </div>
-          </section>
-
-          <section className="section-space">
-            <div className="container-shell">
-              <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-                <m.article
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.18 }}
-                  variants={fadeUp}
-                  className="overflow-hidden rounded-[2rem] border border-cyan-400/20 bg-slate-950/45 shadow-[0_24px_80px_rgba(3,7,18,0.3)]"
-                >
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster="/images/nexora/operations-room.png"
-                    aria-label="וידאו אווירה של Nexora עם מעבר בין סביבת תפעול, עמדת עבודה ודשבורדים עתידניים"
-                    className="h-full min-h-[430px] w-full object-cover"
-                  >
-                    <source src="/videos/nexora/product-loop.mp4" type="video/mp4" />
-                  </video>
-                </m.article>
-                <div className="grid gap-5">
-                  {[
-                    ["/images/nexora/operations-room.png", "חדר תפעול עתידני של Nexora עם מסכים ואור כחול־סגלגל"],
-                    ["/images/nexora/nexora-dashboard-analytics.webp", "מסך אנליטיקה של Nexora עם דשבורד כהה, גרפים ונראות מוצר חדה"]
-                  ].map(([src, alt]) => (
-                    <m.article
-                      key={src}
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.18 }}
-                      variants={fadeUp}
-                      className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5"
-                    >
-                      <img src={src} alt={alt} className="h-[212px] w-full object-cover" />
-                    </m.article>
-                  ))}
-                </div>
               </div>
             </div>
           </section>
 
-          <section className="section-space border-y border-white/10 bg-white/4">
-            <div className="container-shell">
-              <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={stagger}>
-                <p className="text-xs font-extrabold tracking-[0.32em] text-cyan-300/80">למי זה מתאים</p>
-                <h2 className="mt-4 text-balance font-tech text-4xl md:text-6xl">
-                  Nexora לא מנסה להתאים לכולם. היא בנויה לצוותים שחייבים תהליכים ברורים ומהירים.
+          <section id="features" className="section-tight border-y border-white/10 bg-white/4">
+            <div className="container-shell grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+              <div>
+                <p className="text-xs font-extrabold tracking-[0.28em] text-cyan-300/80">יכולות</p>
+                <h2 className="mt-4 max-w-md text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                  לא עוד רשימת features. שלוש יכולות שבאמת מספרות מה המוצר עושה.
                 </h2>
-                <div className="mt-10 grid gap-5 lg:grid-cols-3">
-                  {useCases.map(([title, description]) => (
-                    <m.article
-                      key={title}
-                      variants={fadeUp}
-                      className="rounded-[1.8rem] border border-white/10 bg-slate-950/30 p-6 backdrop-blur"
-                    >
-                      <h3 className="font-tech text-3xl text-white">{title}</h3>
-                      <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
-                    </m.article>
-                  ))}
-                </div>
-              </m.div>
-            </div>
-          </section>
-
-          <section id="product" className="section-space">
-            <div className="container-shell grid gap-6 lg:grid-cols-[0.98fr_1.02fr]">
-              <div className="overflow-hidden rounded-[2rem] border border-cyan-400/20 bg-slate-950/45 shadow-[0_24px_80px_rgba(3,7,18,0.3)]">
-                <img
-                  src="/images/nexora/founder-workstation.png"
-                  alt="עמדת עבודה של Nexora עם לפטופ פתוח על המוצר ומסכי בקרה ברקע"
-                  className="h-full min-h-[480px] w-full object-cover"
-                />
               </div>
-              <div className="rounded-[2rem] border border-white/10 bg-slate-950/35 p-8 backdrop-blur">
-                <p className="text-xs font-extrabold tracking-[0.32em] text-cyan-300/80">מבט במוצר</p>
-                <h2 className="mt-4 text-balance font-tech text-4xl md:text-5xl">
-                  מעבר לשפה הטכנולוגית, האתר מראה איך Nexora מרגישה ביום־יום של צוות תפעול אמיתי.
-                </h2>
-                <p className="mt-6 text-lg leading-9 text-slate-300">
-                  זה לא רק עמוד יכולות. זה עמוד שמכניס את המשתמש לתוך המערכת, מראה בקרה, זרימות עבודה,
-                  דשבורדים ומסכים שמסבירים איך הכל מתחבר בלי לייצר עומס מיותר.
-                </p>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {[
-                    "דשבורדים ברורים לקריאה גם למנהלי תפעול וגם לצוותים מבצעים.",
-                    "זרימות עבודה ויזואליות שמסבירות תהליך בלי לדרוש הדגמה מלאה.",
-                    "הצגה ברורה של ניטור, הרשאות, אוטומציות ודיווח בזמן אמת.",
-                    "חוויית מוצר שנראית בשלה ומוכנה למכירה גם למקבלי החלטות."
-                  ].map((item) => (
-                    <div key={item} className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-200">
-                      {item}
+              <div className="grid gap-5">
+                {features.map(({ title, description, icon: Icon }) => (
+                  <div key={title} className="rounded-[2rem] border border-white/10 bg-[#09111e] p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="grid h-12 w-12 place-items-center rounded-[1.2rem] bg-white/5 text-cyan-300">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-tech text-3xl text-white">{title}</h3>
+                        <p className="mt-3 max-w-3xl text-base leading-8 text-slate-300">{description}</p>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="how" className="section-space">
-            <div className="container-shell grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-              <div className="rounded-[2rem] border border-white/10 bg-slate-950/35 p-8 backdrop-blur">
-                <p className="text-xs font-extrabold tracking-[0.32em] text-cyan-300/80">איך זה עובד</p>
-                <h2 className="mt-4 text-balance font-tech text-4xl md:text-5xl">
-                  מחברים, בונים, עוקבים ומשפרים, בלי לאבד שליטה בדרך.
-                </h2>
-                <p className="mt-5 text-lg leading-9 text-slate-300">
-                  האתר מציג את המוצר בארבע תחנות ברורות: חיבור למערכות, בניית לוגיקה, ניטור ריצות
-                  והבנת ההשפעה העסקית של כל תהליך.
-                </p>
-              </div>
-              <div className="grid gap-5 md:grid-cols-2">
-                {[
-                  "מחברים את המערכות הקיימות דרך אינטגרציות וחיבורי API.",
-                  "בונים לוגיקה עם בלוקים, תנאים והרשאות חוזרות לשימוש.",
-                  "עוקבים אחרי תוצאות עם לוחות בקרה, לוגים והתראות.",
-                  "משפרים תהליכים עם אישורים, תבניות עבודה ואופטימיזציה."
-                ].map((item) => (
-                  <div key={item} className="rounded-[1.8rem] border border-white/10 bg-white/5 p-6 backdrop-blur">
-                    <p className="text-base leading-8 text-slate-200">{item}</p>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          <section className="section-space">
-            <div className="container-shell grid gap-5 md:grid-cols-3">
-              {productImpact.map((item) => (
-                <m.article
-                  key={item}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.18 }}
-                  variants={fadeUp}
-                  className="rounded-[1.8rem] border border-white/10 bg-white/5 p-6 backdrop-blur"
-                >
-                  <p className="text-xs font-extrabold tracking-[0.32em] text-cyan-300/80">השפעה</p>
-                  <p className="mt-4 text-base leading-8 text-slate-200">{item}</p>
-                </m.article>
-              ))}
-            </div>
-          </section>
-
-          <section id="pricing" className="section-space border-y border-white/10 bg-white/4">
-            <div className="container-shell grid gap-5 lg:grid-cols-3">
-              {[
-                ["התחלה", "$29", "למפעילים שרוצים להתחיל לבנות אוטומציות ראשונות במהירות."],
-                ["צמיחה", "$99", "לצוותים חוצי ארגון שמנהלים תהליכים ומשימות משותפות."],
-                ["ארגוני", "מותאם", "לארגונים עם אבטחה, שליטה והרשאות מתקדמות."]
-              ].map(([title, price, description]) => (
-                <div key={title} className="rounded-[2rem] border border-white/10 bg-slate-950/35 p-7 backdrop-blur">
-                  <h3 className="font-tech text-3xl text-white">{title}</h3>
-                  <p className="mt-3 text-4xl font-bold text-cyan-300">{price}</p>
-                  <p className="mt-4 text-slate-300">{description}</p>
+          <section id="screens" className="section-space">
+            <div className="container-shell grid gap-5 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <div className="soft-rule pb-5">
+                  <p className="text-xs font-extrabold tracking-[0.28em] text-cyan-300/80">מסכים</p>
+                  <h2 className="mt-3 max-w-md text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                    מסכים שונים, שימושים שונים, אותה שפה מוצרית.
+                  </h2>
                 </div>
-              ))}
-            </div>
-          </section>
-
-          <section id="testimonials" className="section-space">
-            <div className="container-shell grid gap-5 md:grid-cols-3">
-              {[
-                "Nexora הפכה שישה כלים מפוזרים לשכבת תפעול אחת שקל להבין ולשלוט בה.",
-                "העמוד מצליח להסביר מוצר טכנולוגי מורכב בצורה מהירה וברורה מאוד.",
-                "תהליך ההרשמה פשוט, בטוח ונותן תחושת מוצר בשל כבר מהמסך הראשון."
-              ].map((quote) => (
-                <div key={quote} className="rounded-[1.8rem] border border-white/10 bg-slate-950/35 p-6 backdrop-blur">
-                  <CheckCircle2 className="h-5 w-5 text-cyan-300" />
-                  <p className="mt-4 text-base leading-8 text-slate-200">{quote}</p>
+              </div>
+              <div className="lg:col-span-7 grid gap-5 md:grid-cols-2">
+                <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#09111e] shadow-[0_24px_70px_rgba(0,0,0,0.25)] md:col-span-2">
+                  <img
+                    src="/images/nexora/operations-room.png"
+                    alt="חדר תפעול עתידני של Nexora עם מסכים מרובים"
+                    className="h-[360px] w-full object-cover"
+                  />
                 </div>
-              ))}
+                <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#09111e]">
+                  <img
+                    src="/images/nexora/founder-workstation.png"
+                    alt="עמדת עבודה של Nexora עם לפטופ ומסכים מוארים"
+                    className="h-[260px] w-full object-cover"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#09111e]">
+                  <img
+                    src="/images/nexora/nexora-dashboard-analytics.webp"
+                    alt="מסך דשבורד של Nexora עם גרפים, התראות ונתונים"
+                    className="h-[260px] w-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </section>
 
-          <section id="signup" className="section-space">
-            <div className="container-shell rounded-[2rem] border border-cyan-400/20 bg-gradient-to-br from-cyan-400/18 via-violet-500/14 to-transparent p-8 backdrop-blur">
+          <section className="section-tight border-y border-white/10 bg-white/4">
+            <div className="container-shell grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+              <div>
+                <p className="text-xs font-extrabold tracking-[0.28em] text-cyan-300/80">איך זה עובד</p>
+                <h2 className="mt-4 max-w-md text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                  מתחברים, מגדירים, רואים תוצאה. בלי להסתבך בהטמעה אינסופית.
+                </h2>
+              </div>
+              <div className="grid gap-5 md:grid-cols-3">
+                {steps.map(([title, description], index) => (
+                  <div key={title} className="rounded-[1.9rem] border border-white/10 bg-[#09111e] p-6">
+                    <div className="font-tech text-5xl font-bold text-cyan-300/24">{String(index + 1).padStart(2, "0")}</div>
+                    <h3 className="mt-4 font-tech text-3xl text-white">{title}</h3>
+                    <p className="mt-4 text-base leading-8 text-slate-300">{description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="pricing" className="section-space">
+            <div className="container-shell">
+              <div className="soft-rule pb-5">
+                <p className="text-xs font-extrabold tracking-[0.28em] text-cyan-300/80">מחירים</p>
+                <h2 className="mt-3 max-w-xl text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                  מבנה מחירים שנראה כמו מוצר אמיתי. לא קופסאות צבעוניות בלי הקשר.
+                </h2>
+              </div>
+              <div className="mt-8 grid gap-5 lg:grid-cols-3">
+                {pricing.map(([name, price, fit, bullets], index) => (
+                  <div
+                    key={name}
+                    className={`${index === 1 ? "border-cyan-400/20 bg-[#0c1527]" : "border-white/10 bg-[#09111e]"} rounded-[2rem] border p-6 shadow-[0_20px_60px_rgba(0,0,0,0.18)]`}
+                  >
+                    <p className="font-tech text-3xl font-bold text-white">{name}</p>
+                    <p className="mt-3 text-5xl font-bold text-cyan-300">{price}</p>
+                    <p className="mt-4 text-sm font-semibold tracking-[0.22em] text-slate-400">{fit}</p>
+                    <div className="mt-6 grid gap-3">
+                      {bullets.map((bullet) => (
+                        <div key={bullet} className="rounded-[1rem] bg-white/5 px-4 py-3 text-sm leading-7 text-slate-200">
+                          {bullet}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="signup" className="section-space pt-0">
+            <div className="container-shell rounded-[2.6rem] border border-cyan-400/20 bg-[linear-gradient(140deg,#0c1527_0%,#08101d_55%,#17102b_100%)] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.24)] md:p-8">
               <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
                 <div>
-                  <p className="text-xs font-extrabold tracking-[0.32em] text-cyan-300/80">הרשמה</p>
-                  <h2 className="mt-4 text-balance font-tech text-4xl md:text-5xl">
-                    פתח סביבת עבודה חדשה והקם שכבת אוטומציה חכמה עם Nexora.
+                  <p className="text-xs font-extrabold tracking-[0.28em] text-cyan-300/80">הרשמה</p>
+                  <h2 className="mt-4 max-w-2xl text-balance font-tech text-4xl leading-[0.92] md:text-6xl">
+                    אם הצוות שלך עובד עם יותר מדי כלים, קבצים והודעות, הגיע הזמן לשכבת תפעול אחת שעושה סדר.
                   </h2>
-                  <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                    יוצרים סביבת עבודה, מחברים מערכות, מגדירים לוגיקה ומתחילים להריץ תהליכים חוזרים בתוך
-                    כמה דקות, עם בקרה מלאה לכל אורך הדרך.
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
+                    מתחילים בניסיון, מחברים מערכות, ובודקים איפה התהליך הראשון שנכון להרים. בלי התחייבות
+                    כבדה ובלי להרגיש שהמוצר דורש הטמעה של חודשיים לפני שהוא נותן ערך.
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    {["פתיחה מהירה", "חיבורי API", "בקרה וניטור"].map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm text-slate-200"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
                 </div>
                 <div className="flex flex-wrap gap-4">
                   <LinkButton href="mailto:hello@nexora.app" className="bg-gradient-to-r from-cyan-400 to-violet-500 text-white">
                     hello@nexora.app
                   </LinkButton>
                   <LinkButton href="#features" variant="secondary" className="border-white/10 bg-white/5 text-white">
-                    צפה בפרטי המוצר
+                    חזור ליכולות
                   </LinkButton>
                 </div>
+              </div>
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                {[
+                  "פלטפורמת אוטומציה לצוותי תפעול, תמיכה וצמיחה.",
+                  "מסכים ברורים, workflows, הרשאות ודשבורד אחד מרכזי.",
+                  "עמוד מוצר בעברית עם מסר חד ומבנה אמין."
+                ].map((item) => (
+                  <div key={item} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-200">
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
           </section>
         </main>
 
-        <footer className="border-t border-white/10 bg-[#04070d]/90 py-8 text-slate-300">
+        <footer className="border-t border-white/10 bg-[#04070d] py-8 text-slate-300">
           <div className="container-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="font-tech text-3xl text-white">Nexora</p>
               <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-400">
-                פלטפורמת אוטומציה בעברית לצוותי תפעול, תמיכה וצמיחה עם מסכי מוצר ברורים, הרשמה מהירה
-                ותהליך שמרגיש בשל כבר מהעמוד הראשון.
+                פלטפורמת אוטומציה בעברית לצוותי תפעול, תמיכה וצמיחה עם דשבורדים, workflows ומסכי מוצר שנראים בשלים.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
               <a href="#features">יכולות</a>
-              <a href="#product">המוצר</a>
-              <a href="#pricing">מסלולים</a>
+              <a href="#screens">מסכים</a>
+              <a href="#pricing">מחירים</a>
               <a href="/">חזרה ל־Omer&apos;s</a>
             </div>
           </div>
