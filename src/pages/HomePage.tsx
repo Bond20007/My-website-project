@@ -414,12 +414,12 @@ export function HomePage() {
         </AnimatePresence>
 
         <main id="home">
-          <section className="studio-ambient relative isolate overflow-hidden bg-[#080A12] pb-12 pt-8 md:pb-20 md:pt-12">
-            <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(214,168,79,0.12),transparent_30%,rgba(148,163,184,0.07)_72%,transparent)]" />
+          <section className="studio-ambient relative isolate overflow-hidden bg-[#080A12] pb-10 pt-8 md:pb-16 md:pt-12">
+            <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(214,168,79,0.09),transparent_30%,rgba(148,163,184,0.055)_72%,transparent)]" />
             <div className="absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(180deg,transparent,#080A12)]" />
             <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,168,79,0.45),transparent)]" />
             <div className="container-shell relative">
-              <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div className="grid gap-4 sm:gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                 <m.div
                   initial="hidden"
                   animate="show"
@@ -427,7 +427,7 @@ export function HomePage() {
                     hidden: {},
                     show: { transition: { staggerChildren: 0.11 } }
                   }}
-                  className="relative z-20 max-w-[39rem] pt-3 md:pt-8 lg:pt-0"
+                  className="relative z-20 max-w-[39rem] pt-2 md:pt-8 lg:pt-0"
                 >
                   <m.p
                     variants={{
@@ -444,7 +444,7 @@ export function HomePage() {
                       hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
                       show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.78, ease: [0.22, 1, 0.36, 1] } }
                     }}
-                    className="mt-5 max-w-[11ch] font-hebrew-display text-[3.55rem] font-black leading-[0.96] tracking-normal text-[#F8FAFC] sm:text-[4.8rem] lg:text-[5.75rem]"
+                    className="mt-4 max-w-[11ch] font-hebrew-display text-[2.75rem] font-black leading-[1.04] tracking-normal text-[#F8FAFC] sm:text-[4.2rem] lg:text-[5rem]"
                   >
                     נראה טוב. עובד חזק.
                   </m.h1>
@@ -454,7 +454,7 @@ export function HomePage() {
                       hidden: { opacity: 0, y: 22 },
                       show: { opacity: 1, y: 0, transition: { duration: 0.64, ease: [0.22, 1, 0.36, 1] } }
                     }}
-                    className="mt-6 max-w-lg text-base font-medium leading-8 text-[#94A3B8] md:text-lg md:leading-8"
+                    className="mt-5 max-w-lg text-sm font-medium leading-7 text-[#94A3B8] sm:text-base md:text-lg md:leading-8"
                   >
                     אני בונה אתרי תדמית, דפי נחיתה ואתרי מכירה לעסקים שרוצים להיראות רציניים ולקבל יותר פניות.
                   </m.p>
@@ -464,7 +464,7 @@ export function HomePage() {
                       hidden: { opacity: 0, y: 18 },
                       show: { opacity: 1, y: 0, transition: { duration: 0.58, ease: [0.22, 1, 0.36, 1] } }
                     }}
-                    className="mt-7 flex flex-col gap-3 sm:flex-row"
+                    className="mt-5 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:gap-3"
                   >
                     <LinkButton
                       href="#contact"
@@ -487,10 +487,10 @@ export function HomePage() {
                       hidden: { opacity: 0, y: 18 },
                       show: { opacity: 1, y: 0, transition: { duration: 0.58, ease: [0.22, 1, 0.36, 1] } }
                     }}
-                    className="mt-7 grid gap-2.5 border-r border-[#D6A84F]/30 pr-4 sm:grid-cols-3 sm:border-r-0 sm:pr-0"
+                    className="mt-5 grid gap-2 border-r border-[#D6A84F]/30 pr-4 sm:mt-7 sm:grid-cols-3 sm:border-r-0 sm:pr-0"
                   >
                     {heroProofs.map((item) => (
-                      <div key={item} className="premium-glass flex items-center gap-2.5 rounded-full px-3.5 py-2.5 text-xs font-bold text-[#F8FAFC]">
+                      <div key={item} className="premium-glass flex items-center gap-2 rounded-full px-3 py-2 text-xs font-bold text-[#F8FAFC] sm:gap-2.5 sm:px-3.5 sm:py-2.5">
                         <span className="h-1.5 w-1.5 rounded-full bg-[#D6A84F] shadow-[0_0_18px_rgba(214,168,79,0.65)]" />
                         <span>{item}</span>
                       </div>
@@ -502,10 +502,10 @@ export function HomePage() {
                   initial={{ opacity: 0, x: -34 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.86, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative min-h-[380px] sm:min-h-[570px] lg:-mr-4 lg:min-h-[650px]"
+                  className="relative min-h-[285px] sm:min-h-[520px] lg:-mr-2 lg:min-h-[590px]"
                 >
-                  <div className="absolute inset-x-0 top-8 h-[80%] rotate-[-1.2deg] border-y border-[#D6A84F]/12 bg-[linear-gradient(90deg,transparent,rgba(248,250,252,0.055),transparent)]" />
-                  <div className="absolute inset-x-8 top-14 h-[68%] rotate-[1.1deg] rounded-[2rem] border border-white/8 bg-white/[0.025] backdrop-blur-[2px]" />
+                  <div className="absolute inset-x-0 top-6 h-[78%] rotate-[-1.2deg] border-y border-[#D6A84F]/12 bg-[linear-gradient(90deg,transparent,rgba(248,250,252,0.055),transparent)] sm:top-8" />
+                  <div className="absolute inset-x-8 top-10 h-[66%] rotate-[1.1deg] rounded-[2rem] border border-white/8 bg-white/[0.025] backdrop-blur-[2px] sm:top-14" />
                   <div className="absolute left-4 top-2 h-[92%] w-px bg-[linear-gradient(180deg,transparent,rgba(214,168,79,0.38),transparent)]" />
                   <div className="absolute right-10 top-20 h-[78%] w-px bg-[linear-gradient(180deg,transparent,rgba(148,163,184,0.2),transparent)]" />
 
@@ -516,8 +516,8 @@ export function HomePage() {
                     badge="RTL"
                     delay={0.2}
                     float={9.5}
-                    imageClassName="h-[12.5rem] sm:h-[17rem] lg:h-[19.5rem]"
-                    className="absolute right-0 top-20 z-30 w-[84%] rotate-[-0.6deg] sm:top-[4.5rem] sm:w-[74%] lg:right-8 lg:w-[70%]"
+                    imageClassName="h-[9rem] sm:h-[15.5rem] lg:h-[17.8rem]"
+                    className="absolute right-0 top-[3.5rem] z-30 w-[76%] rotate-[-0.6deg] sm:top-[4.25rem] sm:w-[70%] lg:right-8 lg:w-[66%]"
                   />
 
                   <StudioPreview
@@ -527,8 +527,8 @@ export function HomePage() {
                     badge="Mobile First"
                     delay={0.32}
                     float={8}
-                    imageClassName="h-[8.5rem] sm:h-48 lg:h-56"
-                    className="absolute left-0 top-0 z-20 w-[56%] rotate-[1.5deg] sm:w-[45%] lg:left-3 lg:w-[43%]"
+                    imageClassName="h-[6.2rem] sm:h-[10.5rem] lg:h-[12.5rem]"
+                    className="absolute left-0 top-0 z-20 w-[48%] rotate-[1.5deg] sm:w-[42%] lg:left-3 lg:w-[40%]"
                   />
 
                   <StudioPreview
@@ -538,8 +538,8 @@ export function HomePage() {
                     badge="SEO"
                     delay={0.44}
                     float={10}
-                    imageClassName="h-[8.5rem] sm:h-48 lg:h-56"
-                    className="absolute bottom-14 left-2 z-10 w-[64%] rotate-[-1deg] sm:bottom-16 sm:w-[52%] lg:left-0 lg:w-[48%]"
+                    imageClassName="h-[6.2rem] sm:h-[10.5rem] lg:h-[12.5rem]"
+                    className="absolute bottom-10 left-2 z-10 w-[56%] rotate-[-1deg] sm:bottom-14 sm:w-[48%] lg:left-0 lg:w-[44%]"
                   />
 
                   <StudioPreview
@@ -549,22 +549,22 @@ export function HomePage() {
                     badge="Fast"
                     delay={0.56}
                     float={7.5}
-                    imageClassName="h-[7.5rem] sm:h-40 lg:h-48"
-                    className="absolute bottom-0 right-2 z-40 w-[56%] rotate-[1.2deg] sm:right-12 sm:w-[41%] lg:right-0 lg:w-[37%]"
+                    imageClassName="h-[5.7rem] sm:h-36 lg:h-[10.5rem]"
+                    className="absolute bottom-0 right-2 z-40 w-[48%] rotate-[1.2deg] sm:right-12 sm:w-[38%] lg:right-0 lg:w-[34%]"
                   />
                 </m.div>
               </div>
             </div>
           </section>
 
-          <section id="process" className="relative -mt-4 pb-14 md:-mt-10 md:pb-20">
+          <section id="process" className="relative -mt-2 bg-[#f4eadc] py-12 md:-mt-6 md:py-16">
             <div className="container-shell">
               <div className="premium-shell studio-surface overflow-hidden rounded-[2.2rem] px-5 py-7 md:px-7 md:py-10 lg:-rotate-[0.25deg]">
                 <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
                   <div className="grid gap-4 lg:translate-y-6">
                     <div>
                       <p className="text-xs font-extrabold tracking-[0.28em] text-[#8d725c]">איך אני הופך רעיון לאתר</p>
-                      <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.65rem] font-black leading-[0.94] tracking-normal text-[#181411] md:text-[4rem]">
+                      <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.38rem] font-black leading-[1] tracking-normal text-[#181411] md:text-[3.6rem]">
                         קודם מסדרים את העסק. אחר כך מעצבים את האתר.
                       </h2>
                     </div>
@@ -607,14 +607,14 @@ export function HomePage() {
             </div>
           </section>
 
-          <section className="relative pb-14 md:pb-20">
+          <section className="relative bg-[linear-gradient(180deg,#080A12_0%,#0b0e18_100%)] py-12 md:py-16">
             <div className="container-shell">
               <div className="premium-shell studio-dark-panel overflow-hidden rounded-[2.2rem] px-5 py-7 md:px-7 md:py-10 lg:translate-x-3">
                 <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
                   <div className="grid gap-4">
                     <div>
                       <p className="text-xs font-extrabold tracking-[0.28em] text-[var(--studio-accent-soft)]">אתר יפה זה לא מספיק</p>
-                      <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.6rem] font-black leading-[0.94] tracking-normal text-white md:text-[3.85rem]">
+                      <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.34rem] font-black leading-[1] tracking-normal text-white md:text-[3.45rem]">
                         אם האתר לא מסביר, לא בונה אמון ולא מזיז את הלקוח לפעולה, הוא נשאר קישוט.
                       </h2>
                     </div>
@@ -630,7 +630,7 @@ export function HomePage() {
                   <div className="grid gap-5 lg:pt-8">
                     <div>
                       <p className="text-xs font-extrabold tracking-[0.28em] text-[var(--studio-accent-soft)]">מה גורם לאתר להביא פניות</p>
-                      <h3 className="mt-3 font-hebrew-display text-4xl font-black leading-[0.96] text-white md:text-[3.2rem]">
+                      <h3 className="mt-3 font-hebrew-display text-[2rem] font-black leading-[1] text-white md:text-[2.9rem]">
                         מסר חד, הוכחה במקום הנכון, ודרך קצרה מאוד להשאיר פרטים.
                       </h3>
                     </div>
@@ -659,12 +659,12 @@ export function HomePage() {
             </div>
           </section>
 
-          <section id="work" className="relative pb-14 md:pb-20">
+          <section id="work" className="relative bg-[#080A12] py-12 md:py-16">
             <div className="container-shell">
               <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="text-xs font-extrabold tracking-[0.28em] text-[#bfae9d]">עבודות</p>
-                  <h2 className="mt-3 max-w-3xl font-hebrew-display text-[2.85rem] font-black leading-[0.94] tracking-normal text-white md:text-[4.1rem]">
+                  <h2 className="mt-3 max-w-3xl font-hebrew-display text-[2.52rem] font-black leading-[1] tracking-normal text-white md:text-[3.65rem]">
                     פורטפוליו שנראה כמו עבודות אמיתיות, לא כמו תבנית.
                   </h2>
                 </div>
@@ -680,7 +680,7 @@ export function HomePage() {
                   className="group premium-card studio-dark-panel relative overflow-hidden rounded-[2.25rem] border border-white/10 lg:-rotate-[0.35deg]"
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(214,168,79,0.18),transparent_32%)]" />
-                  <div className="relative grid min-h-[520px] content-between gap-6 p-4 md:p-6">
+                  <div className="relative grid min-h-[470px] content-between gap-6 p-4 md:p-5">
                     <div className="overflow-hidden rounded-[1.55rem] border border-white/12 bg-[#080A12] shadow-[0_30px_80px_rgba(0,0,0,0.38)]">
                       <div className="flex items-center justify-between border-b border-white/10 bg-white/6 px-4 py-3 backdrop-blur">
                         <div className="flex gap-1.5">
@@ -690,7 +690,7 @@ export function HomePage() {
                         </div>
                         <span className="text-[11px] font-extrabold tracking-[0.22em] text-[#d6a84f]">FEATURED CASE</span>
                       </div>
-                      <div className="relative h-[270px] overflow-hidden md:h-[330px]">
+                      <div className="relative h-[240px] overflow-hidden md:h-[290px]">
                         <img
                           src={luma.previewImage}
                           alt={luma.previewAlt}
@@ -708,7 +708,7 @@ export function HomePage() {
                           </span>
                           <span className="text-xs font-bold text-white/48">מה נבנה</span>
                         </div>
-                        <h3 className="mt-4 font-hebrew-display text-4xl font-black leading-[1.02] text-white md:text-6xl">{luma.name}</h3>
+                        <h3 className="mt-4 font-hebrew-display text-4xl font-black leading-[1.05] text-white md:text-5xl">{luma.name}</h3>
                         <p className="mt-3 max-w-lg text-sm leading-7 text-white/74">{showcaseNotes[luma.slug].whatBuilt}</p>
                       </div>
                       <LinkButton href={luma.route} variant="studioLight" className="w-full gap-2 md:w-auto">
@@ -737,7 +737,7 @@ export function HomePage() {
                             </div>
                             <span className="text-[10px] font-extrabold tracking-[0.2em] text-[#d6a84f]">CASE 0{index + 2}</span>
                           </div>
-                          <div className="relative h-[11.5rem] overflow-hidden md:h-52">
+                          <div className="relative h-[10.5rem] overflow-hidden md:h-48">
                             <img
                               src={project.previewImage}
                               alt={project.previewAlt}
@@ -789,7 +789,7 @@ export function HomePage() {
                       </div>
                       <span className="text-[11px] font-extrabold tracking-[0.22em] text-cyan-200">WIDE CASE STUDY</span>
                     </div>
-                    <div className="relative h-[240px] overflow-hidden md:h-[320px]">
+                      <div className="relative h-[220px] overflow-hidden md:h-[285px]">
                       <img
                         src={nexora.previewImage}
                         alt={nexora.previewAlt}
@@ -806,7 +806,7 @@ export function HomePage() {
                           מה נבנה
                         </span>
                       </div>
-                      <h3 className="mt-4 font-hebrew-display text-4xl font-black leading-[1.02] md:text-5xl">{nexora.name}</h3>
+                      <h3 className="mt-4 font-hebrew-display text-4xl font-black leading-[1.05] md:text-[2.75rem]">{nexora.name}</h3>
                       <p className="mt-3 max-w-lg text-sm leading-7 text-white/72">{showcaseNotes[nexora.slug].whatBuilt}</p>
                     </div>
                     <LinkButton href={nexora.route} variant="studioSecondary" className="w-full gap-2 md:w-fit">
@@ -819,12 +819,27 @@ export function HomePage() {
             </div>
           </section>
 
-          <section className="pb-14 md:pb-20">
+          <section className="bg-[#f5ecdf] py-12 text-[#181411] md:py-16">
+            <div className="container-shell">
+              <div className="mx-auto grid max-w-4xl justify-items-center gap-6 text-center">
+                <p className="text-xs font-extrabold tracking-[0.28em] text-[#8d725c]">רגע לפני שמחליטים</p>
+                <h2 className="max-w-3xl font-hebrew-display text-[2.45rem] font-black leading-[1.04] tracking-normal md:text-[3.25rem]">
+                  אתר טוב לא צריך לצעוק. הוא צריך להסביר מהר ולהיראות נכון.
+                </h2>
+                <LinkButton href="#contact" variant="studio" className="gap-2">
+                  בוא נבנה אתר
+                  <ChevronLeft className="h-4 w-4" />
+                </LinkButton>
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-[linear-gradient(180deg,#080A12,#0c111d)] py-12 md:py-16">
             <div className="container-shell">
               <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
                 <div className="premium-glass rounded-[2.1rem] p-5 md:p-7 lg:translate-y-8 lg:rotate-[0.35deg]">
                   <p className="text-xs font-extrabold tracking-[0.28em] text-[var(--studio-accent-soft)]">למי זה מתאים</p>
-                  <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.65rem] font-black leading-[0.94] tracking-normal text-white md:text-[3.75rem]">
+                  <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.38rem] font-black leading-[1] tracking-normal text-white md:text-[3.35rem]">
                     לעסקים טובים שלא רוצים להיראות בינוניים באינטרנט.
                   </h2>
                   <div className="mt-6 grid gap-3">
@@ -839,7 +854,7 @@ export function HomePage() {
 
                 <div className="premium-shell studio-surface rounded-[2.1rem] px-5 py-7 md:px-7 md:py-10 lg:-rotate-[0.25deg]">
                   <p className="text-xs font-extrabold tracking-[0.28em] text-[#8d725c]">מה מקבלים בתהליך</p>
-                  <h3 className="mt-3 max-w-xl font-hebrew-display text-[2.55rem] font-black leading-[0.94] tracking-normal text-[#181411] md:text-[3.65rem]">
+                  <h3 className="mt-3 max-w-xl font-hebrew-display text-[2.3rem] font-black leading-[1] tracking-normal text-[#181411] md:text-[3.25rem]">
                     לא רק אתר יפה. מערכת מסודרת שמסבירה, נראית נכון, ועובדת טוב.
                   </h3>
                   <div className="mt-6 grid gap-4">
@@ -860,12 +875,12 @@ export function HomePage() {
             </div>
           </section>
 
-          <section id="packages" className="relative pb-14 md:pb-20">
+          <section id="packages" className="relative bg-[#080A12] py-12 md:py-16">
             <div className="container-shell">
               <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="text-xs font-extrabold tracking-[0.28em] text-[#bfae9d]">חבילות שירות</p>
-                  <h2 className="mt-3 max-w-3xl font-hebrew-display text-[2.7rem] font-black leading-[0.94] tracking-normal text-white md:text-[3.95rem]">
+                  <h2 className="mt-3 max-w-3xl font-hebrew-display text-[2.42rem] font-black leading-[1] tracking-normal text-white md:text-[3.55rem]">
                     בוחרים את המסגרת שנכונה לעסק, לא את מה שנוח לתבנית.
                   </h2>
                 </div>
@@ -879,7 +894,7 @@ export function HomePage() {
                   <div className="flex flex-wrap items-start justify-between gap-5">
                     <div>
                       <p className="text-xs font-extrabold tracking-[0.24em] text-[#8d725c]">{packagePlans[1].note}</p>
-                      <h3 className="mt-3 font-hebrew-display text-5xl font-black leading-[1.02] text-[#181411] md:text-6xl">
+                      <h3 className="mt-3 font-hebrew-display text-4xl font-black leading-[1.05] text-[#181411] md:text-5xl">
                         {packagePlans[1].title}
                       </h3>
                     </div>
@@ -926,13 +941,13 @@ export function HomePage() {
             </div>
           </section>
 
-          <section id="faq" className="pb-14 md:pb-20">
+          <section id="faq" className="bg-[#f4eadc] py-12 md:py-16">
             <div className="container-shell">
               <div className="premium-shell studio-surface rounded-[2.2rem] px-5 py-7 md:px-7 md:py-10 lg:-rotate-[0.2deg]">
                 <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
                   <div>
                     <p className="text-xs font-extrabold tracking-[0.28em] text-[#8d725c]">שאלות נפוצות</p>
-                    <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.6rem] font-black leading-[0.94] tracking-normal text-[#181411] md:text-[3.7rem]">
+                    <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.34rem] font-black leading-[1] tracking-normal text-[#181411] md:text-[3.3rem]">
                       לפני שמתחילים, יש כמה דברים שעדיף לסגור ישר.
                     </h2>
                     <p className="mt-4 max-w-sm text-sm leading-7 text-[#655748]">
@@ -956,12 +971,12 @@ export function HomePage() {
             </div>
           </section>
 
-          <section id="contact" className="pb-16 md:pb-20">
+          <section id="contact" className="bg-[#080A12] py-12 md:py-16">
             <div className="container-shell">
               <div className="grid gap-6 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
                 <div className="premium-shell studio-dark-panel rounded-[2.2rem] px-5 py-7 md:px-7 md:py-10 lg:translate-y-7 lg:rotate-[0.35deg]">
                   <p className="text-xs font-extrabold tracking-[0.28em] text-[var(--studio-accent-soft)]">צור קשר</p>
-                  <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.65rem] font-black leading-[0.94] tracking-normal text-white md:text-[3.9rem]">
+                  <h2 className="mt-3 max-w-lg font-hebrew-display text-[2.38rem] font-black leading-[1] tracking-normal text-white md:text-[3.45rem]">
                     אם העסק שלך טוב, הגיע הזמן שגם האתר יישמע וייראה ככה.
                   </h2>
                   <p className="mt-4 max-w-sm text-sm leading-7 text-[#e6d8c9]">
