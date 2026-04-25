@@ -6,13 +6,13 @@ type LogoProps = {
 
 export function OmersLogo({ className }: LogoProps) {
   return (
-    <a
-      href="#home"
-      aria-label="Omer's Studio"
-      className={cn("inline-flex items-center", className)}
-    >
-      <img src="/assets/logo/logo-transparent.png" alt="Omer's Studio" className="logo" />
-    </a>
+<a href="/">
+  <img 
+    src="/assets/logo/logo.png" 
+    alt="Omer's Studio"
+    style={{ height: "42px", width: "auto" }}
+  />
+</a>
   );
 }
 
