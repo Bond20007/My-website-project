@@ -661,105 +661,107 @@ export function HomePage() {
 
           <section id="work" className="relative pb-18 md:pb-24">
             <div className="container-shell">
-              <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="text-xs font-extrabold tracking-[0.28em] text-[#bfae9d]">עבודות</p>
                   <h2 className="mt-3 max-w-4xl font-hebrew-display text-[3.45rem] font-black leading-[0.83] tracking-normal text-white md:text-[5.25rem]">
-                    לא ארבעה כרטיסים. ארבעה עסקים שנראים כאילו מישהו באמת בנה להם אתר.
+                    פורטפוליו שנראה כמו עבודות אמיתיות, לא כמו תבנית.
                   </h2>
                 </div>
-                <p className="premium-glass max-w-md rounded-[1.5rem] p-5 text-base leading-8 text-[#d3c4b4] md:-mb-4">
-                  כל פרויקט מקבל עולם ויזואלי משלו, קצב משלו והיגיון שמתאים לעסק. זאת הנקודה שבה האתר מפסיק להרגיש כמו טמפלט.
+                <p className="premium-glass max-w-sm rounded-[1.5rem] p-5 text-base leading-8 text-[#d3c4b4] md:-mb-4">
+                  כל אתר מקבל שפה, קצב ומבנה שמתאימים לעסק. ארבעה כיוונים שונים, ארבע תחושות שונות.
                 </p>
               </div>
 
-              <div className="mt-12 grid gap-6 lg:grid-cols-[1.18fr_0.82fr]">
+              <div className="mt-12 grid gap-6 lg:grid-cols-[1.22fr_0.78fr] lg:items-start">
                 <m.article
-                  whileHover={{ y: -10, scale: 1.005 }}
-                  transition={{ duration: 0.28 }}
+                  whileHover={{ y: -12, scale: 1.006 }}
+                  transition={{ duration: 0.32 }}
                   className="group premium-card studio-dark-panel relative overflow-hidden rounded-[2.5rem] border border-white/10 lg:-rotate-[0.45deg]"
                 >
-                  <img
-                    src={luma.previewImage}
-                    alt={luma.previewAlt}
-                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.32)_42%,rgba(0,0,0,0.92))]" />
-                  <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(214,168,79,0.18),transparent_36%)]" />
-                  <div className="relative grid h-full min-h-[600px] content-between p-6 md:p-8">
-                    <div className="flex items-start justify-between gap-4">
-                      <span className="studio-chip rounded-full px-4 py-2 text-xs font-extrabold tracking-[0.22em] text-white/82">
-                        {luma.industry}
-                      </span>
-                       <span className="studio-chip rounded-full px-4 py-2 text-xs font-bold text-white/82">פרויקט מוביל</span>
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(214,168,79,0.18),transparent_32%)]" />
+                  <div className="relative grid min-h-[620px] content-between gap-8 p-5 md:p-8">
+                    <div className="overflow-hidden rounded-[1.8rem] border border-white/12 bg-[#080A12] shadow-[0_36px_100px_rgba(0,0,0,0.45)]">
+                      <div className="flex items-center justify-between border-b border-white/10 bg-white/6 px-4 py-3 backdrop-blur">
+                        <div className="flex gap-1.5">
+                          <span className="window-dot bg-[#f97373]" />
+                          <span className="window-dot bg-[#f8c766]" />
+                          <span className="window-dot bg-[#76d38f]" />
+                        </div>
+                        <span className="text-[11px] font-extrabold tracking-[0.22em] text-[#d6a84f]">FEATURED CASE</span>
+                      </div>
+                      <div className="relative h-[340px] overflow-hidden md:h-[410px]">
+                        <img
+                          src={luma.previewImage}
+                          alt={luma.previewAlt}
+                          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.055] group-hover:-translate-y-2"
+                        />
+                        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(8,10,18,0.74))]" />
+                      </div>
                     </div>
 
-                    <div className="max-w-xl">
-                      <h3 className="font-hebrew-display text-5xl font-black leading-none text-white md:text-6xl">{luma.name}</h3>
-                      <p className="mt-4 text-base leading-8 text-white/78">{showcaseNotes[luma.slug].whatBuilt}</p>
-                      <p className="mt-4 max-w-xl text-sm leading-7 text-white/68">{showcaseNotes[luma.slug].whyItFits}</p>
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {showcaseNotes[luma.slug].tags.map((tag) => (
-                          <span key={tag} className="rounded-full border border-white/12 bg-black/24 px-3 py-2 text-xs font-bold text-white/80">
-                            {tag}
+                    <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+                      <div className="max-w-xl">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span className="studio-chip rounded-full px-4 py-2 text-xs font-extrabold tracking-[0.22em] text-white/82">
+                            {luma.industry}
                           </span>
-                        ))}
+                          <span className="text-xs font-bold text-white/48">מה נבנה</span>
+                        </div>
+                        <h3 className="mt-4 font-hebrew-display text-5xl font-black leading-none text-white md:text-7xl">{luma.name}</h3>
+                        <p className="mt-4 max-w-xl text-base leading-8 text-white/76">{showcaseNotes[luma.slug].whatBuilt}</p>
                       </div>
-                      <div className="mt-7">
-                        <LinkButton href={luma.route} variant="studioLight" className="gap-2">
-                          צפה באתר
-                          <ArrowUpRight className="h-4 w-4" />
-                        </LinkButton>
-                      </div>
+                      <LinkButton href={luma.route} variant="studioLight" className="w-full gap-2 md:w-auto">
+                        צפה באתר
+                        <ArrowUpRight className="h-4 w-4" />
+                      </LinkButton>
                     </div>
                   </div>
                 </m.article>
 
-                  <div className="grid gap-6 lg:translate-y-10">
+                <div className="grid gap-6 lg:translate-y-12">
                   {[pulse, aura].map((project, index) => (
                     <m.article
                       key={project.slug}
-                      whileHover={{ y: -10, scale: 1.01 }}
-                      transition={{ duration: 0.28 }}
-                      className={`group premium-card relative overflow-hidden rounded-[2.3rem] border ${index === 0 ? "border-white/10 bg-[#11131b]" : "border-black/8 bg-[var(--studio-paper)]"} ${index === 0 ? "lg:rotate-[0.7deg]" : "lg:-rotate-[0.6deg]"} shadow-[0_24px_70px_rgba(0,0,0,0.14)]`}
+                      whileHover={{ y: -10, scale: 1.012 }}
+                      transition={{ duration: 0.32 }}
+                      className={`group premium-card relative overflow-hidden rounded-[2.3rem] border ${index === 0 ? "border-white/10 bg-[#11131b] text-white lg:rotate-[0.7deg]" : "border-black/8 bg-[var(--studio-paper)] text-[#181411] lg:-rotate-[0.6deg]"}`}
                     >
-                      <div className="grid md:grid-cols-[0.95fr_1.05fr]">
-                        <div className="relative min-h-[240px] overflow-hidden">
-                          <img
-                            src={project.previewImage}
-                            alt={project.previewAlt}
-                            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                          />
-                          <div className={`absolute inset-0 ${index === 0 ? "bg-gradient-to-t from-black/68 to-transparent" : "bg-gradient-to-t from-[#181411]/40 to-transparent"}`} />
+                      <div className="p-4">
+                        <div className="overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#080A12] shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
+                          <div className={`flex items-center justify-between border-b px-3 py-2 ${index === 0 ? "border-white/10 bg-white/6" : "border-black/8 bg-[#181411]/95"}`}>
+                            <div className="flex gap-1.5">
+                              <span className="window-dot bg-[#f97373]" />
+                              <span className="window-dot bg-[#f8c766]" />
+                              <span className="window-dot bg-[#76d38f]" />
+                            </div>
+                            <span className="text-[10px] font-extrabold tracking-[0.2em] text-[#d6a84f]">CASE 0{index + 2}</span>
+                          </div>
+                          <div className="relative h-56 overflow-hidden">
+                            <img
+                              src={project.previewImage}
+                              alt={project.previewAlt}
+                              className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06] group-hover:-translate-y-2"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/54 to-transparent" />
+                          </div>
                         </div>
-                        <div className={`grid gap-4 p-5 md:p-6 ${index === 0 ? "text-white" : "text-[#181411]"}`}>
+
+                        <div className="grid gap-4 px-1 pb-2 pt-5">
                           <div className="flex items-center justify-between gap-3">
                             <span className={`text-xs font-extrabold tracking-[0.22em] ${index === 0 ? "text-[var(--studio-accent-soft)]" : "text-[#8b6a54]"}`}>
                               {project.industry}
                             </span>
-                            <span className={`text-[11px] font-bold ${index === 0 ? "text-white/55" : "text-[#6d5b4a]"}`}>מה נבנה</span>
+                            <span className={`text-[11px] font-bold ${index === 0 ? "text-white/50" : "text-[#6d5b4a]"}`}>מה נבנה</span>
                           </div>
                           <div>
                             <h3 className="font-hebrew-display text-4xl font-black">{project.name}</h3>
                             <p className={`mt-3 text-sm leading-7 ${index === 0 ? "text-white/72" : "text-[#655748]"}`}>
                               {showcaseNotes[project.slug].whatBuilt}
                             </p>
-                            <p className={`mt-3 text-sm leading-7 ${index === 0 ? "text-white/62" : "text-[#7c6c5d]"}`}>
-                              {showcaseNotes[project.slug].whyItFits}
-                            </p>
-                          </div>
-                          <div className="mt-auto flex flex-wrap gap-2">
-                            {showcaseNotes[project.slug].tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className={`rounded-full px-3 py-2 text-xs font-bold ${index === 0 ? "border border-white/12 bg-white/6 text-white/80" : "border border-black/8 bg-[#f3e7d9] text-[#6a5647]"}`}
-                              >
-                                {tag}
-                              </span>
-                            ))}
                           </div>
                           <div>
-                            <LinkButton href={project.route} variant={index === 0 ? "studioSecondary" : "studioLight"} className="gap-2">
+                            <LinkButton href={project.route} variant={index === 0 ? "studioSecondary" : "studioLight"} className="w-full gap-2">
                               צפה באתר
                               <ArrowUpRight className="h-4 w-4" />
                             </LinkButton>
@@ -772,45 +774,45 @@ export function HomePage() {
               </div>
 
               <m.article
-                whileHover={{ y: -10, scale: 1.006 }}
-                transition={{ duration: 0.28 }}
-                className="group premium-card relative mt-10 overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#121724] shadow-[0_26px_80px_rgba(0,0,0,0.22)] lg:-mt-2 lg:mr-10 lg:rotate-[0.35deg]"
+                whileHover={{ y: -12, scale: 1.006 }}
+                transition={{ duration: 0.32 }}
+                className="group premium-card relative mt-10 overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#121724] shadow-[0_26px_80px_rgba(0,0,0,0.22)] lg:mr-10 lg:rotate-[0.35deg]"
               >
-                <div className="grid lg:grid-cols-[0.92fr_1.08fr]">
-                  <div className="relative min-h-[320px] overflow-hidden">
-                    <img
-                      src={nexora.previewImage}
-                      alt={nexora.previewAlt}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,23,38,0.05),rgba(16,23,38,0.38)_52%,rgba(16,23,38,0.96))]" />
-                    <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(103,232,249,0.13),transparent_38%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(103,232,249,0.14),transparent_30%)]" />
+                <div className="relative grid gap-6 p-5 lg:grid-cols-[1.25fr_0.75fr] lg:p-6">
+                  <div className="overflow-hidden rounded-[1.8rem] border border-white/12 bg-[#080A12] shadow-[0_34px_90px_rgba(0,0,0,0.38)]">
+                    <div className="flex items-center justify-between border-b border-white/10 bg-white/6 px-4 py-3 backdrop-blur">
+                      <div className="flex gap-1.5">
+                        <span className="window-dot bg-[#f97373]" />
+                        <span className="window-dot bg-[#f8c766]" />
+                        <span className="window-dot bg-[#76d38f]" />
+                      </div>
+                      <span className="text-[11px] font-extrabold tracking-[0.22em] text-cyan-200">WIDE CASE STUDY</span>
+                    </div>
+                    <div className="relative h-[310px] overflow-hidden md:h-[420px]">
+                      <img
+                        src={nexora.previewImage}
+                        alt={nexora.previewAlt}
+                        className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.055] group-hover:-translate-y-2"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_48%,rgba(16,23,38,0.78))]" />
+                    </div>
                   </div>
-                  <div className="grid gap-5 p-6 text-white md:p-8">
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <span className="text-xs font-extrabold tracking-[0.22em] text-cyan-300">{nexora.industry}</span>
-                      <span className="rounded-full border border-cyan-300/16 bg-cyan-300/8 px-4 py-2 text-[11px] font-bold text-cyan-200">
-                        Full Product Showcase
-                      </span>
-                    </div>
+                  <div className="grid content-between gap-6 p-1 text-white md:p-4">
                     <div>
-                      <h3 className="font-hebrew-display text-5xl font-black leading-none">{nexora.name}</h3>
-                      <p className="mt-4 max-w-2xl text-base leading-8 text-white/74">{showcaseNotes[nexora.slug].whatBuilt}</p>
-                      <p className="mt-4 max-w-2xl text-sm leading-7 text-white/62">{showcaseNotes[nexora.slug].whyItFits}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {showcaseNotes[nexora.slug].tags.map((tag) => (
-                        <span key={tag} className="rounded-full border border-cyan-300/14 bg-white/6 px-3 py-2 text-xs font-bold text-white/82">
-                          {tag}
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="text-xs font-extrabold tracking-[0.22em] text-cyan-300">{nexora.industry}</span>
+                        <span className="rounded-full border border-cyan-300/16 bg-cyan-300/8 px-4 py-2 text-[11px] font-bold text-cyan-200">
+                          מה נבנה
                         </span>
-                      ))}
+                      </div>
+                      <h3 className="mt-5 font-hebrew-display text-5xl font-black leading-none md:text-6xl">{nexora.name}</h3>
+                      <p className="mt-4 max-w-xl text-base leading-8 text-white/74">{showcaseNotes[nexora.slug].whatBuilt}</p>
                     </div>
-                    <div>
-                      <LinkButton href={nexora.route} variant="studioSecondary" className="gap-2">
-                        צפה באתר
-                        <ArrowUpRight className="h-4 w-4" />
-                      </LinkButton>
-                    </div>
+                    <LinkButton href={nexora.route} variant="studioSecondary" className="w-full gap-2 md:w-fit">
+                      צפה באתר
+                      <ArrowUpRight className="h-4 w-4" />
+                    </LinkButton>
                   </div>
                 </div>
               </m.article>
