@@ -11,7 +11,6 @@ import {
   Rocket,
   Search,
   ShieldCheck,
-  Sparkles,
   X
 } from "lucide-react";
 import { Button, LinkButton } from "../components/common/Button";
@@ -52,22 +51,7 @@ const navItems = [
   { label: "צור קשר", href: "#contact" }
 ] as const;
 
-const heroBadges = ["אתרי תדמית", "דפי נחיתה", "אתרי מכירה", "SEO", "מובייל"] as const;
-
-const heroSignals = [
-  {
-    title: "נראה כמו מותג",
-    description: "שפה ויזואלית, קצב ותוכן שמרגישים כמו עסק אמיתי ולא כמו תבנית."
-  },
-  {
-    title: "עובד מהר",
-    description: "מסכים חדים, מובייל טוב, חיבור טפסים ודרך קצרה מאוד לפנייה."
-  },
-  {
-    title: "נשמע ברור",
-    description: "הלקוח מבין כבר במסך הראשון מה אתה עושה, למי זה מתאים ולמה לפנות."
-  }
-] as const;
+const heroProofs = ["מותאם למובייל", "SEO בסיסי כלול", "חיבור לוואטסאפ וטפסים"] as const;
 
 const ideaSteps = [
   {
@@ -193,40 +177,56 @@ const showcaseNotes: Record<
 
 function StudioPreview({
   title,
-  subtitle,
+  description,
   image,
   badge,
-  className
+  className,
+  imageClassName,
+  delay = 0,
+  float = 9
 }: {
   title: string;
-  subtitle: string;
+  description: string;
   image: string;
   badge: string;
   className?: string;
+  imageClassName?: string;
+  delay?: number;
+  float?: number;
 }) {
   return (
-    <m.article
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      className={`overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#1e1915] shadow-[0_24px_70px_rgba(0,0,0,0.22)] ${className ?? ""}`}
+    <m.div
+      initial={{ opacity: 0, y: 34, rotate: 1.2 }}
+      animate={{ opacity: 1, y: 0, rotate: 0 }}
+      transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
     >
-      <div className="flex items-center gap-2 border-b border-white/8 bg-[#171310] px-4 py-3">
-        <span className="window-dot bg-[#ff7c64]" />
-        <span className="window-dot bg-[#ffc45b]" />
-        <span className="window-dot bg-[#7ec77b]" />
-        <div className="mr-3 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-bold tracking-[0.2em] text-white/72">
-          {badge}
+      <m.article
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: float, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ y: -14, scale: 1.015 }}
+        className="overflow-hidden rounded-[1.25rem] border border-white/12 bg-[#0b0e16]/92 shadow-[0_28px_80px_rgba(0,0,0,0.42)] backdrop-blur-xl"
+      >
+        <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-[#0e111a]/95 px-3 py-2.5">
+          <div className="flex items-center gap-1.5">
+            <span className="window-dot bg-[#f97373]" />
+            <span className="window-dot bg-[#f8c766]" />
+            <span className="window-dot bg-[#76d38f]" />
+          </div>
+          <span className="rounded-full border border-[#d6a84f]/35 bg-[#d6a84f]/10 px-2.5 py-1 text-[10px] font-extrabold tracking-[0.18em] text-[#f6d991]">
+            {badge}
+          </span>
         </div>
-      </div>
-      <div className="grid gap-3 p-3">
-        <img src={image} alt={subtitle} className="h-40 w-full rounded-[1.25rem] object-cover md:h-48" />
-        <div className="rounded-[1.25rem] bg-white/5 p-4">
-          <p className="font-hebrew-display text-2xl font-bold text-white">{title}</p>
-          <p className="mt-2 text-sm leading-7 text-white/68">{subtitle}</p>
+        <div className="relative">
+          <img src={image} alt={description} className={`w-full object-cover ${imageClassName ?? "h-40 md:h-52"}`} />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgba(8,10,18,0.92)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 p-4">
+            <p className="font-hebrew-display text-xl font-black leading-none text-[#f8fafc] md:text-2xl">{title}</p>
+            <p className="mt-2 max-w-[18rem] text-xs font-semibold leading-5 text-[#94a3b8]">{description}</p>
+          </div>
         </div>
-      </div>
-    </m.article>
+      </m.article>
+    </m.div>
   );
 }
 
@@ -414,111 +414,143 @@ export function HomePage() {
         </AnimatePresence>
 
         <main id="home">
-          <section className="pb-18 pt-8 md:pb-24 md:pt-10">
-            <div className="container-shell">
-              <div className="studio-dark-panel studio-grid studio-noise relative overflow-hidden rounded-[2.6rem] px-5 pb-8 pt-5 md:px-8 md:pb-10 md:pt-7">
-                <div className="absolute -left-12 top-16 h-48 w-48 rounded-full bg-[rgba(208,138,89,0.16)] blur-3xl" />
-                <div className="absolute -right-10 bottom-14 h-56 w-56 rounded-full bg-[rgba(104,114,93,0.18)] blur-3xl" />
-
-                <div className="relative grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-                  <m.div
-                    initial={{ opacity: 0, y: 26 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    className="grid gap-6"
+          <section className="relative isolate overflow-hidden bg-[#080A12] pb-20 pt-10 md:pb-28 md:pt-14">
+            <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(214,168,79,0.09),transparent_34%,rgba(148,163,184,0.06)_72%,transparent)]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,168,79,0.45),transparent)]" />
+            <div className="container-shell relative">
+              <div className="grid gap-14 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+                <m.div
+                  initial="hidden"
+                  animate="show"
+                  variants={{
+                    hidden: {},
+                    show: { transition: { staggerChildren: 0.11 } }
+                  }}
+                  className="max-w-[43rem] pt-4 md:pt-10 lg:pt-0"
+                >
+                  <m.p
+                    variants={{
+                      hidden: { opacity: 0, x: 22 },
+                      show: { opacity: 1, x: 0, transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                    className="text-xs font-extrabold uppercase tracking-[0.34em] text-[#D6A84F]"
                   >
-                    <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2 text-xs font-extrabold tracking-[0.24em] text-white/72">
-                      <Sparkles className="h-4 w-4 text-[var(--studio-accent-soft)]" />
-                      סטודיו לבניית אתרים לעסקים
-                    </div>
+                    Omer's Studio
+                  </m.p>
 
-                    <div className="grid gap-4">
-                      <h1 className="max-w-[11ch] font-hebrew-display text-[3.4rem] font-black leading-[0.82] tracking-[-0.03em] text-white md:text-[5.8rem]">
-                        אתרים שנראים כמו מותג ועובדים כמו מכונה שמביאה פניות
-                      </h1>
-                      <p className="max-w-2xl text-xl leading-9 text-[#e7d9ca] md:max-w-xl">
-                        אני בונה אתרי תדמית, דפי נחיתה ואתרי מכירה לעסקים שרוצים להיראות רציניים, לזוז מהר ולקבל יותר
-                        פניות.
-                      </p>
-                    </div>
+                  <m.h1
+                    variants={{
+                      hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+                      show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.78, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                    className="mt-6 max-w-[10ch] font-hebrew-display text-[4.15rem] font-black leading-[0.88] tracking-normal text-[#F8FAFC] sm:text-[5.6rem] lg:text-[6.65rem]"
+                  >
+                    נראה טוב. עובד חזק.
+                  </m.h1>
 
-                    <div className="flex flex-wrap gap-3">
-                      {heroBadges.map((badge) => (
-                        <span key={badge} className="studio-chip rounded-full px-4 py-2 text-sm font-bold text-white/80">
-                          {badge}
-                        </span>
-                      ))}
-                    </div>
+                  <m.p
+                    variants={{
+                      hidden: { opacity: 0, y: 22 },
+                      show: { opacity: 1, y: 0, transition: { duration: 0.64, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                    className="mt-7 max-w-2xl text-xl font-medium leading-9 text-[#94A3B8] md:text-2xl md:leading-10"
+                  >
+                    אני בונה אתרי תדמית, דפי נחיתה ואתרי מכירה לעסקים שרוצים להיראות רציניים, לעבוד מהר ולקבל יותר לקוחות מהאתר.
+                  </m.p>
 
-                    <div className="flex flex-wrap gap-4">
-                      <LinkButton href="#contact" variant="studio" className="gap-2">
-                        בוא נבנה אתר
-                        <ChevronLeft className="h-4 w-4" />
-                      </LinkButton>
-                      <LinkButton href="#work" variant="studioSecondary" className="gap-2">
-                        צפה בעבודות
-                        <ArrowUpRight className="h-4 w-4" />
-                      </LinkButton>
-                    </div>
-
-                    <div className="mt-2 grid gap-4 lg:grid-cols-3">
-                      {heroSignals.map((item) => (
-                        <div key={item.title} className="rounded-[1.6rem] border border-white/10 bg-white/6 p-5 backdrop-blur">
-                          <p className="text-sm font-extrabold tracking-[0.16em] text-[var(--studio-accent-soft)]">{item.title}</p>
-                          <p className="mt-3 text-sm leading-7 text-white/70">{item.description}</p>
-                        </div>
-                      ))}
-                    </div>
+                  <m.div
+                    variants={{
+                      hidden: { opacity: 0, y: 18 },
+                      show: { opacity: 1, y: 0, transition: { duration: 0.58, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                    className="mt-9 flex flex-col gap-3 sm:flex-row"
+                  >
+                    <LinkButton
+                      href="#contact"
+                      variant="studio"
+                      className="min-h-14 w-full rounded-[1.15rem] border-[#D6A84F]/50 bg-[#D6A84F] px-8 text-base font-extrabold text-[#080A12] shadow-[0_22px_55px_rgba(214,168,79,0.24)] hover:scale-[1.02] hover:bg-[#e6be69] sm:w-auto"
+                    >
+                      בוא נבנה אתר
+                    </LinkButton>
+                    <LinkButton
+                      href="#work"
+                      variant="studioSecondary"
+                      className="min-h-14 w-full rounded-[1.15rem] border-[#f8fafc]/14 bg-[#f8fafc]/6 px-8 text-base font-extrabold text-[#F8FAFC] shadow-[0_18px_46px_rgba(0,0,0,0.24)] hover:scale-[1.02] hover:border-[#D6A84F]/45 hover:bg-[#D6A84F]/10 sm:w-auto"
+                    >
+                      צפה בעבודות
+                    </LinkButton>
                   </m.div>
 
                   <m.div
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.75 }}
-                    className="relative min-h-[520px] md:min-h-[680px]"
+                    variants={{
+                      hidden: { opacity: 0, y: 18 },
+                      show: { opacity: 1, y: 0, transition: { duration: 0.58, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                    className="mt-9 grid gap-3 border-r border-[#D6A84F]/30 pr-5 sm:grid-cols-3 sm:border-r-0 sm:pr-0"
                   >
-                    <div className="absolute inset-y-0 left-0 right-8 rounded-[2.3rem] bg-[linear-gradient(145deg,#f6ebde_0%,#f0e3d2_58%,#d9c2aa_100%)] studio-outline" />
-                    <div className="absolute inset-y-10 left-8 right-0 rounded-[2.2rem] border border-black/5 bg-white/70 backdrop-blur-2xl" />
-
-                    <div className="absolute right-4 top-0 w-[64%] studio-float-slow md:right-6">
-                      <StudioPreview
-                        title="קיר עבודות"
-                        subtitle="מסכים, כיוון עיצובי ותחושה של סטודיו אמיתי עם פרויקטים חיים."
-                        image="/images/omers/agency-mockup-wall.webp"
-                        badge="MAIN BOARD"
-                      />
-                    </div>
-
-                    <div className="absolute left-0 top-28 w-[48%] studio-float-fast md:top-36">
-                      <StudioPreview
-                        title="Luma Bistro"
-                        subtitle="אתר מסעדה כהה, מדויק ואלגנטי."
-                        image={luma.previewImage}
-                        badge="RESTAURANT"
-                      />
-                    </div>
-
-                    <div className="absolute bottom-22 right-10 w-[42%] studio-float-slow">
-                      <StudioPreview
-                        title="Nexora"
-                        subtitle="מוצר SaaS עם dashboard אמיתי."
-                        image={nexora.previewImage}
-                        badge="SAAS"
-                      />
-                    </div>
-
-                    <div className="absolute bottom-8 left-8 max-w-[18rem] rounded-[1.5rem] border border-white/12 bg-[rgba(18,17,15,0.86)] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur">
-                      <p className="text-xs font-extrabold tracking-[0.24em] text-white/42">סטודיו אמיתי, לא אוסף מסכים</p>
-                      <p className="mt-3 text-sm leading-7 text-[#e7d9ca]">
-                        כל פרויקט מקבל שפה משלו, מבנה משלו וסיבה אמיתית להיראות כמו שהוא נראה.
-                      </p>
-                    </div>
-
-                    <div className="absolute right-8 top-24 hidden rounded-full border border-black/8 bg-white px-4 py-2 text-xs font-extrabold tracking-[0.22em] text-[#8b5c3d] md:block">
-                      STUDIO MOCKUPS
-                    </div>
+                    {heroProofs.map((item) => (
+                      <div key={item} className="flex items-center gap-3 text-sm font-bold text-[#F8FAFC]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#D6A84F] shadow-[0_0_18px_rgba(214,168,79,0.65)]" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </m.div>
-                </div>
+                </m.div>
+
+                <m.div
+                  initial={{ opacity: 0, x: -34 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.86, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative min-h-[620px] sm:min-h-[690px] lg:min-h-[730px]"
+                >
+                  <div className="absolute inset-x-4 top-8 h-[86%] border-y border-[#D6A84F]/12 bg-[linear-gradient(90deg,transparent,rgba(248,250,252,0.04),transparent)]" />
+                  <div className="absolute left-4 top-2 h-[92%] w-px bg-[linear-gradient(180deg,transparent,rgba(214,168,79,0.38),transparent)]" />
+                  <div className="absolute right-10 top-20 h-[78%] w-px bg-[linear-gradient(180deg,transparent,rgba(148,163,184,0.2),transparent)]" />
+
+                  <StudioPreview
+                    title="Luma Bistro"
+                    description="מסעדת ערב עם היררכיה נקייה ותמונה שמוכרת אווירה."
+                    image={luma.previewImage}
+                    badge="RTL"
+                    delay={0.2}
+                    float={9.5}
+                    imageClassName="h-60 sm:h-72 lg:h-80"
+                    className="absolute right-0 top-24 z-30 w-[84%] sm:top-20 sm:w-[76%] lg:right-8 lg:w-[72%]"
+                  />
+
+                  <StudioPreview
+                    title="PulseFit Studio"
+                    description="אתר כושר חד, מהיר ותנועתי בלי להיראות כמו תבנית."
+                    image={pulse.previewImage}
+                    badge="Mobile First"
+                    delay={0.32}
+                    float={8}
+                    imageClassName="h-44 sm:h-52 lg:h-56"
+                    className="absolute left-0 top-0 z-20 w-[58%] sm:w-[48%] lg:left-3 lg:w-[45%]"
+                  />
+
+                  <StudioPreview
+                    title="Aura Clinic"
+                    description="שפה רגועה לקליניקה, עם אמון ברור כבר במסך הראשון."
+                    image={aura.previewImage}
+                    badge="SEO"
+                    delay={0.44}
+                    float={10}
+                    imageClassName="h-44 sm:h-52 lg:h-56"
+                    className="absolute bottom-24 left-2 z-10 w-[66%] sm:bottom-20 sm:w-[55%] lg:left-0 lg:w-[50%]"
+                  />
+
+                  <StudioPreview
+                    title="Nexora"
+                    description="מוצר דיגיטלי עם תחושת מערכת, עומק וקצב מסודר."
+                    image={nexora.previewImage}
+                    badge="Fast"
+                    delay={0.56}
+                    float={7.5}
+                    imageClassName="h-36 sm:h-44 lg:h-48"
+                    className="absolute bottom-0 right-6 z-40 w-[56%] sm:right-12 sm:w-[44%] lg:right-0 lg:w-[38%]"
+                  />
+                </m.div>
               </div>
             </div>
           </section>
