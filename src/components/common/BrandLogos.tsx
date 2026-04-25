@@ -6,15 +6,27 @@ type LogoProps = {
 
 export function OmersLogo({ className }: LogoProps) {
   return (
-    <div className={cn("inline-flex items-center gap-3", className)}>
-      <div className="grid h-11 w-11 place-items-center rounded-[1.35rem] border border-slate-200 bg-white shadow-[0_14px_35px_rgba(15,23,42,0.08)]">
-        <span className="font-display text-lg font-semibold text-slate-950">O</span>
-      </div>
-      <div className="leading-none">
-        <div className="font-display text-xl font-semibold text-slate-950">Omer&apos;s</div>
-        <div className="mt-1 text-[10px] font-bold tracking-[0.28em] text-slate-500">סטודיו לבניית אתרים</div>
-      </div>
-    </div>
+    <a
+      href="#home"
+      aria-label="Omer's Studio"
+      className={cn(
+        "group inline-flex items-end gap-2.5 text-[#F8FAFC] transition duration-300 hover:text-white",
+        className
+      )}
+    >
+      <span className="relative inline-flex flex-col leading-none">
+        <span className="font-hebrew-display text-[1.45rem] font-extrabold tracking-[0.01em] sm:text-[1.62rem]">
+          Omer&apos;s
+        </span>
+        <span className="mt-1 h-px w-0 bg-[#D6A84F] transition-all duration-300 group-hover:w-full" />
+      </span>
+      <span className="mb-[0.18rem] hidden items-center gap-2 sm:inline-flex">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#D6A84F]" />
+        <span className="text-[0.68rem] font-bold uppercase tracking-[0.32em] text-[#94A3B8] transition group-hover:text-[#D6A84F]">
+          Studio
+        </span>
+      </span>
+    </a>
   );
 }
 
