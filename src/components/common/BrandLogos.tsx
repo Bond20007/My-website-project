@@ -9,23 +9,9 @@ export function OmersLogo({ className }: LogoProps) {
     <a
       href="#home"
       aria-label="Omer's Studio"
-      className={cn(
-        "group inline-flex items-end gap-2.5 text-[#F8FAFC] transition duration-300 hover:text-white",
-        className
-      )}
+      className={cn("inline-flex items-center", className)}
     >
-      <span className="relative inline-flex flex-col leading-none">
-        <span className="font-hebrew-display text-[1.45rem] font-extrabold tracking-[0.01em] sm:text-[1.62rem]">
-          Omer&apos;s
-        </span>
-        <span className="mt-1 h-px w-0 bg-[#D6A84F] transition-all duration-300 group-hover:w-full" />
-      </span>
-      <span className="mb-[0.18rem] hidden items-center gap-2 sm:inline-flex">
-        <span className="h-1.5 w-1.5 rounded-full bg-[#D6A84F]" />
-        <span className="text-[0.68rem] font-bold uppercase tracking-[0.32em] text-[#94A3B8] transition group-hover:text-[#D6A84F]">
-          Studio
-        </span>
-      </span>
+      <img src="/assets/logo/logo.png" alt="Omer's Studio" className="logo" />
     </a>
   );
 }
