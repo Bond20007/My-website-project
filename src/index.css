@@ -101,19 +101,12 @@
     height: 42px;
     width: auto;
     object-fit: contain;
+    display: block;
     transition: opacity 0.3s ease;
   }
 
   .logo:hover {
     opacity: 0.85;
-  }
-
-  .hero-logo {
-    height: 60px;
-    width: auto;
-    object-fit: contain;
-    opacity: 0.9;
-    margin-bottom: 20px;
   }
 
   .glass-panel {
@@ -605,11 +598,6 @@
 @media (max-width: 768px) {
   .logo {
     height: 34px;
-  }
-
-  .hero-logo {
-    height: 44px;
-    margin-bottom: 16px;
   }
 
   .overlap-up,

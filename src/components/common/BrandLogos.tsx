@@ -11,7 +11,7 @@ export function OmersLogo({ className }: LogoProps) {
       aria-label="Omer's Studio"
       className={cn("inline-flex items-center", className)}
     >
-      <img src="/assets/logo/logo.png" alt="Omer's Studio" className="logo" />
+      <img src="/assets/logo/logo-transparent.png" alt="Omer's Studio" className="logo" />
     </a>
   );
 }

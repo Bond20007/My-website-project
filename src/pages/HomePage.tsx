@@ -429,15 +429,15 @@ export function HomePage() {
                   }}
                   className="relative z-20 max-w-[39rem] pt-2 md:pt-8 lg:pt-0"
                 >
-                  <m.img
+                  <m.p
                     variants={{
                       hidden: { opacity: 0, x: 22 },
                       show: { opacity: 1, x: 0, transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] } }
                     }}
-                    src="/assets/logo/logo.png"
-                    alt="Omer's Studio"
-                    className="hero-logo"
-                  />
+                    className="text-xs font-semibold uppercase tracking-[0.36em] text-[#D6A84F]"
+                  >
+                    Omer's Studio
+                  </m.p>
 
                   <m.h1
                     variants={{
