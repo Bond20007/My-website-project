@@ -338,6 +338,7 @@ export function HomePage() {
       <div className="min-h-screen bg-[var(--studio-ink)] text-[#f6eadc] font-hebrew-body">
         <header className="sticky top-0 z-50 border-b border-white/6 bg-[rgba(18,17,15,0.84)] backdrop-blur-2xl">
           <div className="container-shell flex items-center justify-between gap-4 py-4">
+           <div className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#0f0d0b]/90 backdrop-blur-xl" div></div>
             <div className="flex items-center gap-4">
               <OmersLogo />
             </div>

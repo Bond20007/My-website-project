@@ -7,11 +7,11 @@ type LogoProps = {
 export function OmersLogo({ className }: LogoProps) {
   return (
 <a href="/">
-  <img 
-    src="/assets/logo/logo.png" 
-    alt="Omer's Studio"
-    style={{ height: "42px", width: "auto" }}
-  />
+<img
+  src="/assets/logo/logo.png"
+  alt="Omer's Studio"
+  className="h-14 md:h-16 w-auto object-contain"
+/>
 </a>
   );
 }
